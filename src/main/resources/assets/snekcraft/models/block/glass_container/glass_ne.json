@@ -1,0 +1,20 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "1": "snekcraft:blocks/silicone",
+    "particle": "snekcraft:blocks/cage_all"
+  },
+  "elements": [
+    {
+      "name": "base",
+      "from": [0.1, 0, 0.1],
+      "to": [1.1, 16, 1.1],
+      "faces": {
+        "west": {"uv": [15, 0, 16, 16], "texture": "#1"},
+        "north": {"uv": [15, 0, 16, 16], "texture": "#1"},
+        "east": {"uv": [15, 0, 16, 16], "texture": "#1"},
+        "south": {"uv": [15, 0, 16, 16], "texture": "#1"}
+      }
+    }
+  ]
+}

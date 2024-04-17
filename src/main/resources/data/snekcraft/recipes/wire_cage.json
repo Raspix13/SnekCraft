@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "XXX"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_bars"
+    },
+    "X": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "snekcraft:wire_cage",
+    "count": 8
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "block/block",
+  "elements": [
+    {
+      "name": "left",
+      "from": [0, 0, 0],
+      "to": [2, 8, 16],
+      "faces": {
+        "north": {"uv": [9, 11, 9.5, 13], "texture": "#text"},
+        "east": {"uv": [5, 11, 9, 13], "texture": "#text"},
+        "south": {"uv": [13.5, 11, 14, 13], "texture": "#text"},
+        "west": {"uv": [9.5, 11, 13.5, 13], "texture": "#text"},
+        "up": {"uv": [9.5, 11, 9, 7], "texture": "#text"},
+        "down": {"uv": [10, 7, 9.5, 11], "texture": "#text"}
+      }
+    },
+    {
+      "name": "backentrance",
+      "from": [12, 4, 0],
+      "to": [14, 8, 2],
+      "faces": {
+        "north": {"uv": [2.5, 5.5, 3, 7.5], "texture": "#text"},
+        "east": {"uv": [2, 5.5, 2.5, 7.5], "texture": "#text"},
+        "south": {"uv": [3.5, 5.5, 4, 7.5], "texture": "#text"},
+        "west": {"uv": [3, 5.5, 3.5, 7.5], "texture": "#text"},
+        "up": {"uv": [3, 5.5, 2.5, 5], "texture": "#text"},
+        "down": {"uv": [3.5, 5, 3, 5.5], "texture": "#text"}
+      }
+    }
+  ]
+}

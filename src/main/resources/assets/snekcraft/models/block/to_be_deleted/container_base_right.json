@@ -1,0 +1,6 @@
+{
+  "parent": "snekcraft:block/container_base_trim",
+  "textures": {
+    "ground": "snekcraft:blocks/glass_temp"
+  }
+}

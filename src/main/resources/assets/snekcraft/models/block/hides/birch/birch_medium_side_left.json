@@ -1,0 +1,7 @@
+{
+  "parent": "snekcraft:block/hides/basic_medium_side_left",
+  "textures": {
+    "text": "snekcraft:blocks/hides/birch_hide",
+    "particle": "minecraft:block/birch_log"
+  }
+}

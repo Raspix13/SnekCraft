@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:terrarium"
+    },
+    "X": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "snekcraft:aquarium",
+    "count": 8
+  }
+}

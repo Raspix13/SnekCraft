@@ -1,0 +1,24 @@
+{
+  "multipart": [
+
+    {   "when": { "up": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_top", "uvlock": false }
+    },
+    {   "when": { "down": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_container_base", "uvlock": false }
+    },
+    {   "when": { "east": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_bars", "y" : 90, "uvlock": true }
+    },
+    {   "when": { "west": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_bars", "y" : 270, "uvlock": false }
+    },
+    {   "when": { "north": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_bars", "y" : 0, "uvlock": false }
+    },
+    {   "when": { "south": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_bars", "y" : 180, "uvlock": false }
+    }
+
+  ]
+}

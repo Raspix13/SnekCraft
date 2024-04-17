@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "snekcraft:fake_fluid",
+    "snekcraft:fake_flowing"
+  ]
+}

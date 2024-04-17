@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:dirt_hide"
+    }
+  },
+  "result": {
+    "item": "snekcraft:dirt_medium_hide",
+    "count": 1
+  }
+}

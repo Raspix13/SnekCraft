@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "snekcraft:snake_skin"
+    }
+  },
+  "result": {
+    "item": "minecraft:scute",
+    "count": 1
+  }
+}
+
+
+

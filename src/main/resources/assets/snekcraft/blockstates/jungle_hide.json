@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "snekcraft:block/hides/jungle/jungle_hide",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "snekcraft:block/hides/jungle/jungle_hide"
+    },
+    "facing=south": {
+      "model": "snekcraft:block/hides/jungle/jungle_hide",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "snekcraft:block/hides/jungle/jungle_hide",
+      "y": 270
+    }
+  }
+}

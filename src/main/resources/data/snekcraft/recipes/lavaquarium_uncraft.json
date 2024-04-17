@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:lavaquarium"
+    },
+    "X": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "minecraft:lava_bucket",
+    "count": 1
+  }
+}

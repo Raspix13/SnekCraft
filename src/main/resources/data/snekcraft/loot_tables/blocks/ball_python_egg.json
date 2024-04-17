@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "snekcraft:ball_python_egg"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "enchantments": [
+              {
+                "enchantment": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:copy_state",
+          "block": "snekcraft:ball_python_egg",
+          "properties": [
+            "color",
+            "color_p2",
+            "pattern",
+            "pattern_p2"
+          ]
+        }
+      ]
+    }
+  ]
+}

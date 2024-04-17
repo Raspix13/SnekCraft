@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:stone_brick_hide"
+    }
+  },
+  "result": {
+    "item": "snekcraft:stone_brick_medium_hide",
+    "count": 1
+  }
+}
