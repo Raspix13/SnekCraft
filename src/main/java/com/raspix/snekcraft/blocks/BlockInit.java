@@ -3,6 +3,7 @@ package com.raspix.snekcraft.blocks;
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.blocks.eggs.BallPythonEggBlock;
 import com.raspix.snekcraft.blocks.eggs.HognoseEggBlock;
+import com.raspix.snekcraft.blocks.eggs.TestEgg;
 import com.raspix.snekcraft.blocks.terrariums.AquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.CageBlock;
 import com.raspix.snekcraft.blocks.terrariums.LavaquariumBlock;
@@ -78,6 +79,7 @@ public class BlockInit {
     //TODO: When Adding new snake egg block remember to add it to the SNAKE_EGG in BlockEntityInit
     public static final RegistryObject<Block> SNAKE_EGG = BLOCKS.register("hoggie_egg", () -> new HognoseEggBlock(BlockBehaviour.Properties.of(Material.EGG, MaterialColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
     public static final RegistryObject<Block> BALL_PYTHON_EGG = BLOCKS.register("ball_python_egg", () -> new BallPythonEggBlock(BlockBehaviour.Properties.of(Material.EGG, MaterialColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
+    public static final RegistryObject<Block> TEST_EGG = BLOCKS.register("test_egg", () -> new TestEgg(BlockBehaviour.Properties.of(Material.EGG, MaterialColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
 
     private static boolean never(BlockState p_50806_, BlockGetter p_50807_, BlockPos p_50808_) {
         return false;

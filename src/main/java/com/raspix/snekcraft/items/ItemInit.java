@@ -33,6 +33,7 @@ public class ItemInit {
 
     public static final RegistryObject<BlockItem> HOGGIE_EGG = ITEMS.register("hoggie_egg", () -> new BlockItem(BlockInit.SNAKE_EGG.get(), new Item.Properties().tab(modTab)));
     public static final RegistryObject<BlockItem> BALL_PYTHON_EGG = ITEMS.register("ball_python_egg", () -> new BlockItem(BlockInit.BALL_PYTHON_EGG.get(), new Item.Properties().tab(modTab)));
+    public static final RegistryObject<BlockItem> TEST_EGG = ITEMS.register("test_egg", () -> new BlockItem(BlockInit.TEST_EGG.get(), new Item.Properties().tab(modTab)));
 
     public static final RegistryObject<BlockItem> DIRT_HIDE = ITEMS.register("dirt_hide", () -> new BlockItem(BlockInit.DIRT_HIDE.get(), new Item.Properties().tab(modTab)));
     public static final RegistryObject<BlockItem> STONE_HIDE = ITEMS.register("stone_hide", () -> new BlockItem(BlockInit.STONE_HIDE.get(), new Item.Properties().tab(modTab)));

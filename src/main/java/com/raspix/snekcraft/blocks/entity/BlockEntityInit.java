@@ -18,4 +18,10 @@ public class BlockEntityInit {
                             BlockInit.SNAKE_EGG.get())
                     .build(null));*/
 
+    public static final RegistryObject<BlockEntityType<SnakeEggBlockEntity>> SNAKE_EGG =
+            BLOCK_ENTITIES.register("snake_egg", () -> BlockEntityType.Builder.of
+                            (SnakeEggBlockEntity::new,
+                                    BlockInit.TEST_EGG.get())
+                    .build(null));
+
 }

@@ -1,15 +1,11 @@
 package com.raspix.snekcraft.entity.generics;
 
-import com.raspix.snekcraft.blocks.CaveHideBlock;
-import com.raspix.snekcraft.blocks.HeatLampBlock;
-import com.raspix.snekcraft.blocks.MediumHideBlock;
-import com.raspix.snekcraft.blocks.TunnelHideBlock;
+import com.raspix.snekcraft.blocks.*;
 import com.raspix.snekcraft.blocks.eggs.SnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.items.ItemInit;
 import com.raspix.snekcraft.items.SnakeBagItem;
 import com.raspix.snekcraft.packets.PacketHandler;
-import com.raspix.snekcraft.packets.ServerboundEggUpdate;
 import com.raspix.snekcraft.packets.ServerboundShoulderUpdate;
 import com.raspix.snekcraft.sounds.SoundInit;
 import com.raspix.snekcraft.util.KeyInit;
@@ -39,6 +35,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -456,7 +453,7 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
                     Level level = this.snake.level;
                     level.playSound((Player)null, blockpos, SoundInit.SNEK_LAY.get(), SoundSource.BLOCKS, 0.3F, 0.9F + level.random.nextFloat() * 0.2F);
 
-                    CreateEgg(level);
+                    CreateEgg2(level);
                     /**level.setBlock(this.blockPos.above(), BlockInit.SNAKE_EGG.get().defaultBlockState()
                             .setValue(SnakeEggBlock.EGGS, Integer.valueOf(this.snake.random.nextInt(4) + 1))
                             .setValue(SnakeEggBlock.COLOR, ((SnakeBase)this.mob).getColor())
@@ -487,6 +484,18 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
                             .setValue(SnakeEggBlock.COLOR_P2, ((SnakeBase)this.mob).partnerColor)
                             .setValue(SnakeEggBlock.PATTERN_P2, ((SnakeBase)this.mob).partnerPattern)
                     , 3);
+
+            //testing this
+
+            CompoundTag compoundtag = level.getBlockEntity(this.blockPos.above()).getTileData();
+            if(compoundtag != null){
+                System.out.println("Compoundtag found");
+            }else {
+                System.out.println("Compoundtag not found");
+            }
+
+
+
             /**PacketHandler.INSTANCE.sendToServer(new ServerboundEggUpdate(this.blockPos.above(),
                     ((SnakeBase)this.mob).getColor(), ((SnakeBase)this.mob).getPattern(),
                     ((SnakeBase)this.mob).partnerColor, ((SnakeBase)this.mob).partnerPattern));*/
@@ -496,7 +505,31 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
                             ((SnakeBase)this.mob).partnerColor, ((SnakeBase)this.mob).partnerPattern, level, this.blockPos.above());*/
         }
 
-        protected boolean isValidTarget(LevelReader level, BlockPos pPos) {
+        public void CreateEgg2(Level level) {
+            level.setBlock(this.blockPos.above(), BlockInit.TEST_EGG.get().defaultBlockState(), 3);
+
+            SnakeEggBlockEntity tile = (SnakeEggBlockEntity)level.getBlockEntity(this.blockPos.above());
+            CompoundTag compoundtag = tile.getTileData();
+            if (compoundtag != null) {
+                System.out.println("Compoundtag found");
+                compoundtag.putInt("color", ((SnakeBase)this.mob).getColor());
+                compoundtag.putInt("color_p2", ((SnakeBase)this.mob).partnerColor);
+                compoundtag.putInt("pattern", ((SnakeBase)this.mob).getPattern());
+                compoundtag.putInt("pattern_p2", ((SnakeBase)this.mob).partnerPattern);
+
+                tile.setStats(((SnakeBase)this.mob).getColor(),
+                        ((SnakeBase)this.mob).partnerColor,
+                        ((SnakeBase)this.mob).getPattern(),
+                        ((SnakeBase)this.mob).partnerPattern);
+            } else {
+                System.out.println("Compoundtag not found");
+            }
+
+        }
+
+
+
+            protected boolean isValidTarget(LevelReader level, BlockPos pPos) {
             if(level.isEmptyBlock(pPos.above())) {
                 //Block blockType =  level.getBlockState(pPos).getBlock();
                 BlockState state = level.getBlockState(pPos);
@@ -755,3 +788,4 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
 
 
 }
+//The egg has ps:0, 1, and cs: 1, 1 stored

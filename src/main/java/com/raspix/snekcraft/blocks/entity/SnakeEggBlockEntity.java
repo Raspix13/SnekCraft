@@ -20,9 +20,9 @@ public class SnakeEggBlockEntity extends BlockEntity {
 
 
     //these are needed when actually using block entities
-    /**public SnakeEggBlockEntity(BlockPos pPos, BlockState pBlockState, int color) {
+    public SnakeEggBlockEntity(BlockPos pPos, BlockState pBlockState, int color) {
         super(BlockEntityInit.SNAKE_EGG.get(), pPos, pBlockState);
-        this.COLOR = color;
+        //this.COLOR = color;
     }
 
     public SnakeEggBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -31,12 +31,12 @@ public class SnakeEggBlockEntity extends BlockEntity {
 
     public SnakeEggBlockEntity(BlockPos pPos, BlockState pBlockState, int color, int color_2, int pattern, int pattern_2) {
         super(BlockEntityInit.SNAKE_EGG.get(), pPos, pBlockState);
-        this.COLOR = color;
+        /**this.COLOR = color;
         this.COLOR_P2 = color_2;
         this.PATTERN = pattern;
         this.PATTERN_P2 = pattern_2;
-        System.out.println("new egg with colors " + this.COLOR + " and " + this.COLOR_P2);
-    }*/
+        System.out.println("new egg with colors " + this.COLOR + " and " + this.COLOR_P2);*/
+    }
 
     @Override
     public void load(CompoundTag tag) {
@@ -45,6 +45,7 @@ public class SnakeEggBlockEntity extends BlockEntity {
         this.COLOR_P2 = tag.getInt("color_p2");
         this.PATTERN = tag.getInt("pattern");
         this.PATTERN_P2 = tag.getInt("pattern_p2");
+
     }
 
     @Override
@@ -54,7 +55,6 @@ public class SnakeEggBlockEntity extends BlockEntity {
         tag.putInt("color_p2", this.COLOR_P2);
         tag.putInt("pattern", this.PATTERN);
         tag.putInt("pattern_p2", this.PATTERN_P2);
-
     }
 
     public int getCOLOR(){
@@ -97,8 +97,8 @@ public class SnakeEggBlockEntity extends BlockEntity {
         System.out.println("Color was set to " + color + "in EggBlockEntity");
         this.COLOR = color;
         this.COLOR_P2 = color_p2;
-        PATTERN = pattern;
-        PATTERN_P2 = pattern_p2;
+        this.PATTERN = pattern;
+        this.PATTERN_P2 = pattern_p2;
 
 
     }
