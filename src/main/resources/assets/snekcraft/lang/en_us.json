@@ -50,6 +50,8 @@
   "sounds.snekcraft.snek_lay": "Snake lays egg",
 
   "tooltip.snekcraft.snake_bag.tooltip.has_snakes": "Contains %1$s snakes",
+  "tooltip.snekcraft.snek_egg.tooltip.colors": "Colors: %1$s and %2$s",
+  "tooltip.snekcraft.snek_egg.tooltip.patterns": "Patterns: %1$s and %2$s",
   "tooltip.snekcraft.terrarium_key.tooltip": "Use on the walls of terrarium, cage, aquarium or lavaquarium to change solidness of wall",
 
   "key.category.snekcraft.binds": "Snekcraft",

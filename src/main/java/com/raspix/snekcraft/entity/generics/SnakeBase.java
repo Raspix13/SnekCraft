@@ -43,6 +43,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -476,7 +477,7 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
 
         }
 
-        public void CreateEgg(Level level){
+        /**public void CreateEgg(Level level){
             level.setBlock(this.blockPos.above(), this.snake.GetEggType().defaultBlockState()
                             .setValue(SnakeEggBlock.EGGS, Integer.valueOf(this.snake.random.nextInt(4) + 1))
                             .setValue(SnakeEggBlock.COLOR, ((SnakeBase)this.mob).getColor())
@@ -503,10 +504,10 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
             ((SnakeEggBlock)level.getBlockState(this.blockPos.above()).getBlock())
                     .setParentTraits(((SnakeBase)this.mob).getColor(), ((SnakeBase)this.mob).getPattern(),
                             ((SnakeBase)this.mob).partnerColor, ((SnakeBase)this.mob).partnerPattern, level, this.blockPos.above());*/
-        }
+        //}
 
         public void CreateEgg2(Level level) {
-            level.setBlock(this.blockPos.above(), BlockInit.TEST_EGG.get().defaultBlockState(), 3);
+            level.setBlock(this.blockPos.above(), this.snake.GetEggType().defaultBlockState(), 3);
 
             SnakeEggBlockEntity tile = (SnakeEggBlockEntity)level.getBlockEntity(this.blockPos.above());
             CompoundTag compoundtag = tile.getTileData();
@@ -773,16 +774,14 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
         int i = riding.getPassengers().indexOf(this);
         float radius = (i == 0 ? 0F : 0.4F) + (riding.isFallFlying() ? 2 : 0);
         float angle = (0.01745329251F * riding.yBodyRot + (i == 2 ? -92.5F : i == 1 ? 92.5F : 0));
-        double extraX = radius * Mth.sin((float) (Math.PI + angle));
-        double extraZ = radius * Mth.cos(angle);
+        double extraX = (radius) * Mth.sin((float) (Math.PI + angle));
+        double extraZ = (radius) * Mth.cos(angle);
         double extraY = (riding.isCrouching() ? 1.1D : 1.4D);
+        Vec3 vec3 = (new Vec3((double)-0.3f, 0.0D, 0.0D)).yRot(-riding.yBodyRot * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
         this.setYRot(riding.yHeadRot);
         this.yHeadRot = riding.yHeadRot;
         this.yRotO = riding.yHeadRot;
-        this.setPos(riding.getX() + extraX, riding.getY() + extraY, riding.getZ() + extraZ);
-        if (riding.isFallFlying()) {
-            this.stopRiding();
-        }
+        this.setPos(riding.getX() + extraX + vec3.x, riding.getY() + extraY, riding.getZ() + extraZ + vec3.z);
     }
     //</editor-fold>
 

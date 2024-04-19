@@ -1,10 +1,13 @@
 package com.raspix.snekcraft.blocks.eggs;
 
+import com.mojang.authlib.GameProfile;
 import com.raspix.snekcraft.blocks.BlockInit;
+import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 import com.raspix.snekcraft.items.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,6 +16,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
@@ -23,37 +27,34 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEventListener;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
-public abstract class SnakeEggBlock extends Block {
+public abstract class SnakeEggBlock extends BaseEntityBlock {
     public static final int MAX_HATCH_LEVEL = 2;
     public static final int MIN_EGGS = 1;
     public static final int MAX_EGGS = 4;
 
 
     protected final Random random = new Random();
-
-    public static IntegerProperty COLOR = IntegerProperty.create("color", 0, 10);
-    public static IntegerProperty PATTERN = IntegerProperty.create("pattern", 0, 4);
-    public static IntegerProperty COLOR_P2 = IntegerProperty.create("color_p2", 0, 10);
-    public static IntegerProperty PATTERN_P2 = IntegerProperty.create("pattern_p2", 0, 4);
 
     //public SnakeEggBlockEntity eggEntity;
     private static final VoxelShape ONE_EGG_AABB = Block.box(3.0D, 0.0D, 3.0D, 12.0D, 7.0D, 12.0D);
@@ -67,15 +68,12 @@ public abstract class SnakeEggBlock extends Block {
     }
 
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        //this.destroyEgg(pLevel, pState, pPos, pEntity, 100);
         super.stepOn(pLevel, pPos, pState, pEntity);
     }
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         if (!(pEntity instanceof Zombie)) {
-            //this.destroyEgg(pLevel, pState, pPos, pEntity, 3);
         }
-
         super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
     }
 
@@ -103,6 +101,21 @@ public abstract class SnakeEggBlock extends Block {
         System.out.println("\t" + genOffspringC);
             System.out.println("\t" + genOffspringP);
         }*/
+
+        if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
+            System.out.println("Hello from test egg");
+            CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getTileData();
+            if(compoundTag != null){
+                int p1 = compoundTag.getInt("pattern");
+                int p2 = compoundTag.getInt("pattern_p2");
+                int c1 = compoundTag.getInt("color");
+                int c2 = compoundTag.getInt("color_p2");
+                System.out.println("The egg has ps:" + p1 + ", " + p2 + ", and cs: " + c1 + ", " + c2 + " stored");
+            }else {
+                System.out.println("compound was null");
+            }
+
+        }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
@@ -130,15 +143,15 @@ public abstract class SnakeEggBlock extends Block {
                 pLevel.setBlock(pPos, pState.setValue(HATCH, Integer.valueOf(i + 1)), 2);
             } else {
                 pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 0.9F + pRandom.nextFloat() * 0.2F);
+                CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getTileData();
                 pLevel.removeBlock(pPos, false);
-
                 for(int j = 0; j < pState.getValue(EGGS); ++j) {
                     pLevel.levelEvent(2001, pPos, Block.getId(pState));
                     SnakeBase snake = (SnakeBase) GetSnakeType().create(pLevel);
                     snake.setAge(-24000);
                     snake.moveTo((double)pPos.getX() + 0.3D + (double)j * 0.2D, (double)pPos.getY(), (double)pPos.getZ() + 0.3D, 0.0F, 0.0F);
-                    snake.setColor(getOffspringColor(pState));
-                    snake.setPattern(getOffspringPattern(pState));
+                    snake.setColor(getOffspringColor(compoundTag));
+                    snake.setPattern(getOffspringPattern(compoundTag));
                     pLevel.addFreshEntity(snake);
                 }
             }
@@ -179,17 +192,25 @@ public abstract class SnakeEggBlock extends Block {
         this.decreaseEggs(pLevel, pPos, pState);
     }
 
+    // For telling if an item can be placed on a block, like candles
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
         ItemStack handItem = pUseContext.getItemInHand();
+
         CompoundTag tag = handItem.getTag();
         boolean isSameEggType = handItem.is(this.asItem());
         boolean areSameValues = false;
 
         if(isSameEggType && handItem.getTag() != null && !pUseContext.getLevel().isClientSide) {
+            BlockPos pos = pUseContext.getClickedPos();
+            System.out.println("At " + pos.toShortString());
+            CompoundTag blockTag = pUseContext.getLevel().getBlockEntity(pos).getTileData();
+            if(pUseContext.getLevel().getBlockState(pos) == pState){
+                System.out.println("should be same egg");
+            }
             for (String tagInfo : tag.getAllKeys()) {
                 if (tagInfo.contains("BlockStateTag")) {
-                    CompoundTag compoundTag = tag.getCompound("BlockStateTag");
-                    areSameValues = areGeneticsSame(pState, compoundTag);
+                    CompoundTag compoundTag = tag.getCompound("BlockStateTag"); //the item's data
+                    areSameValues = areGeneticsSame(blockTag, compoundTag);
                 }
             }
         }
@@ -197,16 +218,11 @@ public abstract class SnakeEggBlock extends Block {
         return !pUseContext.isSecondaryUseActive() && isSameEggType && areSameValues && pState.getValue(EGGS) < 4 ? true : super.canBeReplaced(pState, pUseContext);
     }
 
-    public boolean areGeneticsSame(BlockState pState, CompoundTag compoundTag){
-        /**int col = compoundTag.getInt("color");
-        int col2 = compoundTag.getInt("color_p2");
-        int pat = compoundTag.getInt("pattern");
-        int pat2 = compoundTag.getInt("pattern_p2");
-        System.out.println("Checking: " + col + ", " + col2 + ", " + pat + ", " + pat2);*/
-        boolean colorMatch = pState.getValue(COLOR) == compoundTag.getInt("color");
-        boolean colorMatch2 = pState.getValue(COLOR_P2) == compoundTag.getInt("color_p2");
-        boolean patternMatch = pState.getValue(PATTERN) == compoundTag.getInt("pattern");
-        boolean patternMatch2 = pState.getValue(PATTERN_P2) == compoundTag.getInt("pattern_p2");
+    public boolean areGeneticsSame(CompoundTag blockTag, CompoundTag itemTag){
+        boolean colorMatch = blockTag.getInt("color") == itemTag.getInt("color");
+        boolean colorMatch2 = blockTag.getInt("color_p2") == itemTag.getInt("color_p2");
+        boolean patternMatch = blockTag.getInt("pattern") == itemTag.getInt("pattern");
+        boolean patternMatch2 = blockTag.getInt("pattern_p2") == itemTag.getInt("pattern_p2");
         return colorMatch && colorMatch2 && patternMatch && patternMatch2;
     }
 
@@ -216,13 +232,36 @@ public abstract class SnakeEggBlock extends Block {
         return blockstate.is(this) ? blockstate.setValue(EGGS, Integer.valueOf(Math.min(4, blockstate.getValue(EGGS) + 1))) : super.getStateForPlacement(pContext);
     }
 
+    @Override
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @org.jetbrains.annotations.Nullable LivingEntity pPlacer, ItemStack pStack) {
+        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        CompoundTag compoundTag = pStack.getTag().getCompound("BlockStateTag");
+        if (compoundTag!=null){
+            int c1 = compoundTag.getInt("color");
+            int c2 = compoundTag.getInt("color_p2");
+            int p1 = compoundTag.getInt("pattern");
+            int p2 = compoundTag.getInt("pattern_p2");
+            SnakeEggBlockEntity sebe = (SnakeEggBlockEntity) pLevel.getBlockEntity(pPos);
+            if(sebe != null){
+                CompoundTag tag = sebe.getTileData();
+                tag.putInt("color", c1);
+                tag.putInt("color_p2", c2);
+                tag.putInt("pattern", p1);
+                tag.putInt("pattern_p2", p2);
+            }
+        }
+
+
+
+    }
+
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return pState.getValue(EGGS) > 1 ? MULTIPLE_EGGS_AABB : ONE_EGG_AABB;
     }
 
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(HATCH, EGGS, COLOR, COLOR_P2, PATTERN, PATTERN_P2);
+        pBuilder.add(HATCH, EGGS);
     }
 
     private boolean canDestroyEgg(Level pLevel, Entity pEntity) {
@@ -233,10 +272,16 @@ public abstract class SnakeEggBlock extends Block {
         if (!pLevel.isClientSide && pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             ItemStack itemstack = new ItemStack(this);
-            int c1 = pState.getValue(COLOR);
+            /**int c1 = pState.getValue(COLOR);
             int c2 = pState.getValue(COLOR_P2);
             int p1 = pState.getValue(PATTERN);
-            int p2 = pState.getValue(PATTERN_P2);
+            int p2 = pState.getValue(PATTERN_P2);*/
+
+            CompoundTag compoundTagBlock = blockentity.getTileData();
+            int c1 = compoundTagBlock.getInt("color");
+            int c2 = compoundTagBlock.getInt("color_p2");
+            int p1 = compoundTagBlock.getInt("pattern");
+            int p2 = compoundTagBlock.getInt("pattern_p2");
 
             CompoundTag compoundtag = new CompoundTag();
             if(c1 > 0){
@@ -289,9 +334,37 @@ public abstract class SnakeEggBlock extends Block {
 
     // Block Entity Things
 
-    public abstract int getOffspringColor(BlockState state);
+    public abstract int getOffspringColor(CompoundTag compoundTag);
 
-    public abstract int getOffspringPattern(BlockState state);
+    public abstract int getOffspringPattern(CompoundTag compoundTag);
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return new SnakeEggBlockEntity(pPos, pState);
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
+        return super.getTicker(pLevel, pState, pBlockEntityType);
+        //return pLevel.isClientSide ? null : createTickerHelper(pBlockEntityType, BlockEntityInit.SNAKE_EGG.get(), SnakeEggBlockEntity::serverTick);
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public <T extends BlockEntity> GameEventListener getListener(Level pLevel, T pBlockEntity) {
+        return super.getListener(pLevel, pBlockEntity);
+    }
+
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    }
 
     /**@org.jetbrains.annotations.Nullable
     @Override

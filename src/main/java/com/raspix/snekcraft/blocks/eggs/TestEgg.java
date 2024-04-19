@@ -27,19 +27,7 @@ public class TestEgg  extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        /**if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
-         System.out.println("Parents(c,p): (" + pState.getValue(COLOR) + ", " + pState.getValue(PATTERN) + "), & (" + pState.getValue(COLOR_P2) + ", " + pState.getValue(PATTERN_P2) + ")");
-         String genOffspringC = "Colors (";
-         String genOffspringP = "Patterns (";
-         for(int i = 0; i<10; i++){
-         genOffspringC += getOffspringColor(pState) + ", ";
-         genOffspringP += getOffspringPattern(pState) + ", ";
-         }
-         genOffspringC += ")";
-         genOffspringP += ")";
-         System.out.println("\t" + genOffspringC);
-         System.out.println("\t" + genOffspringP);
-         }*/
+
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
             System.out.println("Hello from test egg");
             CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getTileData();
@@ -54,7 +42,6 @@ public class TestEgg  extends BaseEntityBlock {
             }
 
         }
-
 
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }

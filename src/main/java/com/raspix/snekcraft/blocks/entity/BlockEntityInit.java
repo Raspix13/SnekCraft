@@ -11,17 +11,17 @@ public class BlockEntityInit {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, SnekCraft.MOD_ID);
 
-    /**public static final RegistryObject<BlockEntityType<SnakeEggBlockEntity>> SNAKE_EGG =
+    public static final RegistryObject<BlockEntityType<SnakeEggBlockEntity>> SNAKE_EGG =
             BLOCK_ENTITIES.register("snake_egg", () -> BlockEntityType.Builder.of
                     (SnakeEggBlockEntity::new,
                             BlockInit.BALL_PYTHON_EGG.get(),
                             BlockInit.SNAKE_EGG.get())
-                    .build(null));*/
+                    .build(null));
 
-    public static final RegistryObject<BlockEntityType<SnakeEggBlockEntity>> SNAKE_EGG =
+/**public static final RegistryObject<BlockEntityType<SnakeEggBlockEntity>> SNAKE_EGG =
             BLOCK_ENTITIES.register("snake_egg", () -> BlockEntityType.Builder.of
                             (SnakeEggBlockEntity::new,
                                     BlockInit.TEST_EGG.get())
-                    .build(null));
+                    .build(null));*/
 
 }

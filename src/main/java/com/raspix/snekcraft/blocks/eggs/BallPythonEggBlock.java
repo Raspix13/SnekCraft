@@ -5,7 +5,9 @@ import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.entity.ModEntityTypes;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
+import com.raspix.snekcraft.entity.hognose.HognoseEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -53,19 +55,22 @@ public class BallPythonEggBlock extends SnakeEggBlock{
         //pBuilder.add(COLOR, PATTERN, COLOR_P2, PATTERN_P2);
     }
 
-    public void setParentTraits(int p1Color, int p1Pattern, int p2Color, int p2Pattern, Level level, BlockPos pos){
+    /**public void setParentTraits(int p1Color, int p1Pattern, int p2Color, int p2Pattern, Level level, BlockPos pos){
         //System.out.println("setting traits parent 1:" + p1Color + "c & " + p1Pattern + "p and parent 2: " + p2Color + "c & " + p2Pattern);
         level.setBlock(pos, level.getBlockState(pos).setValue(COLOR, p1Color).setValue(PATTERN, p1Pattern).setValue(COLOR_P2, p2Color).setValue(PATTERN_P2, p2Pattern), 3);
+    }*/
+
+
+
+    @Override
+    public int getOffspringColor(CompoundTag compoundTag) {
+        return BallPythonEntity.colorGenetics[compoundTag.getInt("color")][compoundTag.getInt("color_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+
     }
 
     @Override
-    public int getOffspringColor(BlockState state) {
-        return BallPythonEntity.colorGenetics[state.getValue(COLOR)][state.getValue(COLOR_P2)].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
-    }
-
-    @Override
-    public int getOffspringPattern(BlockState state) {
-        return BallPythonEntity.patternGenetics[state.getValue(PATTERN)][state.getValue(PATTERN_P2)].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+    public int getOffspringPattern(CompoundTag compoundTag) {
+        return BallPythonEntity.patternGenetics[compoundTag.getInt("pattern")][compoundTag.getInt("pattern_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
 

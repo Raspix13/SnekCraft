@@ -1,8 +1,10 @@
 package com.raspix.snekcraft.blocks.eggs;
 
 import com.raspix.snekcraft.entity.ModEntityTypes;
+import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -47,14 +49,15 @@ public class HognoseEggBlock extends SnakeEggBlock{
         super.createBlockStateDefinition(pBuilder);
     }
 
+
     @Override
-    public int getOffspringColor(BlockState state) {
-        return HognoseEntity.colorGenetics[state.getValue(COLOR)][state.getValue(COLOR_P2)].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+    public int getOffspringColor(CompoundTag compoundTag) {
+        return HognoseEntity.colorGenetics[compoundTag.getInt("color")][compoundTag.getInt("color_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
     @Override
-    public int getOffspringPattern(BlockState state) {
-        return HognoseEntity.patternGenetics[state.getValue(PATTERN)][state.getValue(PATTERN_P2)].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+    public int getOffspringPattern(CompoundTag compoundTag) {
+        return HognoseEntity.patternGenetics[compoundTag.getInt("pattern")][compoundTag.getInt("pattern_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
     /**public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
