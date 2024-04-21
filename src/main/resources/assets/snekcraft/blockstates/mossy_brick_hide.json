@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "snekcraft:block/hides/mossy_brick/mossy_brick_hide",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "snekcraft:block/hides/mossy_brick/mossy_brick_hide"
+    },
+    "facing=south": {
+      "model": "snekcraft:block/hides/mossy_brick/mossy_brick_hide",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "snekcraft:block/hides/mossy_brick/mossy_brick_hide",
+      "y": 270
+    }
+  }
+}

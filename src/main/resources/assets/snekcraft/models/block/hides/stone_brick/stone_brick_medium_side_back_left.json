@@ -1,0 +1,7 @@
+{
+  "parent": "snekcraft:block/hides/basic_medium_cave_side_back_left",
+  "textures": {
+    "text": "snekcraft:blocks/hides/stone_brick_hide",
+    "particle": "minecraft:block/stone_bricks"
+  }
+}

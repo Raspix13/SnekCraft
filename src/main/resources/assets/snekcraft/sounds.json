@@ -1,0 +1,14 @@
+{
+  "snek_hurt":{
+    "subtitle": "sounds.snekcraft.snek_hurt",
+    "sounds": [
+      "snekcraft:snek_hurt"
+    ]
+  },
+  "snek_attack":{
+    "subtitle": "sounds.snekcraft.snek_attack",
+    "sounds": [
+      "snekcraft:snek_attack"
+    ]
+  }
+}

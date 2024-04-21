@@ -1,0 +1,7 @@
+{
+  "parent": "snekcraft:block/hides/basic_medium_top",
+  "textures": {
+    "text": "snekcraft:blocks/hides/spruce_hide",
+    "particle": "minecraft:block/spruce_log"
+  }
+}

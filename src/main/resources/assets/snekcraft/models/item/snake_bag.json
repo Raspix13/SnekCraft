@@ -1,0 +1,15 @@
+
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "snekcraft:items/snake_bag"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "snake_count": 1
+      },
+      "model": "snekcraft:item/snake_bag_filled"
+    }
+  ]
+}

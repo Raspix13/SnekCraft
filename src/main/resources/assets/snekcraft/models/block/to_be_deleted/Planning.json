@@ -1,0 +1,49 @@
+
+{
+  "multipart": [
+
+    {   "when": { "down": "0" },
+      "apply": { "model": "snekcraft:block/glass_container_base", "uvlock": false }
+    },
+    {   "when": { "east": "0" },
+      "apply": { "model": "snekcraft:block/aquarium", "y" : 90, "uvlock": false }
+    },
+    {   "when": { "west": "0" },
+      "apply": { "model": "snekcraft:block/aquarium", "y" : 270, "uvlock": false }
+    },
+    {   "when": { "north": "0" },
+      "apply": { "model": "snekcraft:block/aquarium", "y" : 0, "uvlock": false }
+    },
+    {   "when": { "south": "0" },
+      "apply": { "model": "snekcraft:block/aquarium", "y" : 180, "uvlock": false }
+    }
+  ]
+}
+
+
+{   "when": { "north": "0" },
+  if other directions blank then give line on that side and own
+},
+{  "when": {
+"AND": [
+{"up": "0"},
+{"north": "0"}
+]},
+"apply": { "model": "snekcraft:block/rat_cage_bottom_right", "y" : 90, "uvlock": false }
+}
+for each block there is 12 lines
+UN
+US
+UE
+UW
+
+DN
+DS
+DE
+DW
+
+NE
+NW
+SW
+SE
+

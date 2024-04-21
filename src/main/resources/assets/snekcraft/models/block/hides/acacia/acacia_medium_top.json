@@ -1,0 +1,7 @@
+{
+  "parent": "snekcraft:block/hides/basic_medium_top",
+  "textures": {
+    "text": "snekcraft:block/hides/acacia_hide",
+    "particle": "minecraft:block/acacia_log"
+  }
+}
