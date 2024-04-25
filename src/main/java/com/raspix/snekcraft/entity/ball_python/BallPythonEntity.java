@@ -142,7 +142,7 @@ public class BallPythonEntity extends SnakeBase {
     };
 
     public BallPythonEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+        super(pEntityType, pLevel, EntityDimensions.scalable(0.4f, 0.3f));
     }
 
     private static boolean isTemptingItem(ItemStack pStack) {

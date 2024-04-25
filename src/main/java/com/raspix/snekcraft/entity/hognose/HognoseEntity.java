@@ -201,7 +201,7 @@ public class HognoseEntity extends SnakeBase {
     };
 
     public HognoseEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+        super(pEntityType, pLevel, EntityDimensions.scalable(0.4f, 0.3f));
     }
 
     //colors: 0=normal, 1=ALBINO, 2=arctic, 3=axanthic, 4=rainbow
@@ -270,7 +270,7 @@ public class HognoseEntity extends SnakeBase {
     }
 
     private <E extends IAnimatable> PlayState blelelePredicate(AnimationEvent<E> event) {
-        if(--this.bleleleTime <= 0 ) {
+        if(--this.bleleleTime <= 0) {
             event.getController().markNeedsReload(); //means that animation can go again
             event.getController().setAnimation(new AnimationBuilder().addAnimation("blelele", ILoopType.EDefaultLoopTypes.PLAY_ONCE));
             this.bleleleTime = this.random.nextInt(500) + 1000;

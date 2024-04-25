@@ -44,6 +44,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -81,13 +82,16 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
     public int bleleleTime = this.random.nextInt(1000) + 1000;
     private boolean isSittingOnShoulder;
 
+    private final EntityDimensions size;
+
     //TODO: must set these in each child
     private static GenePool[][] colorGenetics;
     private static GenePool[][] patternGenetics;
 
 
-    protected SnakeBase(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    protected SnakeBase(EntityType<? extends Animal> pEntityType, Level pLevel, EntityDimensions size) {
         super(pEntityType, pLevel);
+        this.size = size;
     }
 
     @Override
@@ -377,6 +381,11 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
 
     void setSittingOnShoulder(boolean shoulder){
         this.isSittingOnShoulder = shoulder;
+        if(this.isSittingOnShoulder){
+            setPose(Pose.CROUCHING);
+        }else{
+            setPose(Pose.STANDING);
+        }
     }
 
     public boolean isSittingOnShoulder(){
@@ -777,7 +786,7 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
         double extraX = (radius) * Mth.sin((float) (Math.PI + angle));
         double extraZ = (radius) * Mth.cos(angle);
         double extraY = (riding.isCrouching() ? 1.1D : 1.4D);
-        Vec3 vec3 = (new Vec3((double)-0.3f, 0.0D, 0.0D)).yRot(-riding.yBodyRot * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
+        Vec3 vec3 = (new Vec3((double)-0.2f, 0.0D, 0.0D)).yRot(-riding.yBodyRot * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
         this.setYRot(riding.yHeadRot);
         this.yHeadRot = riding.yHeadRot;
         this.yRotO = riding.yHeadRot;
@@ -785,6 +794,15 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
     }
     //</editor-fold>
 
+    @Override
+    @NotNull
+    public  EntityDimensions getDimensions(Pose pPose) {
+        if(pPose == Pose.CROUCHING){
+            return EntityDimensions.scalable(0.1f, 0.1f);
+        }else {
+            return this.size;
+        }
+    }
+
 
 }
-//The egg has ps:0, 1, and cs: 1, 1 stored

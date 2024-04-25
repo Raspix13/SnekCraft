@@ -287,7 +287,7 @@
 			"bones": {
 				"head": {
 					"rotation": [30, 0, 0],
-					"position": [-14, -19, 1],
+					"position": [-14, -19, -7],
 					"scale": 1
 				},
 				"body": {
@@ -313,6 +313,39 @@
 				},
 				"tail": {
 					"rotation": [-7.51365, -2.41476, 0.64743]
+				}
+			}
+		},
+		"periscope": {
+			"animation_length": 2.5,
+			"bones": {
+				"head": {
+					"position": [0, 30, 0]
+				},
+				"body": {
+					"rotation": [-60, 0, 0],
+					"position": [0, 2, 0]
+				},
+				"body2": {
+					"rotation": [-15, 0, 0]
+				},
+				"body3": {
+					"rotation": [17.5, 0, 0]
+				},
+				"body4": {
+					"rotation": [58.57944, 8.84467, 15.23047]
+				},
+				"body5": {
+					"rotation": [0, -25, 0]
+				},
+				"body6": {
+					"rotation": [0, -40, 0]
+				},
+				"body7": {
+					"rotation": [0, -35, 0]
+				},
+				"tail": {
+					"rotation": [0, -30, 0]
 				}
 			}
 		}
