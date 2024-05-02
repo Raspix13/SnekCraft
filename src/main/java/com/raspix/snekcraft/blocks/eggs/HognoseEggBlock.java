@@ -52,12 +52,18 @@ public class HognoseEggBlock extends SnakeEggBlock{
 
     @Override
     public int getOffspringColor(CompoundTag compoundTag) {
-        return HognoseEntity.colorGenetics[compoundTag.getInt("color")][compoundTag.getInt("color_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+        return HognoseEntity.colorGenetics
+                [Math.min(Math.max(compoundTag.getInt("color"), 0), HognoseEntity.GetMaxColor())]
+                [Math.min(Math.max(compoundTag.getInt("color_p2"), 0), HognoseEntity.GetMaxColor())]
+                .GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
     @Override
     public int getOffspringPattern(CompoundTag compoundTag) {
-        return HognoseEntity.patternGenetics[compoundTag.getInt("pattern")][compoundTag.getInt("pattern_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+        return HognoseEntity.patternGenetics
+                [Math.min(Math.max(compoundTag.getInt("pattern"), 0), HognoseEntity.GetMaxPattern())]
+                [Math.min(Math.max(compoundTag.getInt("pattern_p2"), 0), HognoseEntity.GetMaxPattern())]
+                .GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
     /**public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {

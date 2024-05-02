@@ -193,6 +193,10 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{1, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{2}, new int[]{100})}};
 
+
+    private static int maxPattern = 2;
+    private static int maxColor = 11;
+
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
 
 
@@ -234,6 +238,14 @@ public class HognoseEntity extends SnakeBase {
     @Override
     public Block GetEggType() {
         return BlockInit.SNAKE_EGG.get();
+    }
+
+    public static int GetMaxPattern(){
+        return maxPattern;
+    }
+
+    public static int GetMaxColor(){
+        return maxColor;
     }
 
     @Override

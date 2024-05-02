@@ -94,12 +94,21 @@ public class SnakeEggBlockEntity extends BlockEntity {
     }
 
     public void setStats(int color, int color_p2, int pattern, int pattern_p2) {
-        System.out.println("Color was set to " + color + "in EggBlockEntity");
         this.COLOR = color;
         this.COLOR_P2 = color_p2;
         this.PATTERN = pattern;
         this.PATTERN_P2 = pattern_p2;
-
-
     }
+
+    public void setStats(CompoundTag tag) {
+        this.COLOR = tag.getInt("color");
+        this.COLOR_P2 = tag.getInt("color_p2");
+        this.PATTERN = tag.getInt("pattern");
+        this.PATTERN_P2 = tag.getInt("pattern");
+    }
+
+    public void PrintOutStats(){
+        System.out.println("SnakeBlockEntity Stats: c=" + this.COLOR + ", c2=" + this.COLOR_P2 + ", p=" + this.PATTERN + ", p2=" + this.PATTERN_P2);
+    }
+
 }

@@ -516,12 +516,14 @@ public abstract class SnakeBase extends Animal implements IAnimatable {
         //}
 
         public void CreateEgg2(Level level) {
-            level.setBlock(this.blockPos.above(), this.snake.GetEggType().defaultBlockState(), 3);
+            level.setBlock(this.blockPos.above(), this.snake.GetEggType().defaultBlockState()
+                    .setValue(SnakeEggBlock.EGGS, Integer.valueOf(this.snake.random.nextInt(4) + 1)),
+                    3);
 
             SnakeEggBlockEntity tile = (SnakeEggBlockEntity)level.getBlockEntity(this.blockPos.above());
             CompoundTag compoundtag = tile.getTileData();
             if (compoundtag != null) {
-                System.out.println("Compoundtag found");
+                //System.out.println("Compoundtag found");
                 compoundtag.putInt("color", ((SnakeBase)this.mob).getColor());
                 compoundtag.putInt("color_p2", ((SnakeBase)this.mob).partnerColor);
                 compoundtag.putInt("pattern", ((SnakeBase)this.mob).getPattern());

@@ -292,7 +292,7 @@
 			"bones": {
 				"head": {
 					"rotation": [30, 0, 0],
-					"position": [-9, -6, 3],
+					"position": [-9, -6, 1],
 					"scale": 1
 				},
 				"body": {

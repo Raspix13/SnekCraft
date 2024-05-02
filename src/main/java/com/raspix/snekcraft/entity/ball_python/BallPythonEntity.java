@@ -38,7 +38,8 @@ import java.util.function.Predicate;
 public class BallPythonEntity extends SnakeBase {
 
     // NTA: , sounds, aistep(drops),
-
+    private static int maxPattern = 4;
+    private static int maxColor = 10;
 
     // 0: normal, 1: piebald, 2: pinstripe, 3: pinpied
     public static GenePool[][] colorGenetics = new GenePool[][]{
@@ -168,6 +169,14 @@ public class BallPythonEntity extends SnakeBase {
     @Override
     public Block GetEggType() {
         return BlockInit.BALL_PYTHON_EGG.get();
+    }
+
+    public static int GetMaxPattern(){
+        return maxPattern;
+    }
+
+    public static int GetMaxColor(){
+        return maxColor;
     }
 
     @Override

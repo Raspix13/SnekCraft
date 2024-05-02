@@ -11,6 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class BallPythonRenderer extends GeoEntityRenderer<BallPythonEntity> {
+
+    private static int maxPattern = 4;
+    private static int maxColor = 10;
+
     private static final ResourceLocation NORMAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/normal.png");
     private static final ResourceLocation FIRE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/fire.png");
     private static final ResourceLocation PASTEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/pastel.png");
@@ -74,7 +78,7 @@ public class BallPythonRenderer extends GeoEntityRenderer<BallPythonEntity> {
         /**if(colorNum == 0){
             return NORMAL_TEXTURE;
         }*/
-        return TEXTURES[patternNum][colorNum];
+        return TEXTURES[Math.min(Math.max(patternNum, 0), maxPattern)][Math.min(Math.max(colorNum, 0), maxColor)];
         //return TEST_TEXTURE;
     }
 

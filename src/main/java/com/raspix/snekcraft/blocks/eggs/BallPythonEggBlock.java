@@ -64,13 +64,19 @@ public class BallPythonEggBlock extends SnakeEggBlock{
 
     @Override
     public int getOffspringColor(CompoundTag compoundTag) {
-        return BallPythonEntity.colorGenetics[compoundTag.getInt("color")][compoundTag.getInt("color_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+        return BallPythonEntity.colorGenetics
+                [Math.min(Math.max(compoundTag.getInt("color"), 0), BallPythonEntity.GetMaxColor())]
+                [Math.min(Math.max(compoundTag.getInt("color_p2"), 0), BallPythonEntity.GetMaxColor())]
+                .GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
 
     }
 
     @Override
     public int getOffspringPattern(CompoundTag compoundTag) {
-        return BallPythonEntity.patternGenetics[compoundTag.getInt("pattern")][compoundTag.getInt("pattern_p2")].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
+        return BallPythonEntity.patternGenetics
+                [Math.min(Math.max(compoundTag.getInt("pattern"), 0), BallPythonEntity.GetMaxPattern())]
+                [Math.min(Math.max(compoundTag.getInt("pattern_p2"), 0), BallPythonEntity.GetMaxPattern())]
+                .GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
     }
 
 

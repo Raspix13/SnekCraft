@@ -24,9 +24,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
@@ -36,6 +39,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEventListener;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
@@ -77,14 +81,14 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
         super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
     }
 
-    private void destroyEgg(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, int pChance) {
+    /**private void destroyEgg(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, int pChance) {
         if (this.canDestroyEgg(pLevel, pEntity)) {
             if (!pLevel.isClientSide && pLevel.random.nextInt(pChance) == 0 && pState.is(BlockInit.SNAKE_EGG.get())) {
                 this.decreaseEggs(pLevel, pPos, pState);
             }
 
         }
-    }
+    }*/
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -103,20 +107,35 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
         }*/
 
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
-            System.out.println("Hello from test egg");
             CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getTileData();
             if(compoundTag != null){
                 int p1 = compoundTag.getInt("pattern");
                 int p2 = compoundTag.getInt("pattern_p2");
                 int c1 = compoundTag.getInt("color");
                 int c2 = compoundTag.getInt("color_p2");
-                System.out.println("The egg has ps:" + p1 + ", " + p2 + ", and cs: " + c1 + ", " + c2 + " stored");
-            }else {
-                System.out.println("compound was null");
+                //((SnakeEggBlockEntity)pLevel.getBlockEntity(pPos)).PrintOutStats();
+                //System.out.println("The egg has ps:" + p1 + ", " + p2 + ", and cs: " + c1 + ", " + c2 + " stored");
             }
 
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    }
+
+    private void decreaseEggs(Level pLevel, BlockPos pPos, BlockState pState, CompoundTag tag) {
+        pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + pLevel.random.nextFloat() * 0.2F);
+        int i = pState.getValue(EGGS);
+        if (i <= 1) {
+            pLevel.destroyBlock(pPos, false);
+        } else {
+            pLevel.setBlock(pPos, pState.setValue(EGGS, Integer.valueOf(i - 1)), 2);
+            pLevel.levelEvent(2001, pPos, Block.getId(pState));
+            SnakeEggBlockEntity tile = (SnakeEggBlockEntity)pLevel.getBlockEntity(pPos);
+            tile.setStats(tag.getInt("color"),
+                    tag.getInt("color_p2"),
+                    tag.getInt("pattern"),
+                    tag.getInt("pattern_p2"));
+        }
+
     }
 
     private void decreaseEggs(Level pLevel, BlockPos pPos, BlockState pState) {
@@ -125,8 +144,15 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
         if (i <= 1) {
             pLevel.destroyBlock(pPos, false);
         } else {
+            CompoundTag oldTag = ((SnakeEggBlockEntity)pLevel.getBlockEntity(pPos)).getTileData();
             pLevel.setBlock(pPos, pState.setValue(EGGS, Integer.valueOf(i - 1)), 2);
             pLevel.levelEvent(2001, pPos, Block.getId(pState));
+            SnakeEggBlockEntity tile = (SnakeEggBlockEntity)pLevel.getBlockEntity(pPos);
+
+            tile.setStats(oldTag.getInt("color"),
+                    oldTag.getInt("color_p2"),
+                    oldTag.getInt("pattern"),
+                    oldTag.getInt("pattern_p2"));
         }
 
     }
@@ -188,9 +214,42 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
      * used the correct tool and drops should be spawned.
      */
     public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState, @Nullable BlockEntity pTe, ItemStack pStack) {
+        if (!pLevel.isClientSide && pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) ) {
+            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, pStack) != 0) {
+                ItemStack itemstack = new ItemStack(this);
+
+                CompoundTag compoundTagBlock = pTe.getTileData();
+                int c1 = compoundTagBlock.getInt("color");
+                int c2 = compoundTagBlock.getInt("color_p2");
+                int p1 = compoundTagBlock.getInt("pattern");
+                int p2 = compoundTagBlock.getInt("pattern_p2");
+
+                CompoundTag compoundtag = new CompoundTag();
+                if(c1 > 0){
+                    compoundtag.putInt("color", c1);
+                }
+                if(c2 > 0){
+                    compoundtag.putInt("color_p2", c2);
+                }
+                if(p1 > 0){
+                    compoundtag.putInt("pattern", p1);
+                }
+                if(p2 > 0){
+                    compoundtag.putInt("pattern_p2", p2);
+                }
+
+                itemstack.addTagElement("BlockStateTag", compoundtag);
+                ItemEntity itementity = new ItemEntity(pLevel, (double)pPos.getX(), (double)pPos.getY(), (double)pPos.getZ(), itemstack);
+                itementity.setDefaultPickUpDelay();
+                pLevel.addFreshEntity(itementity);
+            }
+
+        }
         super.playerDestroy(pLevel, pPlayer, pPos, pState, pTe, pStack);
-        this.decreaseEggs(pLevel, pPos, pState);
+        //this.decreaseEggs(pLevel, pPos, pState, pTe.getTileData());
     }
+
+
 
     // For telling if an item can be placed on a block, like candles
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
@@ -202,11 +261,10 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
 
         if(isSameEggType && handItem.getTag() != null && !pUseContext.getLevel().isClientSide) {
             BlockPos pos = pUseContext.getClickedPos();
-            System.out.println("At " + pos.toShortString());
             CompoundTag blockTag = pUseContext.getLevel().getBlockEntity(pos).getTileData();
-            if(pUseContext.getLevel().getBlockState(pos) == pState){
+            /**if(pUseContext.getLevel().getBlockState(pos) == pState){
                 System.out.println("should be same egg");
-            }
+            }*/
             for (String tagInfo : tag.getAllKeys()) {
                 if (tagInfo.contains("BlockStateTag")) {
                     CompoundTag compoundTag = tag.getCompound("BlockStateTag"); //the item's data
@@ -269,13 +327,9 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
     }
 
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        if (!pLevel.isClientSide && pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
+        /**if (!pLevel.isClientSide && pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             ItemStack itemstack = new ItemStack(this);
-            /**int c1 = pState.getValue(COLOR);
-            int c2 = pState.getValue(COLOR_P2);
-            int p1 = pState.getValue(PATTERN);
-            int p2 = pState.getValue(PATTERN_P2);*/
 
             CompoundTag compoundTagBlock = blockentity.getTileData();
             int c1 = compoundTagBlock.getInt("color");
@@ -302,10 +356,12 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
             itementity.setDefaultPickUpDelay();
             pLevel.addFreshEntity(itementity);
 
-        }
+        }*/
 
         super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
+
+
 
     /**public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
         BlockEntity blockentity = pBuilder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
@@ -363,7 +419,17 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+        if (pState.hasBlockEntity() && (!pState.is(pNewState.getBlock()) || !pNewState.hasBlockEntity())) {
+            pLevel.removeBlockEntity(pPos);
+        }
+
+    }
+
+    @Override
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        this.playerWillDestroy(level, pos, state, player);
+        decreaseEggs(level, pos, state);
+        return true;//super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 
     /**@org.jetbrains.annotations.Nullable

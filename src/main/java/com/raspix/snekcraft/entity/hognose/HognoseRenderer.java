@@ -15,6 +15,9 @@ import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class HognoseRenderer extends GeoEntityRenderer<HognoseEntity> {
 
+    private static int maxPattern = 2;
+    private static int maxColor = 11;
+
     private static final ResourceLocation NORMAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/hognose/normal.png");
     private static final ResourceLocation CONDA_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/hognose/conda.png");
     private static final ResourceLocation SUPERCONDA_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/hognose/superconda.png");
@@ -67,6 +70,8 @@ public class HognoseRenderer extends GeoEntityRenderer<HognoseEntity> {
             {SUPERCONDA_TEXTURE, ALBINO_SUPERCONDA_TEXTURE, AXANTHIC_SUPERCONDA_TEXTURE, ARCTIC_SUPERCONDA_TEXTURE, SNOW_SUPERCONDA_TEXTURE, SUPER_ARCTIC_SUPERCONDA_TEXTURE, SUBZERO_SUPERCONDA_TEXTURE, YETI_SUPERCONDA_TEXTURE, RAINBOW_TEXTURE, ALBINO_ARCTIC_SUPERCONDA_TEXTURE, AXARCTIC_SUPERCONDA_TEXTURE, SUPER_AXARCTIC_SUPERCONDA_TEXTURE}
     };
 
+
+
     public HognoseRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new HognoseModel());
         this.shadowRadius = 0.3f;
@@ -79,7 +84,7 @@ public class HognoseRenderer extends GeoEntityRenderer<HognoseEntity> {
         /**if(colorNum == 0){
          return NORMAL_TEXTURE;
          }*/
-        return TEXTURES[patternNum][colorNum];
+        return TEXTURES[Math.min(Math.max(patternNum, 0), maxPattern)][Math.min(Math.max(colorNum, 0), maxColor)];
         //return TEST_TEXTURE;
     }
 
