@@ -293,23 +293,24 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @org.jetbrains.annotations.Nullable LivingEntity pPlacer, ItemStack pStack) {
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
-        CompoundTag compoundTag = pStack.getTag().getCompound("BlockStateTag");
-        if (compoundTag!=null){
-            int c1 = compoundTag.getInt("color");
-            int c2 = compoundTag.getInt("color_p2");
-            int p1 = compoundTag.getInt("pattern");
-            int p2 = compoundTag.getInt("pattern_p2");
-            SnakeEggBlockEntity sebe = (SnakeEggBlockEntity) pLevel.getBlockEntity(pPos);
-            if(sebe != null){
-                CompoundTag tag = sebe.getTileData();
-                tag.putInt("color", c1);
-                tag.putInt("color_p2", c2);
-                tag.putInt("pattern", p1);
-                tag.putInt("pattern_p2", p2);
+        CompoundTag tag1 = pStack.getTag();
+        if(tag1 != null){
+            CompoundTag compoundTag = tag1.getCompound("BlockStateTag");
+            if (compoundTag!=null){
+                int c1 = compoundTag.getInt("color");
+                int c2 = compoundTag.getInt("color_p2");
+                int p1 = compoundTag.getInt("pattern");
+                int p2 = compoundTag.getInt("pattern_p2");
+                SnakeEggBlockEntity sebe = (SnakeEggBlockEntity) pLevel.getBlockEntity(pPos);
+                if(sebe != null){
+                    CompoundTag tag = sebe.getTileData();
+                    tag.putInt("color", c1);
+                    tag.putInt("color_p2", c2);
+                    tag.putInt("pattern", p1);
+                    tag.putInt("pattern_p2", p2);
+                }
             }
         }
-
-
 
     }
 

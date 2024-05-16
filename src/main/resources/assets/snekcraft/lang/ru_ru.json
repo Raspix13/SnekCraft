@@ -1,0 +1,60 @@
+{
+  "itemGroup.snekcraft": "SnekCraft",
+
+  "item.snekcraft.snake_skin": "Змеиная кожа",
+  "item.snekcraft.snake_tooth": "Змеиный зуб",
+  "item.snekcraft.snake_bag": "Змеиная сумка",
+  "item.snekcraft.hognose_spawn_egg": "Яйцо призыва свиноносой змеи",
+  "item.snekcraft.ball_python_spawn_egg": "Яйцо призыва королевского питона",
+  "item.snekcraft.terrarium_key": "Ключ террариума",
+  "block.snekcraft.hoggie_egg": "Яйцо свиноносой змеи",
+  "block.snekcraft.ball_python_egg": "Яйцо королевского питона",
+
+  "block.snekcraft.wire_cage": "Клетка",
+  "block.snekcraft.aquarium": "Аквариум",
+  "block.snekcraft.terrarium": "Террариум",
+  "block.snekcraft.lavaquarium": "Лавовый аквариум",
+
+  "block.snekcraft.dirt_hide": "Земляное укрытие",
+  "block.snekcraft.stone_hide": "Каменное укрытие",
+  "block.snekcraft.stone_brick_hide": "Укрытие из каменного кирпича",
+  "block.snekcraft.mossy_brick_hide": "Укрытие из замшелого каменного кирпича",
+  "block.snekcraft.sandstone_hide": "Песчаниковое укрытие",
+  "block.snekcraft.spruce_hide": "Еловое укрытие",
+  "block.snekcraft.acacia_hide": "Акациевое укрытие",
+  "block.snekcraft.birch_hide": "Берёзовое укрытие",
+  "block.snekcraft.dark_oak_hide": "Укрытие из тёмного дуба",
+  "block.snekcraft.jungle_hide": "Укрытие из тропического дерева",
+  "block.snekcraft.mangrove_hide": "Укрытие из мангрового дерева",
+  "block.snekcraft.oak_hide": "Дубовое укрытие",
+
+  "block.snekcraft.dirt_medium_hide": "Большое земляное укрытие",
+  "block.snekcraft.stone_medium_hide": "Большое каменное укрытие",
+  "block.snekcraft.stone_brick_medium_hide": "Большое укрытие из каменного кирпича",
+  "block.snekcraft.mossy_brick_medium_hide": "Большое укрытие из замшелого каменного кирпича",
+  "block.snekcraft.sandstone_medium_hide": "Большое песчаниковое укрытие",
+
+  "block.snekcraft.spruce_medium_hide": "Большое еловое укрытие",
+  "block.snekcraft.acacia_medium_hide": "Большое акациевое укрытие",
+  "block.snekcraft.birch_medium_hide": "Большое берёзовое укрытие",
+  "block.snekcraft.dark_oak_medium_hide": "Большое укрытие из тёмного дуба",
+  "block.snekcraft.jungle_medium_hide": "Большое укрытие из тропического дерева",
+  "block.snekcraft.mangrove_medium_hide": "Большое мангровое укрытие",
+  "block.snekcraft.oak_medium_hide": "Большое дубовое укрытие",
+
+  "block.snekcraft.heat_lamp": "Нагревательная лампа",
+  "block.snekcraft.lamp_post": "Крепление лампы",
+
+  "sounds.snekcraft.snek_hurt": "Змея ранена",
+  "sounds.snekcraft.snek_attack": "Змея шипит",
+  "sounds.snekcraft.snek_lay": "Змея откладывает яйца",
+
+  "tooltip.snekcraft.snake_bag.tooltip.has_snakes": "Содержит %1$s змею",
+  "tooltip.snekcraft.snek_egg.tooltip.colors": "Цвета: %1$s и %2$s",
+  "tooltip.snekcraft.snek_egg.tooltip.patterns": "Узоры: %1$s и %2$s",
+  "tooltip.snekcraft.terrarium_key.tooltip": "Используйте на стенках террариума, клетки, аквариума или лавового аквариума чтобы открывать или закрывать их",
+
+  "key.category.snekcraft.binds": "Snekcraft",
+  "key.snekcraft.drop_shoulder": "Сбросить питомцев с плеч",
+  "component.snekcraft.drop_instructions": "Нажмите %1$s чтобы убрать змею"
+}
