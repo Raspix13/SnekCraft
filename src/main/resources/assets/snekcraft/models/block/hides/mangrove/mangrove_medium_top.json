@@ -1,7 +1,7 @@
 {
   "parent": "snekcraft:block/hides/basic_medium_top",
   "textures": {
-    "text": "snekcraft:blocks/hides/mangrove_hide",
-    "particle": "minecraft:block/oak_log"
+    "text": "snekcraft:block/hides/mangrove_hide",
+    "particle": "minecraft:block/mangrove_log"
   }
 }

@@ -3,7 +3,6 @@ package com.raspix.snekcraft.blocks.terrariums;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -81,11 +80,6 @@ public class LavaquariumBlock extends TerrariumBlock implements SimpleLavaLogged
 
 
     @Override
-    public boolean canPlaceLiquid(@Nullable Player p_300220_, BlockGetter p_54766_, BlockPos p_54767_, BlockState p_54768_, Fluid p_54769_) {
-        return false;
-    }
-
-    @Override
     public boolean placeLiquid(LevelAccessor pLevel, BlockPos pPos, BlockState pState, FluidState pFluidState) {
         if (!pLevel.isClientSide() && pFluidState.getType() == Fluids.LAVA) {
             pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(true)), 3);
@@ -102,10 +96,5 @@ public class LavaquariumBlock extends TerrariumBlock implements SimpleLavaLogged
         } else {
             return ItemStack.EMPTY;
         }
-    }
-
-    @Override
-    public ItemStack pickupBlock(@Nullable Player p_298551_, LevelAccessor p_152719_, BlockPos p_152720_, BlockState p_152721_) {
-        return null;
     }
 }

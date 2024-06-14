@@ -1,7 +1,7 @@
 {
   "parent": "snekcraft:block/hides/basic_medium_cave_top",
   "textures": {
-    "text": "snekcraft:blocks/hides/sandstone_hide",
+    "text": "snekcraft:block/hides/sandstone_hide",
     "particle": "minecraft:block/sandstone"
   }
 }

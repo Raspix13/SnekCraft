@@ -1,7 +1,0 @@
-{
-  "parent": "snekcraft:block/hides/basic_medium_side",
-  "textures": {
-    "text": "snekcraft:blocks/hides/oak_hide",
-    "particle": "minecraft:block/oak_log"
-  }
-}

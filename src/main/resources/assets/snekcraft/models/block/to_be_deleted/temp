@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "clicked=false": { "model": "snekcraft:block/wire_cage"},
-    "clicked=true": { "model": "snekcraft:block/glass_cage"}
-  }
-}

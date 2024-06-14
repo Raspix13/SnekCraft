@@ -1,6 +1,0 @@
-{
-  "parent": "snekcraft:block/rat_cage_bottom_base",
-  "textures": {
-    "ground": "snekcraft:blocks/rat_cage_right"
-  }
-}

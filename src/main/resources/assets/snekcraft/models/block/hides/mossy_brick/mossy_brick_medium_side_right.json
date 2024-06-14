@@ -1,7 +1,7 @@
 {
   "parent": "snekcraft:block/hides/basic_medium_cave_side_right",
   "textures": {
-    "text": "snekcraft:blocks/hides/mossy_brick_hide",
+    "text": "snekcraft:block/hides/mossy_brick_hide",
     "particle": "minecraft:block/mossy_stone_bricks"
   }
 }

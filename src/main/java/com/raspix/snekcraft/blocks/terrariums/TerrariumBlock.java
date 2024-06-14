@@ -15,9 +15,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.TransparentBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -34,7 +33,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.Objects;
 
-public class TerrariumBlock extends TransparentBlock {
+public class TerrariumBlock extends GlassBlock {
 
     //public static final BooleanProperty CLICKED = BooleanProperty.create("clicked");
     //public static final IntegerProperty GROUND_TYPE = IntegerProperty.create("ground_type", 0, 5);
@@ -64,7 +63,7 @@ public class TerrariumBlock extends TransparentBlock {
     private static final VoxelShape EAST_AABB = Block.box(15F, 0F, 0F, 16F, 16F, 16F);
     private static final VoxelShape WEST_AABB = Block.box(0F, 0F, 0F, 1F, 16F, 16F);
 
-    public TerrariumBlock(BlockBehaviour.Properties pProperties) {
+    public TerrariumBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(NORTH, 0)

@@ -2,7 +2,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "snekcraft:items/snake_bag"
+    "layer0": "snekcraft:item/snake_bag"
   },
   "overrides": [
     {

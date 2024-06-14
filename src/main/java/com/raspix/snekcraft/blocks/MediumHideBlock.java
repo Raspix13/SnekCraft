@@ -1,10 +1,11 @@
 package com.raspix.snekcraft.blocks;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -37,11 +38,6 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
     public MediumHideBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(PART, HidePart.ENTERANCE));
-    }
-
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return null;
     }
 
 
@@ -80,10 +76,8 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
     /**
      * Called before the Block is set to air in the world. Called regardless of if the player's tool can actually collect
      * this block
-     *
-     * @return
      */
-    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         if (!pLevel.isClientSide) {
             HidePart hidepart = pState.getValue(PART);
             if (hidepart != HidePart.ENTERANCE){
@@ -105,7 +99,6 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
         }
 
         super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-        return pState;
     }
 
     public void originDestroyHelper(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer, int iteration) {
@@ -114,11 +107,11 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
             if (hidepart != HidePart.ENTERANCE && iteration <= 2) { // make sure loop is not infinite
                 BlockPos newPos = pPos.relative(pState.getValue(FACING));
                 BlockState newState = pLevel.getBlockState(newPos);
-                System.out.println("Checked for destroy failed: " + pPos.toShortString() + ", moving " + pState.getValue(FACING) + " to " + newPos.toShortString());
+                //System.out.println("Checked for destroy failed: " + pPos.toShortString() + ", moving " + pState.getValue(FACING) + " to " + newPos.toShortString());
                 originDestroyHelper(pLevel, newPos, newState, pPlayer, iteration + 1);
 
             } else if (hidepart == HidePart.ENTERANCE) {
-                System.out.println("Found Entrance");
+                //System.out.println("Found Entrance");
                 playerWillDestroyFinal(pLevel, pPos, pState, pPlayer);
             }
         }else {
@@ -137,7 +130,14 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
                 removePartBlock(pLevel, blockpos, pPlayer);
                 removePartBlock(pLevel, blockpos2, pPlayer);
                 removePartBlock(pLevel, blockpos3, pPlayer);
+                Item tempItem = pLevel.getBlockState(pPos).getBlock().asItem();
                 removePartBlock(pLevel, pPos, pPlayer);
+                System.out.println("Item is: " + tempItem);
+                ItemStack itemstack = new ItemStack(this);
+                ItemEntity itementity = new ItemEntity(pLevel, (double)pPos.getX(), (double)pPos.getY(), (double)pPos.getZ(), itemstack);
+                itementity.setDefaultPickUpDelay();
+                pLevel.addFreshEntity(itementity);
+                //playerWillDestroy(pLevel, pPos, pState, pPlayer);
                 /**BlockState blockstate = pLevel.getBlockState(blockpos);
                  if (blockstate.is(this) && blockstate.getValue(PART) == HidePart.EXTRA) {
                  pLevel.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
@@ -150,8 +150,10 @@ public class MediumHideBlock extends HorizontalDirectionalBlock {
     private void removePartBlock(Level pLevel, BlockPos blockpos, Player pPlayer){
         BlockState blockstate = pLevel.getBlockState(blockpos);
         if (blockstate.is(this)) {
-            pLevel.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
-            pLevel.levelEvent(pPlayer, 2001, blockpos, Block.getId(blockstate));
+            //pLevel.getBlockState(blockpos).getBlock().destroy(pLevel, blockpos, blockstate);
+            pLevel.removeBlock(blockpos, false);
+            //pLevel.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+            //pLevel.levelEvent(pPlayer, 2001, blockpos, Block.getId(blockstate));
         }
     }
 
