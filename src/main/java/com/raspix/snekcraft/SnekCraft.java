@@ -51,8 +51,7 @@ public class SnekCraft
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "snekcraft";
 
-    public SnekCraft()
-    {
+    public SnekCraft() {
         // Register the setup method for modloading
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         //FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
