@@ -4,7 +4,7 @@ import com.raspix.snekcraft.blocks.CaveHideBlock;
 import com.raspix.snekcraft.blocks.HeatLampBlock;
 import com.raspix.snekcraft.blocks.MediumHideBlock;
 import com.raspix.snekcraft.blocks.TunnelHideBlock;
-import com.raspix.snekcraft.blocks.eggs.SnakeEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.SnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.items.ItemInit;
 import com.raspix.snekcraft.items.SnakeBagItem;

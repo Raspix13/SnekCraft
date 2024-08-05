@@ -1,23 +1,19 @@
 package com.raspix.snekcraft.blocks;
 
 import com.raspix.snekcraft.SnekCraft;
-import com.raspix.snekcraft.blocks.eggs.BallPythonEggBlock;
-import com.raspix.snekcraft.blocks.eggs.HognoseEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.BallPythonEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.HognoseEggBlock;
 import com.raspix.snekcraft.blocks.terrariums.AquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.CageBlock;
 import com.raspix.snekcraft.blocks.terrariums.LavaquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.TerrariumBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
