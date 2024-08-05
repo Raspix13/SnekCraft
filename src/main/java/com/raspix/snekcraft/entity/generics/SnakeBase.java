@@ -163,7 +163,10 @@ public abstract class SnakeBase extends Animal {
         if (player.isSecondaryUseActive() && !this.isPassenger()) {
             if (player.getPassengers().size() < 1) {
                 this.startRiding(player, true);
-                player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
+                if(player.level().isClientSide()){
+                    player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
+                }
+  //              player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
                 this.setSittingOnShoulder(true);
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide());
