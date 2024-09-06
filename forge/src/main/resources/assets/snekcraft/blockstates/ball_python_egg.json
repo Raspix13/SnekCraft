@@ -1,0 +1,208 @@
+{
+  "variants": {
+    "eggs=1,hatch=0": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/snek_egg"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/snek_egg",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/snek_egg",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/snek_egg",
+        "y": 270
+      }
+    ],
+    "eggs=1,hatch=1": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/slightly_cracked_snek_egg"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/slightly_cracked_snek_egg",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/slightly_cracked_snek_egg",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/slightly_cracked_snek_egg",
+        "y": 270
+      }
+    ],
+    "eggs=1,hatch=2": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/very_cracked_snek_egg"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/very_cracked_snek_egg",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/very_cracked_snek_egg",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/very_cracked_snek_egg",
+        "y": 270
+      }
+    ],
+    "eggs=2,hatch=0": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=2,hatch=1": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_slightly_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_slightly_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_slightly_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_slightly_cracked_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=2,hatch=2": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_very_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_very_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_very_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/two_very_cracked_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=3,hatch=0": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=3,hatch=1": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_slightly_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_slightly_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_slightly_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_slightly_cracked_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=3,hatch=2": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_very_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_very_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_very_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/three_very_cracked_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=4,hatch=0": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=4,hatch=1": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_slightly_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_slightly_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_slightly_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_slightly_cracked_snek_eggs",
+        "y": 270
+      }
+    ],
+    "eggs=4,hatch=2": [
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_very_cracked_snek_eggs"
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_very_cracked_snek_eggs",
+        "y": 90
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_very_cracked_snek_eggs",
+        "y": 180
+      },
+      {
+        "model": "snekcraft:block/snek_eggs/ball_python/four_very_cracked_snek_eggs",
+        "y": 270
+      }
+    ]
+  }
+}

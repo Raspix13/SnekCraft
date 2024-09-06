@@ -1,0 +1,63 @@
+{
+  "multipart": [
+
+    {   "when": { "up": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/cage_top", "uvlock": false }
+    },
+    {   "when": { "down": "0" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_container_base", "uvlock": false }
+    },
+    {  "when": {
+      "AND": [
+        {"OR": [{"up": "0"}, {"up": "2"}]},
+        {"north": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_un", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [
+        {"OR": [{"up": "0"}, {"up": "2"}]},
+        {"south": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_us", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [
+        {"OR": [{"up": "0"}, {"up": "2"}]},
+        {"east": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_ue", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [
+        {"OR": [{"up": "0"}, {"up": "2"}]},
+        {"west": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_uw", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [{"north": "0"}, {"east": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_ne", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [{"north": "0"}, {"west": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_nw", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [{"south": "0"}, {"east": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_se", "y" : 90, "uvlock": false }
+    },
+    {  "when": {
+      "AND": [{"south": "0"}, {"west": "0"}]},
+      "apply": { "model": "snekcraft:block/glass_container/glass_sw", "y" : 90, "uvlock": false }
+    },
+    {  "when": { "north": "3" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_ne", "y" : 90, "uvlock": false }
+    },
+    {  "when": { "east": "3" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_se", "y" : 90, "uvlock": false }
+    },
+    {  "when": { "south": "3" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_sw", "y" : 90, "uvlock": false }
+    },
+    {  "when": { "west": "3" },
+      "apply": { "model": "snekcraft:block/glass_container/glass_nw", "y" : 90, "uvlock": false }
+    }
+  ]
+}

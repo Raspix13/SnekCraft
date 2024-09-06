@@ -1,0 +1,7 @@
+{
+  "parent": "snekcraft:block/hides/basic_medium_hide_item",
+  "textures": {
+    "text": "snekcraft:block/hides/dark_oak_hide",
+    "particle": "minecraft:block/dark_oak_log"
+  }
+}

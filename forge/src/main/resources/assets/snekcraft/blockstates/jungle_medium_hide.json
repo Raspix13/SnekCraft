@@ -1,0 +1,206 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "AND": [
+          {"OR": [{"part": "enterance"}, {"part": "enterance2"}]},
+          {"OR": [{"facing": "north"}, {"facing": "south"}]}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_top"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"OR": [{"part": "enterance"}, {"part": "enterance2"}]},
+          {"OR": [{"facing": "east"}, {"facing": "west"}]}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_top",
+        "y" : 90
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"OR": [{"part": "side"}, {"part": "side2"}]},
+          {"OR": [{"facing": "north"}, {"facing": "south"}]}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_top",
+        "y" : 90
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"OR": [{"part": "side"}, {"part": "side2"}]},
+          {"OR": [{"facing": "east"}, {"facing": "west"}]}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_top"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance"},
+          {"facing": "north"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance"},
+          {"facing": "south"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 180
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance"},
+          {"facing": "east"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 90
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance"},
+          {"facing": "west"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 270
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance2"},
+          {"facing": "south"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance2"},
+          {"facing": "north"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 180
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance2"},
+          {"facing": "west"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 90
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "enterance2"},
+          {"facing": "east"}]
+      },
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 270
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side"},
+          {"facing": "east"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side"},
+          {"facing": "west"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 180
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side"},
+          {"facing": "north"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 270
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side"},
+          {"facing": "south"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_right",
+        "y" : 90
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side2"},
+          {"facing": "east"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left"
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side2"},
+          {"facing": "west"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 180
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side2"},
+          {"facing": "north"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 270
+      }
+    },
+    {
+      "when": {
+        "AND": [
+          {"part": "side2"},
+          {"facing": "south"}]},
+      "apply": {
+        "model": "snekcraft:block/hides/jungle/jungle_medium_side_left",
+        "y" : 90
+      }
+    }
+  ]
+}

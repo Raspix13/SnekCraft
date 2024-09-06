@@ -1,0 +1,100 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"0": "snekcraft:block/heat_lamp",
+		"particle": "snekcraft:block/heat_lamp"
+	},
+	"elements": [
+		{
+			"name": "post",
+			"from": [7, 4, 7],
+			"to": [9, 16, 9],
+			"faces": {
+				"north": {"uv": [0.5, 5.5, 1, 8.5], "texture": "#0"},
+				"east": {"uv": [0, 5.5, 0.5, 8.5], "texture": "#0"},
+				"south": {"uv": [1.5, 5.5, 2, 8.5], "texture": "#0"},
+				"west": {"uv": [1, 5.5, 1.5, 8.5], "texture": "#0"},
+				"up": {"uv": [1, 5.5, 0.5, 5], "texture": "#0"},
+				"down": {"uv": [1.5, 5, 1, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "lamptop",
+			"from": [4, 2, 4],
+			"to": [12, 4, 12],
+			"faces": {
+				"north": {"uv": [2, 2, 4, 2.5], "texture": "#0"},
+				"east": {"uv": [0, 2, 2, 2.5], "texture": "#0"},
+				"south": {"uv": [6, 2, 8, 2.5], "texture": "#0"},
+				"west": {"uv": [4, 2, 6, 2.5], "texture": "#0"},
+				"up": {"uv": [4, 2, 2, 0], "texture": "#0"},
+				"down": {"uv": [6, 0, 4, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "lampleft",
+			"from": [3, 1, 4],
+			"to": [4, 3, 12],
+			"faces": {
+				"north": {"uv": [4.5, 5, 4.75, 5.5], "texture": "#0"},
+				"east": {"uv": [2.5, 5, 4.5, 5.5], "texture": "#0"},
+				"south": {"uv": [6.75, 5, 7, 5.5], "texture": "#0"},
+				"west": {"uv": [4.75, 5, 6.75, 5.5], "texture": "#0"},
+				"up": {"uv": [4.75, 5, 4.5, 3], "texture": "#0"},
+				"down": {"uv": [5, 3, 4.75, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "lampright",
+			"from": [12, 1, 4],
+			"to": [13, 3, 12],
+			"faces": {
+				"north": {"uv": [2, 4.5, 2.25, 5], "texture": "#0"},
+				"east": {"uv": [0, 4.5, 2, 5], "texture": "#0"},
+				"south": {"uv": [4.25, 4.5, 4.5, 5], "texture": "#0"},
+				"west": {"uv": [2.25, 4.5, 4.25, 5], "texture": "#0"},
+				"up": {"uv": [2.25, 4.5, 2, 2.5], "texture": "#0"},
+				"down": {"uv": [2.5, 2.5, 2.25, 4.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "lampfront",
+			"from": [4, 1, 3],
+			"to": [12, 3, 4],
+			"faces": {
+				"north": {"uv": [2.25, 5.75, 4.25, 6.25], "texture": "#0"},
+				"east": {"uv": [2, 5.75, 2.25, 6.25], "texture": "#0"},
+				"south": {"uv": [4.5, 5.75, 6.5, 6.25], "texture": "#0"},
+				"west": {"uv": [4.25, 5.75, 4.5, 6.25], "texture": "#0"},
+				"up": {"uv": [4.25, 5.75, 2.25, 5.5], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [6.25, 5.5, 4.25, 5.75], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "lampback",
+			"from": [4, 1, 12],
+			"to": [12, 3, 13],
+			"faces": {
+				"north": {"uv": [5.25, 4.25, 7.25, 4.75], "texture": "#0"},
+				"east": {"uv": [5, 4.25, 5.25, 4.75], "texture": "#0"},
+				"south": {"uv": [7.5, 4.25, 9.5, 4.75], "texture": "#0"},
+				"west": {"uv": [7.25, 4.25, 7.5, 4.75], "texture": "#0"},
+				"up": {"uv": [7.25, 4.25, 5.25, 4], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [9.25, 4, 7.25, 4.25], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "light",
+			"from": [6, 0, 6],
+			"to": [10, 2, 10],
+			"faces": {
+				"north": {"uv": [6, 3.5, 7, 4], "texture": "#0"},
+				"east": {"uv": [5, 3.5, 6, 4], "texture": "#0"},
+				"south": {"uv": [8, 3.5, 9, 4], "texture": "#0"},
+				"west": {"uv": [7, 3.5, 8, 4], "texture": "#0"},
+				"up": {"uv": [7, 3.5, 6, 2.5], "texture": "#0"},
+				"down": {"uv": [8, 2.5, 7, 3.5], "texture": "#0"}
+			}
+		}
+	]
+}
