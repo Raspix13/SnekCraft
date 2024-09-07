@@ -1,17 +1,14 @@
 {
     "schemaVersion": 1,
-    "id": "snekcraft",
+    "id": "${modid}",
     "version": "${version}",
-    "name": "Snekcraft",
-    "description": "A mod that adds snakes.",
+    "name": "${modname}",
+    "description": "${moddesc}",
     "authors": [
         "Raspix",
         "Piedpipecleaner"
     ],
-    "contact": {
-        "sources": "https://github.com/Raspix/SnekCraft"
-    },
-    "license": "All Rights Reserved",
+    "license": "${modlicense}",
     "environment": "*",
     "entrypoints": {
         "main": [

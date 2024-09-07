@@ -6,11 +6,11 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = mod_version
-group = mod_group_id
+version = gradle.ext.modversion
+group = gradle.ext.forgegroup
 
 base {
-    archivesName = mod_id
+    archivesName = gradle.ext.forgename
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -61,7 +61,7 @@ minecraft {
     runs {
         // applies to all the run configs below
         configureEach {
-            workingDirectory project.file('run')
+            workingDirectory project.file('../run')
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -76,7 +76,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                "${mod_id}" {
+                "${gradle.ext.modid}" {
                     source sourceSets.main
                 }
             }
@@ -84,11 +84,11 @@ minecraft {
 
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', gradle.ext.modid
         }
 
         server {
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', gradle.ext.modid
             args '--nogui'
         }
 
@@ -96,7 +96,7 @@ minecraft {
         // By default, the server will crash when no gametests are provided.
         // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', gradle.ext.modid
         }
 
         data {
@@ -104,7 +104,7 @@ minecraft {
             workingDirectory project.file('run-data')
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', gradle.ext.modid, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
@@ -156,8 +156,8 @@ tasks.named('processResources', ProcessResources).configure {
             minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
             forge_version: forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
+            mod_id: gradle.ext.modid, mod_name: gradle.ext.modname, mod_license: gradle.ext.modlicense, mod_version: gradle.ext.modversion,
+            mod_authors: gradle.ext.modauthor, mod_description: gradle.ext.moddesc,
     ]
     inputs.properties replaceProperties
 
@@ -170,12 +170,12 @@ tasks.named('processResources', ProcessResources).configure {
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
+                'Specification-Title'     : gradle.ext.modid,
+                'Specification-Vendor'    : gradle.ext.modauthor,
                 'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
+                'Implementation-Title'    : rootProject.name,
                 'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
+                'Implementation-Vendor'   : gradle.ext.modauthor,
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

@@ -5,14 +5,14 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+archivesBaseName = gradle.ext.fabricname
+version = gradle.ext.modversion
+group = gradle.ext.fabricgroup
 
 loom {
     runs {
         client {
-            runDir = "./run"
+            runDir = "../run"
         }
     }
 }
@@ -22,14 +22,17 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
 }
 
 processResources {
-	inputs.property "version", project.version
-
+	inputs.property "modid", gradle.ext.modid
+    inputs.property "version", project.version
+    inputs.property "modname", gradle.ext.modname
+    inputs.property "moddesc", gradle.ext.moddesc
+    inputs.property "modlicense", gradle.ext.modlicense
+    
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand inputs.properties
 	}
 }
 

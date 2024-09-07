@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+}
