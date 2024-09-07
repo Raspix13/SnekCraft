@@ -10,7 +10,7 @@ import com.raspix.snekcraft.blocks.CaveHideBlock;
 import com.raspix.snekcraft.blocks.HeatLampBlock;
 import com.raspix.snekcraft.blocks.MediumHideBlock;
 import com.raspix.snekcraft.blocks.TunnelHideBlock;
-import com.raspix.snekcraft.blocks.eggs.SnakeEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.SnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.items.ItemInit;
 import com.raspix.snekcraft.items.SnakeBagItem;
@@ -184,7 +184,10 @@ public abstract class SnakeBase extends Animal {
         if (player.isSecondaryUseActive() && !this.isPassenger()) {
             if (player.getPassengers().size() < 1) {
                 this.startRiding(player, true);
-                player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
+                if(player.level().isClientSide()){
+                    player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
+                }
+  //              player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
                 this.setSittingOnShoulder(true);
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide());

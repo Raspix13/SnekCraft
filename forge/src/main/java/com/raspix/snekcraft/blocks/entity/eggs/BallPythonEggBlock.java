@@ -1,4 +1,4 @@
-package com.raspix.snekcraft.blocks.eggs;
+package com.raspix.snekcraft.blocks.entity.eggs;
 
 import com.raspix.snekcraft.entity.ModEntityTypes;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;

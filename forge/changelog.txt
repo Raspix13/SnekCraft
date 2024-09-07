@@ -1,3 +1,6 @@
+Snekcraft 1.1.5-1.20.1
+Fixed vanilla water issue
+
 Snekcraft 1.1.4-1.20.1
 New:
 - Now in version 1.20.1

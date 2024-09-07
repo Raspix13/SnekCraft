@@ -1,8 +1,8 @@
 package com.raspix.snekcraft.blocks;
 
 import com.raspix.snekcraft.SnekCraft;
-import com.raspix.snekcraft.blocks.eggs.BallPythonEggBlock;
-import com.raspix.snekcraft.blocks.eggs.HognoseEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.BallPythonEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.HognoseEggBlock;
 import com.raspix.snekcraft.blocks.terrariums.AquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.CageBlock;
 import com.raspix.snekcraft.blocks.terrariums.LavaquariumBlock;

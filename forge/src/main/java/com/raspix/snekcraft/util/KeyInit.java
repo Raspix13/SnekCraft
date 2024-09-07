@@ -7,6 +7,7 @@ import net.minecraftforge.client.settings.KeyConflictContext;
 
 public final class KeyInit {
 
+
     private KeyInit(){
 
     }
