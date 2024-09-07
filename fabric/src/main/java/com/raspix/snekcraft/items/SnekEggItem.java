@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.raspix.snekcraft.blocks.eggs.SnakeEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.SnakeEggBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;

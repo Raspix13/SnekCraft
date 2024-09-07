@@ -161,7 +161,9 @@ public abstract class SnakeBase extends AnimalEntity {
 		if(player.isSneaking() && !hasVehicle()) {
 			if(player.getPassengerList().size() < 1) {
 				startRiding(player, true);
-				player.sendMessage(Text.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getBoundKeyLocalizedText())), true);
+				if(player.getWorld().isClient()) {
+					player.sendMessage(Text.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getBoundKeyLocalizedText())), true);
+				}
 				setSittingOnShoulder(true);
 			}
 			return ActionResult.success(getWorld().isClient());

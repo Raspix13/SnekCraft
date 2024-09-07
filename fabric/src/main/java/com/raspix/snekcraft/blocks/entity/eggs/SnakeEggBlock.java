@@ -1,4 +1,4 @@
-package com.raspix.snekcraft.blocks.eggs;
+package com.raspix.snekcraft.blocks.entity.eggs;
 
 
 import org.jetbrains.annotations.Nullable;

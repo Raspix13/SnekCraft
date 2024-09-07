@@ -1,8 +1,8 @@
 package com.raspix.snekcraft.entity.goal;
 
 import com.raspix.snekcraft.SnekCraft;
-import com.raspix.snekcraft.blocks.eggs.SnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
+import com.raspix.snekcraft.blocks.entity.eggs.SnakeEggBlock;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 
 import net.minecraft.block.BlockState;
