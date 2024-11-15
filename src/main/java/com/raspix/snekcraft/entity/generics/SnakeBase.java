@@ -11,6 +11,7 @@ import com.raspix.snekcraft.items.SnakeBagItem;
 import com.raspix.snekcraft.sounds.SoundInit;
 import com.raspix.snekcraft.util.KeyInit;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -48,6 +49,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -131,6 +133,13 @@ public abstract class SnakeBase extends Animal {
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
+        /** // For checking mods used
+        String modListTemp = "";
+        for (int i = 0; i < ModList.get().getMods().size(); i++){
+            System.out.println(ModList.get().getMods().get(i).getModId());
+            modListTemp += ModList.get().getMods().get(i).getModId();
+        }
+        Minecraft.getInstance().player.displayClientMessage(Component.literal(modListTemp), false);*/
 
         if (itemstack.getItem() == ItemInit.SNAKE_BAG.get()) {
             CompoundTag compound = itemstack.getTag();

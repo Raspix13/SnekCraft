@@ -1,9 +1,11 @@
 package com.raspix.snekcraft.entity.ball_python;
 
+import com.github.alexthe666.rats.registry.RatsItemRegistry;
 import com.raspix.snekcraft.blocks.BlockInit;
 import com.raspix.snekcraft.entity.generics.GenePool;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
+import com.raspix.snekcraft.items.ItemInit;
 import com.raspix.snekcraft.sounds.SoundInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -23,6 +25,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fml.ModList;
+
 import java.util.Random;
 import java.util.function.Predicate;
 
@@ -127,7 +131,7 @@ public class BallPythonEntity extends SnakeBase {
 
 
 
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
+    private static final Ingredient FOOD_ITEMS = getFoodItems();//Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
 
     static final Predicate<Entity> PREY = (p_28498_) -> {
         return p_28498_ instanceof Chicken || p_28498_ instanceof Rabbit;
@@ -138,11 +142,20 @@ public class BallPythonEntity extends SnakeBase {
     }
 
     private static boolean isTemptingItem(ItemStack pStack) {
-        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT);
+        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
     }
 
     public boolean isFood(ItemStack pStack) {
         return isTemptingItem(pStack);
+    }
+
+    private static Ingredient getFoodItems(){
+        return Ingredient.of(
+                Items.CHICKEN,
+                Items.EGG,
+                Items.RABBIT,
+                (ModList.get().isLoaded("rats")? RatsItemRegistry.RAW_RAT.get(): ItemInit.FROG_LEG.get())
+        );
     }
 
     @Override
