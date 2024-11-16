@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import com.raspix.snekcraft.blocks.BlockInit;
 import com.raspix.snekcraft.entity.generics.GenePool;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
+import com.raspix.snekcraft.items.ItemInit;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -127,7 +128,7 @@ public class BallPythonEntity extends SnakeBase {
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{1}, new int[]{50})}};
     
-    private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(Items.CHICKEN, Items.EGG, Items.RABBIT);
+    private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(Items.CHICKEN, Items.EGG, Items.RABBIT, ItemInit.FROG_LEG); // Rats not available on Fabric, so just use fallback frog leg for parity
     
     static final Predicate<Entity> PREY = entity -> entity instanceof ChickenEntity || entity instanceof RabbitEntity;
     

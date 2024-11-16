@@ -19,7 +19,9 @@ import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.FrogEntity;
+import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
@@ -189,9 +191,9 @@ public class HognoseEntity extends SnakeBase {
 	private static final int maxPattern = 2;
 	private static final int maxColor = 11;
 	
-	private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(ItemInit.FROG_LEG);
+	private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(ItemInit.FROG_LEG, Items.RABBIT); // Rats mod not available on Fabric, so omitted here
 	
-	static final Predicate<Entity> PREY = entity -> entity instanceof FrogEntity;
+	static final Predicate<Entity> PREY = entity -> entity instanceof FrogEntity || entity instanceof RabbitEntity;
 	
 	public HognoseEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world, EntityDimensions.changing(0.4f, 0.3f));
@@ -199,7 +201,7 @@ public class HognoseEntity extends SnakeBase {
 	
 	@Override
 	public boolean isBreedingItem(ItemStack itemStack) {
-		return itemStack.isOf(ItemInit.FROG_LEG);
+		return itemStack.isOf(ItemInit.FROG_LEG) || itemStack.isOf(Items.RABBIT); // Rats mod not available on Fabric, so omitted here
 	}
 	
 	@Override
