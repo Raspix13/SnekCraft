@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:spruce_hide"
+    }
+  },
+  "result": {
+    "item": "snekcraft:spruce_medium_hide",
+    "count": 1
+  }
+}

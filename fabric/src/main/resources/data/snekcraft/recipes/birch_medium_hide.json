@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:birch_hide"
+    }
+  },
+  "result": {
+    "item": "snekcraft:birch_medium_hide",
+    "count": 1
+  }
+}
