@@ -1,21 +1,18 @@
 package com.raspix.snekcraft.entity.ball_python;
 
-import java.util.function.Predicate;
-
+import com.github.alexthe666.rats.registry.RatsItemRegistry;
 import com.raspix.snekcraft.blocks.BlockInit;
 import com.raspix.snekcraft.entity.generics.GenePool;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
-
+import com.raspix.snekcraft.entity.hognose.HognoseEntity;
+import com.raspix.snekcraft.items.ItemInit;
+import com.raspix.snekcraft.sounds.SoundInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
@@ -25,8 +22,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fml.ModList;
+
+import java.util.Random;
+import java.util.function.Predicate;
 
 public class BallPythonEntity extends SnakeBase {
 
@@ -129,7 +131,7 @@ public class BallPythonEntity extends SnakeBase {
 
 
 
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
+    private static final Ingredient FOOD_ITEMS = getFoodItems();//Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
 
     static final Predicate<Entity> PREY = (p_28498_) -> {
         return p_28498_ instanceof Chicken || p_28498_ instanceof Rabbit;
@@ -140,11 +142,20 @@ public class BallPythonEntity extends SnakeBase {
     }
 
     private static boolean isTemptingItem(ItemStack pStack) {
-        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT);
+        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
     }
 
     public boolean isFood(ItemStack pStack) {
         return isTemptingItem(pStack);
+    }
+
+    private static Ingredient getFoodItems(){
+        return Ingredient.of(
+                Items.CHICKEN,
+                Items.EGG,
+                Items.RABBIT,
+                (ModList.get().isLoaded("rats")? RatsItemRegistry.RAW_RAT.get(): ItemInit.FROG_LEG.get())
+        );
     }
 
     @Override

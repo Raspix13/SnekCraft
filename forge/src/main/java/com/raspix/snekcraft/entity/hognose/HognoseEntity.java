@@ -1,33 +1,39 @@
 package com.raspix.snekcraft.entity.hognose;
 
-import java.util.function.Predicate;
-
+import com.github.alexthe666.rats.registry.RatsItemRegistry;
 import com.raspix.snekcraft.blocks.BlockInit;
+import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
 import com.raspix.snekcraft.entity.generics.GenePool;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 import com.raspix.snekcraft.items.ItemInit;
-
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLLoader;
+
+import java.util.Random;
+import java.util.function.Predicate;
 
 public class HognoseEntity extends SnakeBase {
+
     public static GenePool[][] colorGenetics = new GenePool[][]{
             {new GenePool(new int[]{0, 1, 2, 3}, new int[]{70, 10, 10, 10}),
                     new GenePool(new int[]{0, 1}, new int[]{50, 50}),
@@ -188,11 +194,11 @@ public class HognoseEntity extends SnakeBase {
     private static int maxPattern = 2;
     private static int maxColor = 11;
 
-    private static final Ingredient FOOD_ITEMS = Ingredient.of(ItemInit.FROG_LEG.get());
+    private static final Ingredient FOOD_ITEMS = getFoodItems();// Ingredient.of(ItemInit.FROG_LEG.get(), Items.RABBIT, RatsItemRegistry.RAW_RAT.get());
 
 
     static final Predicate<Entity> PREY = (p_28498_) -> {
-        return p_28498_ instanceof Frog;
+        return p_28498_ instanceof Frog || p_28498_ instanceof Rabbit;
     };
 
     public HognoseEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -204,11 +210,19 @@ public class HognoseEntity extends SnakeBase {
     //patterns: 0=normal, 1=conda, 2=superconda
 
     private static boolean isTemptingItem(ItemStack pStack) {
-        return pStack.is(ItemInit.FROG_LEG.get());
+        return pStack.is(ItemInit.FROG_LEG.get()) || pStack.is(Items.RABBIT) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
     }
 
     public boolean isFood(ItemStack pStack) {
         return isTemptingItem(pStack);
+    }
+
+    private static Ingredient getFoodItems(){
+        return Ingredient.of(
+                ItemInit.FROG_LEG.get(),
+                Items.RABBIT,
+                (ModList.get().isLoaded("rats")? RatsItemRegistry.RAW_RAT.get(): ItemInit.FROG_LEG.get())
+        );
     }
 
 

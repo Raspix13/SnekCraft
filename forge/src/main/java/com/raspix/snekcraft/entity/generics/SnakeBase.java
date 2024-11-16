@@ -1,11 +1,5 @@
 package com.raspix.snekcraft.entity.generics;
 
-import java.util.EnumSet;
-import java.util.Random;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import com.raspix.snekcraft.blocks.CaveHideBlock;
 import com.raspix.snekcraft.blocks.HeatLampBlock;
 import com.raspix.snekcraft.blocks.MediumHideBlock;
@@ -16,8 +10,8 @@ import com.raspix.snekcraft.items.ItemInit;
 import com.raspix.snekcraft.items.SnakeBagItem;
 import com.raspix.snekcraft.sounds.SoundInit;
 import com.raspix.snekcraft.util.KeyInit;
-
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -40,40 +34,27 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.MoveToBlockGoal;
-import net.minecraft.world.entity.ai.goal.PanicGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fml.ModList;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.EnumSet;
+import java.util.Random;
 
 public abstract class SnakeBase extends Animal {
 
@@ -87,7 +68,7 @@ public abstract class SnakeBase extends Animal {
     public final AnimationState shoulderAnimationState = new AnimationState();
 
     // Entity Save Data
-    //private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
+    private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(SnakeBase.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> PATTERN = SynchedEntityData.defineId(SnakeBase.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> RESTING = SynchedEntityData.defineId(SnakeBase.class, EntityDataSerializers.BOOLEAN);
@@ -152,6 +133,13 @@ public abstract class SnakeBase extends Animal {
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
+        /** // For checking mods used
+        String modListTemp = "";
+        for (int i = 0; i < ModList.get().getMods().size(); i++){
+            System.out.println(ModList.get().getMods().get(i).getModId());
+            modListTemp += ModList.get().getMods().get(i).getModId();
+        }
+        Minecraft.getInstance().player.displayClientMessage(Component.literal(modListTemp), false);*/
 
         if (itemstack.getItem() == ItemInit.SNAKE_BAG.get()) {
             CompoundTag compound = itemstack.getTag();
@@ -201,7 +189,7 @@ public abstract class SnakeBase extends Animal {
     public void aiStep() {
         super.aiStep();
         this.updateSwingTime();
-        if (!this.level().isClientSide() && this.isAlive() && --this.shedTime <= 0) {
+        if (!this.level().isClientSide && this.isAlive() && --this.shedTime <= 0) {
             this.spawnAtLocation(ItemInit.SNAKE_SKIN.get());
             if(this.random.nextInt(5) == 0){
                 this.spawnAtLocation(ItemInit.SNAKE_TOOTH.get());
@@ -214,12 +202,12 @@ public abstract class SnakeBase extends Animal {
         }
 
     }
-    
-    public static boolean canSpawn(EntityType<? extends Mob> entity, LevelAccessor levelAccess, MobSpawnType spawnType, BlockPos pos, Random random){
+
+    public static boolean canSpawn(EntityType entity, LevelAccessor levelAccess, MobSpawnType spawnType, BlockPos pos, Random random){
         return checkSnakeSpawnRules(entity, levelAccess, spawnType, pos, random);
     }
 
-    public static boolean checkSnakeSpawnRules(EntityType<?> entity, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, Random pRandom) {
+    public static boolean checkSnakeSpawnRules(EntityType entity, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, Random pRandom) {
         return (pLevel.getBlockState(pPos.below()).is(BlockTags.AZALEA_GROWS_ON)) && isBrightEnoughToSpawn(pLevel, pPos);
     }
 
@@ -696,7 +684,7 @@ public abstract class SnakeBase extends Animal {
         double extraX = (radius) * Mth.sin((float) (Math.PI + angle));
         double extraZ = (radius) * Mth.cos(angle);
         double extraY = (riding.isCrouching() ? 1.1D : 1.4D);
-        Vec3 vec3 = (new Vec3(-0.2D, 0.0D, 0.0D)).yRot(-riding.yBodyRot * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
+        Vec3 vec3 = (new Vec3((double)-0.2f, 0.0D, 0.0D)).yRot(-riding.yBodyRot * ((float)Math.PI / 180F) - ((float)Math.PI / 2F));
         this.setYRot(riding.yHeadRot);
         this.yHeadRot = riding.yHeadRot;
         this.yRotO = riding.yHeadRot;

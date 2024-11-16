@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "snekcraft:snake_skin"
+    }
+  },
+  "result": {
+    "count": 1,
+    "item": "minecraft:leather"
+  }
+}
