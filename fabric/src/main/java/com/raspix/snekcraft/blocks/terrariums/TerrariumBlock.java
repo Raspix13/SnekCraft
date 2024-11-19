@@ -5,6 +5,7 @@ import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.blocks.SnekBlockStateProperties;
 import com.raspix.snekcraft.items.ItemInit;
 
@@ -173,7 +174,7 @@ public class TerrariumBlock extends GlassBlock {
 	        case DOWN:
 	            return DOWN;
 	        default:
-	        	System.out.println("something went wrong");
+	        	SnekCraft.logger.error("something went wrong");
 	        case NORTH:
 	        	return NORTH;
 		}

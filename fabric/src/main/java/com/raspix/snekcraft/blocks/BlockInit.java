@@ -8,11 +8,13 @@ import com.raspix.snekcraft.blocks.terrariums.CageBlock;
 import com.raspix.snekcraft.blocks.terrariums.LavaquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.TerrariumBlock;
 
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -58,9 +60,13 @@ public class BlockInit {
 	
 	public static void init() {
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "terrarium"), TERRARIUM);
+		BlockRenderLayerMap.INSTANCE.putBlock(TERRARIUM, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "aquarium"), AQUARIUM);
+		BlockRenderLayerMap.INSTANCE.putBlock(AQUARIUM, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "wire_cage"), WIRE_CAGE);
+		BlockRenderLayerMap.INSTANCE.putBlock(WIRE_CAGE, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "lavaquarium"), LAVAQUARIUM);
+		BlockRenderLayerMap.INSTANCE.putBlock(LAVAQUARIUM, RenderLayer.getCutout());
 		
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "dirt_hide"), DIRT_HIDE);
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "stone_hide"), STONE_HIDE);

@@ -2,6 +2,8 @@ package com.raspix.snekcraft.blocks;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.raspix.snekcraft.SnekCraft;
+
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -47,11 +49,11 @@ public class MediumHideBlock extends HorizontalFacingBlock {
 	
 	@Override
 	public void onBreak(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player) {
-		if(world.isClient()) {
+		if(!world.isClient()) {
 			HidePart hidePart = blockState.get(PART);
 			if(hidePart != HidePart.ENTRANCE) {
 				originDestroyHelper(world, blockPos, blockState, player, 0);
-			}else if(hidePart == HidePart.ENTRANCE) {
+			}else {
 				Direction direction = blockState.get(FACING);
 				BlockPos partPos = blockPos.offset(direction.rotateYClockwise());
 				BlockPos partPos2 = blockPos.offset(direction);
@@ -66,7 +68,22 @@ public class MediumHideBlock extends HorizontalFacingBlock {
 	}
 	
 	public void originDestroyHelper(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player, int iteration) {
-		if(world.isClient()) {
+		if(blockState.isOf(this)) {
+			HidePart hidePart = blockState.get(PART);
+			if(hidePart != HidePart.ENTRANCE && iteration <= 2) {
+				BlockPos newPos = blockPos.offset(blockState.get(FACING));
+				BlockState newState = world.getBlockState(newPos);
+				originDestroyHelper(world, newPos, newState, player, iteration + 1);
+			}else if(hidePart == HidePart.ENTRANCE) {
+				playerWillDestroyFinal(world, blockPos, blockState, player);
+			}
+		}else {
+			SnekCraft.logger.error("originDestroyHelper ran into a non-MedHide block, you suck at coding");
+		}
+	}
+	
+	public void playerWillDestroyFinal(World world, BlockPos blockPos, BlockState blockState, PlayerEntity player) {
+		if(!world.isClient()) {
 			HidePart hidePart = blockState.get(PART);
 			if(hidePart == HidePart.ENTRANCE) {
 				Direction direction = blockState.get(FACING);

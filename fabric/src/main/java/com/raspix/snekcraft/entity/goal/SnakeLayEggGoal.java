@@ -37,7 +37,7 @@ public class SnakeLayEggGoal extends MoveToTargetPosGoal {
 	public void tick() {
 		super.tick();
 		BlockPos blockPos = snake.getBlockPos();
-		if(!snake.isTouchingWater() && !hasReached()) {
+		if(!snake.isTouchingWater() && hasReached()) {
 			if(snake.layEggCounter < 1) {
 				snake.setLayingEgg(true);
 			}else if(snake.layEggCounter > getTickCount(200)) {

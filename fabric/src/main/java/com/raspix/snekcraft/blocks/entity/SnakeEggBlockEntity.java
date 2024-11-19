@@ -117,6 +117,8 @@ public class SnakeEggBlockEntity extends BlockEntity {
 	}
 	
 	public NbtCompound getPersistentData() {
-		return persistentData != null ? persistentData : new NbtCompound();
+		NbtCompound result = new NbtCompound();
+		writeNbt(result);
+		return result;
 	}
 }

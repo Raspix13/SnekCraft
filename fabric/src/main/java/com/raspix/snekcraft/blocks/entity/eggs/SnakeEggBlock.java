@@ -1,6 +1,5 @@
 package com.raspix.snekcraft.blocks.entity.eggs;
 
-
 import org.jetbrains.annotations.Nullable;
 
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
@@ -190,12 +189,12 @@ public abstract class SnakeEggBlock extends BlockWithEntity {
 			for(String nbtInfo: nbtCompound.getKeys()) {
 				if(nbtInfo.contains(NBT_KEY_BLOCK_STATE_TAG)) {
 					NbtCompound itemNbt = nbtCompound.getCompound(NBT_KEY_BLOCK_STATE_TAG);
-					areSameValues = areGeneticsSame(blockNbt, itemNbt); // Won't this get replaced all the time?
+					areSameValues = areGeneticsSame(blockNbt, itemNbt);
 				}
 			}
 		}
 		
-		return (!context.shouldCancelInteraction() && isSameEggType && areSameValues && blockState.get(EGGS) < 4) || blockState.canReplace(context);
+		return (!context.shouldCancelInteraction() && isSameEggType && areSameValues && blockState.get(EGGS) < 4) || super.canReplace(blockState, context);
 	}
 	
 	public boolean areGeneticsSame(NbtCompound blockNbt, NbtCompound itemNbt) {

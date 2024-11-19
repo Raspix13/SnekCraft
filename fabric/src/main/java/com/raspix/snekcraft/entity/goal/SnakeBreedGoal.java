@@ -20,7 +20,7 @@ public class SnakeBreedGoal extends AnimalMateGoal {
 	
 	@Override
 	public boolean canStart() {
-		return super.canStart() && snake.hasEgg();
+		return super.canStart() && !snake.hasEgg();
 	}
 	
 	@Override
