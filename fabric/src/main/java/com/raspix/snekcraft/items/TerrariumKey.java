@@ -21,6 +21,6 @@ public class TerrariumKey extends Item {
 	@Override
 	public void appendTooltip(ItemStack itemStack, @Nullable World world, List<Text> tooltipTexts, TooltipContext context) {
 		super.appendTooltip(itemStack, world, tooltipTexts, context);
-		tooltipTexts.add(Text.translatable("toooltip.snekcraft.terrarium_key.tooltip").formatted(Formatting.GRAY));
+		tooltipTexts.add(Text.translatable("tooltip.snekcraft.terrarium_key.tooltip").formatted(Formatting.GRAY));
 	}
 }
