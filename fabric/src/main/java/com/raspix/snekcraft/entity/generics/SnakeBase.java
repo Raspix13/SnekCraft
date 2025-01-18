@@ -401,7 +401,7 @@ public abstract class SnakeBase extends AnimalEntity {
 			}
 			
 			slitherAnimationState.setRunning(!isResting() && !isSittingOnShoulder() && limbAnimator.isLimbMoving(), age);
-			idleAnimationState.setRunning(!isResting() && !isSittingOnShoulder() && strikeAnimationState.isRunning(), age);
+			idleAnimationState.setRunning(!isResting() && !isSittingOnShoulder() && !strikeAnimationState.isRunning(), age);
 		}
 		super.tick();
 	}
