@@ -128,7 +128,7 @@ public class BallPythonEntity extends SnakeBase {
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{1}, new int[]{50})}};
     
-    private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(Items.CHICKEN, Items.EGG, Items.RABBIT, ItemInit.FROG_LEG); // Rats not available on Fabric, so just use fallback frog leg for parity
+    private static final Ingredient FOOD_ITEMS = Ingredient.ofItems(Items.CHICKEN, Items.EGG, Items.RABBIT); // Rats not available on Fabric, so just use fallback frog leg for parity
     
     static final Predicate<Entity> PREY = entity -> entity instanceof ChickenEntity || entity instanceof RabbitEntity;
     

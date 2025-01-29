@@ -1,5 +1,8 @@
 package com.raspix.snekcraft;
 
+import com.raspix.snekcraft.items.SnakeBagItem;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +18,8 @@ import com.raspix.snekcraft.util.KeyInit;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+
+import static com.raspix.snekcraft.items.ItemInit.SNAKE_BAG;
 
 public class SnekCraft implements ClientModInitializer, ModInitializer {
 	public static final String MOD_ID = "snekcraft";
@@ -33,5 +38,9 @@ public class SnekCraft implements ClientModInitializer, ModInitializer {
 	public void onInitializeClient() {
 		KeyInit.init();
 		ClientEvents.init();
+
+		ModelPredicateProviderRegistry.register(SNAKE_BAG, new Identifier("snake_count"), (stack, world, entity, seed) -> {
+			return Math.min(1, SnakeBagItem.getSnakesInStack(stack));
+		});
 	}
 }
