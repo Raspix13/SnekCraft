@@ -2,16 +2,10 @@ package com.raspix.snekcraft.entity;
 
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
-import com.raspix.snekcraft.entity.ball_python.BallPythonModel;
-import com.raspix.snekcraft.entity.ball_python.BallPythonRenderer;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
-import com.raspix.snekcraft.entity.hognose.HognoseModel;
-import com.raspix.snekcraft.entity.hognose.HognoseRenderer;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -36,12 +30,6 @@ public class ModEntityTypes {
 		
 		FabricDefaultAttributeRegistry.register(HOGNOSE, HognoseEntity.createLivingAttributes().build());
 		FabricDefaultAttributeRegistry.register(BALLPYTHON, BallPythonEntity.createLivingAttributes().build());
-		
-		EntityRendererRegistry.register(HOGNOSE, context -> new HognoseRenderer(context));
-		EntityRendererRegistry.register(BALLPYTHON, context -> new BallPythonRenderer(context));
-		
-		EntityModelLayerRegistry.registerModelLayer(HognoseModel.LAYER_LOCATION, HognoseModel::getTexturedModelData);
-		EntityModelLayerRegistry.registerModelLayer(BallPythonModel.LAYER_LOCATION, BallPythonModel::getTexturedModelData);
 		
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS, BiomeKeys.BADLANDS, BiomeKeys.MEADOW), HOGNOSE.getSpawnGroup(), HOGNOSE, 30, 1, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), HOGNOSE.getSpawnGroup(), HOGNOSE, 60, 1, 4);

@@ -60,13 +60,9 @@ public class BlockInit {
 	
 	public static void init() {
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "terrarium"), TERRARIUM);
-		BlockRenderLayerMap.INSTANCE.putBlock(TERRARIUM, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "aquarium"), AQUARIUM);
-		BlockRenderLayerMap.INSTANCE.putBlock(AQUARIUM, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "wire_cage"), WIRE_CAGE);
-		BlockRenderLayerMap.INSTANCE.putBlock(WIRE_CAGE, RenderLayer.getCutout());
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "lavaquarium"), LAVAQUARIUM);
-		BlockRenderLayerMap.INSTANCE.putBlock(LAVAQUARIUM, RenderLayer.getCutout());
 		
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "dirt_hide"), DIRT_HIDE);
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "stone_hide"), STONE_HIDE);
@@ -99,5 +95,12 @@ public class BlockInit {
 		
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "hoggie_egg"), SNAKE_EGG);
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "ball_python_egg"), BALL_PYTHON_EGG);
+	}
+	
+	public static void initClient() {
+		BlockRenderLayerMap.INSTANCE.putBlock(TERRARIUM, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(AQUARIUM, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(WIRE_CAGE, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(LAVAQUARIUM, RenderLayer.getCutout());
 	}
 }
