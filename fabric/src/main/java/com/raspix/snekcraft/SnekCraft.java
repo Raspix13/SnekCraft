@@ -27,6 +27,8 @@ public class SnekCraft implements ClientModInitializer, ModInitializer {
 	public static final Logger logger = LogManager.getLogger();
 	
 	public void onInitialize() {
+		SnekCraftConfig.loadConfig();
+
 		BlockInit.init();
 		ItemInit.init();
 		SoundInit.init();
@@ -34,7 +36,6 @@ public class SnekCraft implements ClientModInitializer, ModInitializer {
 		ModLootModifiers.init();
 		BlockEntityInit.init();
 		PacketHandler.init();
-		SnekCraftConfig.loadConfig();
 	}
 	
 	public void onInitializeClient() {

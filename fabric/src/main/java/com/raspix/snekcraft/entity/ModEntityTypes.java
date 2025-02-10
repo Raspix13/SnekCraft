@@ -1,6 +1,7 @@
 package com.raspix.snekcraft.entity;
 
 import com.raspix.snekcraft.SnekCraft;
+import com.raspix.snekcraft.SnekCraftConfig;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
 
@@ -31,9 +32,9 @@ public class ModEntityTypes {
 		FabricDefaultAttributeRegistry.register(HOGNOSE, HognoseEntity.createLivingAttributes().build());
 		FabricDefaultAttributeRegistry.register(BALLPYTHON, BallPythonEntity.createLivingAttributes().build());
 		
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS, BiomeKeys.BADLANDS, BiomeKeys.MEADOW), HOGNOSE.getSpawnGroup(), HOGNOSE, 30, 1, 4);
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), HOGNOSE.getSpawnGroup(), HOGNOSE, 60, 1, 4);
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SAVANNA, BiomeKeys.JUNGLE), BALLPYTHON.getSpawnGroup(), BALLPYTHON, 30, 1, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS, BiomeKeys.BADLANDS, BiomeKeys.MEADOW), HOGNOSE.getSpawnGroup(), HOGNOSE, SnekCraftConfig.HOGNOSE_SPAWN_WEIGHT, 1, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), HOGNOSE.getSpawnGroup(), HOGNOSE, SnekCraftConfig.HOGNOSE_DESERT_SPAWN_WEIGHT, 1, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SAVANNA, BiomeKeys.JUNGLE), BALLPYTHON.getSpawnGroup(), BALLPYTHON, SnekCraftConfig.BALLPYTHON_SPAWN_WEIGHT, 1, 4);
 		
 		SpawnRestriction.register(HOGNOSE, Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HognoseEntity::canSpawn);
 		SpawnRestriction.register(BALLPYTHON, Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, BallPythonEntity::canSpawn);

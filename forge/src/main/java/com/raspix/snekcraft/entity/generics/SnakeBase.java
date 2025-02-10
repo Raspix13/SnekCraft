@@ -1,5 +1,6 @@
 package com.raspix.snekcraft.entity.generics;
 
+import com.raspix.snekcraft.Config;
 import com.raspix.snekcraft.blocks.CaveHideBlock;
 import com.raspix.snekcraft.blocks.HeatLampBlock;
 import com.raspix.snekcraft.blocks.MediumHideBlock;
@@ -189,7 +190,7 @@ public abstract class SnakeBase extends Animal {
     public void aiStep() {
         super.aiStep();
         this.updateSwingTime();
-        if (!this.level().isClientSide && this.isAlive() && --this.shedTime <= 0) {
+        if (!this.level().isClientSide && Config.snakesDropItems && this.isAlive() && --this.shedTime <= 0) {
             this.spawnAtLocation(ItemInit.SNAKE_SKIN.get());
             if(this.random.nextInt(5) == 0){
                 this.spawnAtLocation(ItemInit.SNAKE_TOOTH.get());

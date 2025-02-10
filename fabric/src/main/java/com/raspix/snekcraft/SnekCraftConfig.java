@@ -12,11 +12,12 @@ import java.io.FileWriter;
 public class SnekCraftConfig {
 
     private static File configFile = new File("config/snekcraft_config.json");
+
     public static boolean SNAKES_DROP_ITEMS = true;
-    public static int LIKED_POFFIN_FRIEND_INCREMENT;
-    public static int NEUTRAL_POFFIN_FRIEND_INCREMENT;
-    public static int DISLIKED_POFFIN_FRIEND_DECREMENT;
-    public static int FOUL_POFFIN_FRIEND_DECREMENT;
+    public static int HOGNOSE_SPAWN_WEIGHT;
+    public static int HOGNOSE_DESERT_SPAWN_WEIGHT;
+    public static int BALLPYTHON_SPAWN_WEIGHT;
+
 
     public static void loadConfig() {
         try {
@@ -26,10 +27,9 @@ public class SnekCraftConfig {
             JsonObject config = JsonParser.parseReader(new FileReader(configFile)).getAsJsonObject();
 
             SNAKES_DROP_ITEMS = config.get("snakes_drop_items").getAsBoolean();
-            LIKED_POFFIN_FRIEND_INCREMENT = config.get("liked_poffin_friend_increment").getAsInt();
-            NEUTRAL_POFFIN_FRIEND_INCREMENT = config.get("neutral_poffin_friend_increment").getAsInt();
-            DISLIKED_POFFIN_FRIEND_DECREMENT = config.get("disliked_poffin_friend_decrement").getAsInt();
-            FOUL_POFFIN_FRIEND_DECREMENT = config.get("foul_poffin_friend_decrement").getAsInt();
+            HOGNOSE_SPAWN_WEIGHT = config.get("hognose_spawn_weight").getAsInt();
+            HOGNOSE_DESERT_SPAWN_WEIGHT = config.get("hognose_desert_spawn_weight").getAsInt();
+            BALLPYTHON_SPAWN_WEIGHT = config.get("ballpython_spawn_weight").getAsInt();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,10 +39,9 @@ public class SnekCraftConfig {
     public static void createDefaultConfig() {
         JsonObject config = new JsonObject();
         config.addProperty("snakes_drop_items", true);
-        config.addProperty("liked_poffin_friend_increment", 5);
-        config.addProperty("neutral_poffin_friend_increment", 1);
-        config.addProperty("disliked_poffin_friend_decrement", 5);
-        config.addProperty("foul_poffin_friend_decrement", 20);
+        config.addProperty("hognose_spawn_weight", 30);
+        config.addProperty("hognose_desert_spawn_weight", 60);
+        config.addProperty("ballpython_spawn_weight", 30);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             writer.write(config.toString());
