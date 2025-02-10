@@ -2,6 +2,7 @@ package com.raspix.snekcraft.entity.generics;
 
 import java.util.Random;
 
+import com.raspix.snekcraft.SnekCraftConfig;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -176,7 +177,7 @@ public abstract class SnakeBase extends AnimalEntity {
 	public void tickMovement() {
 		super.tickMovement();
 		tickHandSwing();
-		if(!getWorld().isClient() && isAlive() && --shedTime <= 0) {
+		if(!getWorld().isClient() && SnekCraftConfig.SNAKES_DROP_ITEMS && isAlive() && --shedTime <= 0) {
 			dropItem(ItemInit.SNAKE_SKIN);
 			if(random.nextInt(5) == 0) {
 				dropItem(ItemInit.SNAKE_TOOTH);
