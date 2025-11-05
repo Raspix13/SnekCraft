@@ -2,6 +2,7 @@ package com.raspix.snekcraft.blocks;
 
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.blocks.entity.eggs.BallPythonEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.CornSnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.eggs.HognoseEggBlock;
 import com.raspix.snekcraft.blocks.terrariums.AquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.CageBlock;
@@ -77,6 +78,7 @@ public class BlockInit {
 
     public static final RegistryObject<Block> SNAKE_EGG = BLOCKS.register("hoggie_egg", () -> new HognoseEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
     public static final RegistryObject<Block> BALL_PYTHON_EGG = BLOCKS.register("ball_python_egg", () -> new BallPythonEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
+    public static final RegistryObject<Block> CORN_SNAKE_EGG = BLOCKS.register("corn_snake_egg", () -> new CornSnakeEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
 
     private static boolean never(BlockState state, BlockGetter blockGetter, BlockPos pos, EntityType<?> entityType) {
         return false;

@@ -29,8 +29,10 @@ public class ItemInit {
     public static final RegistryObject<SnakeBagItem> SNAKE_BAG = ITEMS.register("snake_bag", () -> new SnakeBagItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<ForgeSpawnEggItem> HOGNOSE_SPAWN_EGG = ITEMS.register("hognose_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.HOGNOSE, 0xd6bf96, 0x40351c, new Item.Properties()));
     public static final RegistryObject<ForgeSpawnEggItem> BALL_PYTHON_SPAWN_EGG = ITEMS.register("ball_python_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.BALLPYTHON, 0x352213, 0xb17c3b, new Item.Properties()));
+    public static final RegistryObject<ForgeSpawnEggItem> CORN_SNAKE_SPAWN_EGG = ITEMS.register("corn_snake_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.CORNSNAKE, 0x352213, 0xb17c3b, new Item.Properties()));
     public static final RegistryObject<BlockItem> HOGGIE_EGG = ITEMS.register("hoggie_egg", () -> new SnekEggItem(BlockInit.SNAKE_EGG.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> BALL_PYTHON_EGG = ITEMS.register("ball_python_egg", () -> new SnekEggItem(BlockInit.BALL_PYTHON_EGG.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> CORN_SNAKE_EGG = ITEMS.register("corn_snake_egg", () -> new SnekEggItem(BlockInit.CORN_SNAKE_EGG.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> TERRARIUM_KEY = ITEMS.register("terrarium_key", () -> new TerrariumKey(new Item.Properties()));
     public static final RegistryObject<BlockItem> TERRARIUM_ITEM = ITEMS.register("terrarium", () -> new BlockItem(BlockInit.TERRARIUM.get(), new Item.Properties()));
@@ -90,6 +92,7 @@ public class ItemInit {
                 output.accept(SNAKE_BAG.get());
                 output.accept(HOGNOSE_SPAWN_EGG.get());
                 output.accept(BALL_PYTHON_SPAWN_EGG.get());
+                output.accept(CORN_SNAKE_SPAWN_EGG.get());
 
                 output.accept(TERRARIUM_KEY.get());
                 output.accept(TERRARIUM_ITEM.get());
@@ -99,6 +102,7 @@ public class ItemInit {
 
                 output.accept(HOGGIE_EGG.get());
                 output.accept(BALL_PYTHON_EGG.get());
+                output.accept(CORN_SNAKE_EGG.get());
                 output.accept(HEAT_LAMP.get());
                 output.accept(LAMP_POST.get());
 

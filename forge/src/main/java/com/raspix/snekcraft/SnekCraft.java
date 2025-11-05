@@ -7,6 +7,9 @@ import com.raspix.snekcraft.entity.ModEntityTypes;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
 import com.raspix.snekcraft.entity.ball_python.BallPythonModel;
 import com.raspix.snekcraft.entity.ball_python.BallPythonRenderer;
+import com.raspix.snekcraft.entity.corn.CornSnakeEntity;
+import com.raspix.snekcraft.entity.corn.CornSnakeModel;
+import com.raspix.snekcraft.entity.corn.CornSnakeRenderer;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
 import com.raspix.snekcraft.entity.hognose.HognoseModel;
 import com.raspix.snekcraft.entity.hognose.HognoseRenderer;
@@ -174,12 +177,14 @@ public class SnekCraft {
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event){
             event.registerEntityRenderer(ModEntityTypes.HOGNOSE.get(), HognoseRenderer::new);
             event.registerEntityRenderer(ModEntityTypes.BALLPYTHON.get(), BallPythonRenderer::new);
+            event.registerEntityRenderer(ModEntityTypes.CORNSNAKE.get(), CornSnakeRenderer::new);
         }
 
         @SubscribeEvent
         public static void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions event){
             event.registerLayerDefinition(HognoseModel.LAYER_LOCATION, HognoseModel::createBodyLayer);
             event.registerLayerDefinition(BallPythonModel.LAYER_LOCATION, BallPythonModel::createBodyLayer);
+            event.registerLayerDefinition(CornSnakeModel.LAYER_LOCATION, CornSnakeModel::createBodyLayer);
         }
     }
 
@@ -190,6 +195,7 @@ public class SnekCraft {
         public static void entityAttributes(EntityAttributeCreationEvent event) {
             event.put(ModEntityTypes.HOGNOSE.get(), HognoseEntity.createLivingAttributes().build());
             event.put(ModEntityTypes.BALLPYTHON.get(), BallPythonEntity.createLivingAttributes().build());
+            event.put(ModEntityTypes.CORNSNAKE.get(), BallPythonEntity.createLivingAttributes().build());
         }
 
         @SubscribeEvent
@@ -205,6 +211,9 @@ public class SnekCraft {
 
             event.register(ModEntityTypes.BALLPYTHON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                     BallPythonEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+
+            event.register(ModEntityTypes.CORNSNAKE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
+                    CornSnakeEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
 
         }
     }

@@ -2,6 +2,7 @@ package com.raspix.snekcraft.entity;
 
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
+import com.raspix.snekcraft.entity.corn.CornSnakeEntity;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
 
 import net.minecraft.resources.ResourceLocation;
@@ -23,6 +24,10 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<BallPythonEntity>> BALLPYTHON = ENTITIES.register("ball_python",
             () -> EntityType.Builder.of(BallPythonEntity::new, MobCategory.CREATURE).sized(0.4f, 0.3f)
                     .build(new ResourceLocation(SnekCraft.MOD_ID, "ball_python").toString()));
+
+    public static final RegistryObject<EntityType<CornSnakeEntity>> CORNSNAKE = ENTITIES.register("corn_snake",
+            () -> EntityType.Builder.of(CornSnakeEntity::new, MobCategory.CREATURE).sized(0.4f, 0.3f)
+                    .build(new ResourceLocation(SnekCraft.MOD_ID, "corn_snake").toString()));
 
     public static void register(IEventBus eventBus){
         ENTITIES.register(eventBus);
