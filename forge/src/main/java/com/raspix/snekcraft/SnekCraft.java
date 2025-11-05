@@ -42,9 +42,16 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SnekCraft.MOD_ID)
@@ -110,6 +117,24 @@ public class SnekCraft {
     {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+
+
+        /**ResourceLocation lol = new ResourceLocation(MOD_ID, "data/snekcraft/forge/biome_modifier");//ForgeRegistries.FILE_RESOURCE_PACK.get(fileLocation).getFile()
+        System.out.println(FMLPaths.CONFIGDIR.get().resolve(lol.getPath()));
+        System.out.println(FMLPaths.GAMEDIR.get().resolve(lol.getPath()));
+        System.out.println(FMLPaths.FMLCONFIG.get().resolve(lol.getPath()));
+        System.out.println(FMLPaths.MODSDIR.get().resolve(lol.getPath()));
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(lol.getPath()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Process each line of the file
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
     }
 
     @Mod.EventBusSubscriber(modid = SnekCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -170,16 +195,17 @@ public class SnekCraft {
         @SubscribeEvent
         public static void commonSetup(FMLCommonSetupEvent event){
             event.enqueueWork(PacketHandler::init);
-
         }
 
         @SubscribeEvent
         public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event){
+
             event.register(ModEntityTypes.HOGNOSE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
-                    HognoseEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+                    HognoseEntity::canSpawnThis, SpawnPlacementRegisterEvent.Operation.OR);
 
             event.register(ModEntityTypes.BALLPYTHON.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE,
                     BallPythonEntity::canSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+
         }
     }
 

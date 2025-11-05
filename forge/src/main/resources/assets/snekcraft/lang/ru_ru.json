@@ -2,6 +2,9 @@
   "itemGroup.snekcraft": "SnekCraft",
   "creativetab.snake_tab": "SnekCraft",
 
+  "entity.snekcraft.hognose": "свиноносой змеи",
+  "entity.snekcraft.ball_python": "королевского питона",
+
   "item.snekcraft.snake_skin": "Змеиная кожа",
   "item.snekcraft.snake_tooth": "Змеиный зуб",
   "item.snekcraft.snake_bag": "Змеиная сумка",

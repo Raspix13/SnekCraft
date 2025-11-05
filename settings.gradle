@@ -20,10 +20,10 @@ pluginManagement {
 rootProject.name = 'SnekCraft'
 
 gradle.ext.modid = 'snekcraft'
-gradle.ext.modversion = '1.1.7'
+gradle.ext.modversion = '1.1.8'
 gradle.ext.modname = 'Snekcraft'
 gradle.ext.moddesc = 'A mod that adds snakes.'
-gradle.ext.modauthor = 'Raspix, Piedpipecleaner'
+gradle.ext.modauthor = 'Raspix, Piedpipecleaner, '
 gradle.ext.modlicense = 'All Rights Reserved'
 gradle.ext.modgroup = 'com.raspix.snekcraft'
 

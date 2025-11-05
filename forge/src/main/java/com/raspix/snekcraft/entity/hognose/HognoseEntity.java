@@ -363,4 +363,12 @@ public class HognoseEntity extends SnakeBase {
     public static boolean canSpawn(EntityType<HognoseEntity> entityType, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource randomSource) {
         return checkSnakeSpawnRules(entityType, level, spawnType, pos, randomSource);
     }
+
+    public static boolean canSpawnThis(EntityType<HognoseEntity> entityType, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource randomSource) {
+        return checkSnakeSpawnRules(entityType, level, spawnType, pos, randomSource);
+    }
+
+    /**public static <T extends Entity> boolean canSpawnThis(EntityType<T> entityType, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource randomSource) {
+        return checkSnakeSpawnRules((EntityType<HognoseEntity>) entityType, level, spawnType, pos, randomSource);
+    }*/
 }

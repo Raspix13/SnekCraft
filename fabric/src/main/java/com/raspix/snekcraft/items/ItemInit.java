@@ -23,7 +23,7 @@ public class ItemInit {
 	public static final Item COOKED_FROG_LEG = new Item(new Item.Settings().food(FoodComponents.COOKED_PORKCHOP));
 	public static final Item SNAKE_BAG = new SnakeBagItem(new Item.Settings().maxCount(1));
 	public static final Item HOGNOSE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HOGNOSE, 0xd6bf96, 0x40351c, new Item.Settings());
-	public static final Item BALL_PYTHON_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.BALLPYTHON, 0xd6bf96, 0x40351c, new Item.Settings());
+	public static final Item BALL_PYTHON_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.BALLPYTHON, 0x352213, 0xb17c3b, new Item.Settings());
 	public static final Item HOGGIE_EGG = new SnekEggItem(BlockInit.SNAKE_EGG, new Item.Settings());
 	public static final Item BALL_PYTHON_EGG = new SnekEggItem(BlockInit.BALL_PYTHON_EGG, new Item.Settings());
 	

@@ -172,7 +172,12 @@ public abstract class SnakeBase extends AnimalEntity {
 		
 		return super.interactMob(player, hand);
 	}
-	
+
+
+	public void aiStep() {
+
+
+	}
 	@Override
 	public void tickMovement() {
 		super.tickMovement();
@@ -188,6 +193,7 @@ public abstract class SnakeBase extends AnimalEntity {
 				shedTime = this.random.nextInt(480000) + 48000;
 			}
 		}
+
 	}
 	
 	// Does nothing? Not on Forge either (not overridden)

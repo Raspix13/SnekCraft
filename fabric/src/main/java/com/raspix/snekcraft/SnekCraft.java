@@ -37,6 +37,7 @@ public class SnekCraft implements ClientModInitializer, ModInitializer {
 		BlockEntityInit.init();
 		PacketHandler.init();
 	}
+
 	
 	public void onInitializeClient() {
 		KeyInit.init();
