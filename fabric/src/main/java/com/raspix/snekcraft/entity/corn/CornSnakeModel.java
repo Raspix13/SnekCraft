@@ -16,7 +16,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class CornSnakeModel<T extends CornSnakeEntity> extends SinglePartEntityModel<T> {
-    public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(SnekCraft.MOD_ID, "ball_python"), "main");
+    public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(SnekCraft.MOD_ID, "corn_snake"), "main");
 
     private final ModelPart root;
     private final ModelPart head;

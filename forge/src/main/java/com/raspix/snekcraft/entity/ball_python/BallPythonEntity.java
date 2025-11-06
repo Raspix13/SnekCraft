@@ -36,7 +36,8 @@ public class BallPythonEntity extends SnakeBase {
     private static int maxPattern = 4;
     private static int maxColor = 10;
 
-    //public final AnimationState periscopeAnimationState = new AnimationState();
+    public final AnimationState periscopeAnimationState = new AnimationState();
+    public int scopeTime = this.random.nextInt(500) + 500;
 
     //<editor-fold desc="Region Colors">
     // 0: normal, 1: piebald, 2: pinstripe, 3: pinpied
@@ -333,7 +334,7 @@ public class BallPythonEntity extends SnakeBase {
         return (pLevel.getBlockState(pPos.below()).is(BlockTags.AZALEA_GROWS_ON)) && isBrightEnoughToSpawn(pLevel, pPos);
     }
 
-    /**@Override
+    @Override
     public void tick(){
         if(level().isClientSide()) {
 
@@ -350,11 +351,18 @@ public class BallPythonEntity extends SnakeBase {
                 this.hideAnimationState.stop();
             }
 
-            if (!this.isResting() && !this.isSittingOnShoulder() && !this.walkAnimation.isMoving()) {
+            if (!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isStarted() && !this.walkAnimation.isMoving() && scopeTime <= 0) {
                 this.periscopeAnimationState.start(this.tickCount);
+                this.scopeTime = -1;
+
             }else {
                 this.periscopeAnimationState.stop();
+                if(scopeTime < -10){
+                    this.scopeTime = this.random.nextInt(500) + 500;
+                }
+
             }
+            this.scopeTime--;
 
             if (this.bleleleTime <= 0 ) {
                 this.bleleleTime = this.random.nextInt(500) + 500;
@@ -377,9 +385,9 @@ public class BallPythonEntity extends SnakeBase {
 
 
             this.slitherAnimationState.animateWhen(!this.isResting() && !this.isSittingOnShoulder() && this.walkAnimation.isMoving(), this.tickCount);
-            this.idleAnimationState.animateWhen(!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isStarted(), this.tickCount);
+            this.idleAnimationState.animateWhen(!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isStarted() && this.scopeTime>0, this.tickCount);
 
         }
         super.tickBypass();
-    }*/
+    }
 }

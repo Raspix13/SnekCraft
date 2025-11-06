@@ -102,7 +102,7 @@ public class BallPythonModel<T extends BallPythonEntity> extends HierarchicalMod
 
 
         animate(entity.bleleleAnimationState, BallPythonAnimation.blelele, ageInTicks);
-        //animate(entity.periscopeAnimationState, BallPythonAnimation.periscope, ageInTicks);
+        animate(entity.periscopeAnimationState, BallPythonAnimation.periscope, ageInTicks);
         animate(entity.hideAnimationState, BallPythonAnimation.hide, ageInTicks);
         animate(entity.shoulderAnimationState, BallPythonAnimation.shoulder, ageInTicks);
         animate(entity.strikeAnimationState, BallPythonAnimation.strike, ageInTicks);

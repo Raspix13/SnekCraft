@@ -746,6 +746,9 @@ public abstract class SnakeBase extends Animal {
         super.tick();
     }
 
+    /**
+     * Used by child snakes to skip the snakebase tick but still use the super tick
+     */
     public void tickBypass(){
         super.tick();
     }
