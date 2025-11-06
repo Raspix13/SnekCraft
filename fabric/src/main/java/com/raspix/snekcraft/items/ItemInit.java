@@ -24,8 +24,10 @@ public class ItemInit {
 	public static final Item SNAKE_BAG = new SnakeBagItem(new Item.Settings().maxCount(1));
 	public static final Item HOGNOSE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HOGNOSE, 0xd6bf96, 0x40351c, new Item.Settings());
 	public static final Item BALL_PYTHON_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.BALLPYTHON, 0x352213, 0xb17c3b, new Item.Settings());
+	public static final Item CORN_SNAKE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.CORNSNAKE, 0x216587, 0x117779, new Item.Settings());
 	public static final Item HOGGIE_EGG = new SnekEggItem(BlockInit.SNAKE_EGG, new Item.Settings());
 	public static final Item BALL_PYTHON_EGG = new SnekEggItem(BlockInit.BALL_PYTHON_EGG, new Item.Settings());
+	public static final Item CORN_SNAKE_EGG = new SnekEggItem(BlockInit.CORN_SNAKE_EGG, new Item.Settings());
 	
 	public static final Item TERRARIUM_KEY = new TerrariumKey(new Item.Settings());
 	public static final Item TERRARIUM_ITEM = new BlockItem(BlockInit.TERRARIUM, new Item.Settings());
@@ -78,6 +80,7 @@ public class ItemInit {
 				entries.add(SNAKE_BAG);
 				entries.add(HOGNOSE_SPAWN_EGG);
 				entries.add(BALL_PYTHON_SPAWN_EGG);
+				entries.add(CORN_SNAKE_SPAWN_EGG);
 				
 				entries.add(TERRARIUM_KEY);
 				entries.add(TERRARIUM_ITEM);
@@ -87,6 +90,7 @@ public class ItemInit {
 				
 				entries.add(HOGGIE_EGG);
 				entries.add(BALL_PYTHON_EGG);
+				entries.add(CORN_SNAKE_EGG);
 				entries.add(HEAT_LAMP);
 				entries.add(LAMP_POST);
 				
@@ -125,8 +129,10 @@ public class ItemInit {
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "snake_bag"), SNAKE_BAG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "hognose_spawn_egg"), HOGNOSE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "ball_python_spawn_egg"), BALL_PYTHON_SPAWN_EGG);
+		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "corn_snake_spawn_egg"), CORN_SNAKE_SPAWN_EGG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "hoggie_egg"), HOGGIE_EGG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "ball_python_egg"), BALL_PYTHON_EGG);
+		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "corn_snake_egg"), CORN_SNAKE_EGG);
 		
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "terrarium_key"), TERRARIUM_KEY);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "terrarium"), TERRARIUM_ITEM);

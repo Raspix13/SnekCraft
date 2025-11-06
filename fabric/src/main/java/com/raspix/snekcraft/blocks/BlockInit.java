@@ -2,6 +2,7 @@ package com.raspix.snekcraft.blocks;
 
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.blocks.entity.eggs.BallPythonEggBlock;
+import com.raspix.snekcraft.blocks.entity.eggs.CornSnakeEggBlock;
 import com.raspix.snekcraft.blocks.entity.eggs.HognoseEggBlock;
 import com.raspix.snekcraft.blocks.terrariums.AquariumBlock;
 import com.raspix.snekcraft.blocks.terrariums.CageBlock;
@@ -57,6 +58,7 @@ public class BlockInit {
 	
 	public static final Block SNAKE_EGG = new HognoseEggBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(0.5f).sounds(BlockSoundGroup.METAL).ticksRandomly().nonOpaque());
 	public static final Block BALL_PYTHON_EGG = new BallPythonEggBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(0.5f).sounds(BlockSoundGroup.METAL).ticksRandomly().nonOpaque());
+	public static final Block CORN_SNAKE_EGG = new CornSnakeEggBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(0.5f).sounds(BlockSoundGroup.METAL).ticksRandomly().nonOpaque());
 	
 	public static void init() {
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "terrarium"), TERRARIUM);
@@ -95,6 +97,7 @@ public class BlockInit {
 		
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "hoggie_egg"), SNAKE_EGG);
 		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "ball_python_egg"), BALL_PYTHON_EGG);
+		Registry.register(Registries.BLOCK, Identifier.of(SnekCraft.MOD_ID, "corn_snake_egg"), CORN_SNAKE_EGG);
 	}
 	
 	public static void initClient() {

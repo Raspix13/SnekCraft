@@ -3,6 +3,7 @@ package com.raspix.snekcraft.entity;
 import com.raspix.snekcraft.SnekCraft;
 import com.raspix.snekcraft.SnekCraftConfig;
 import com.raspix.snekcraft.entity.ball_python.BallPythonEntity;
+import com.raspix.snekcraft.entity.corn.CornSnakeEntity;
 import com.raspix.snekcraft.entity.hognose.HognoseEntity;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -24,19 +25,25 @@ public class ModEntityTypes {
 	public static final EntityType<HognoseEntity> HOGNOSE = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HognoseEntity::new).dimensions(EntityDimensions.changing(0.4f, 0.3f)).build();
 	
 	public static final EntityType<BallPythonEntity> BALLPYTHON = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BallPythonEntity::new).dimensions(EntityDimensions.changing(0.4f, 0.3f)).build();
+
+	public static final EntityType<CornSnakeEntity> CORNSNAKE = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CornSnakeEntity::new).dimensions(EntityDimensions.changing(0.4f, 0.3f)).build();
 	
 	public static void init(){
 		Registry.register(Registries.ENTITY_TYPE, Identifier.of(SnekCraft.MOD_ID, "hognose"), HOGNOSE);
 		Registry.register(Registries.ENTITY_TYPE, Identifier.of(SnekCraft.MOD_ID, "ball_python"), BALLPYTHON);
+		Registry.register(Registries.ENTITY_TYPE, Identifier.of(SnekCraft.MOD_ID, "corn_snake"), CORNSNAKE);
 		
 		FabricDefaultAttributeRegistry.register(HOGNOSE, HognoseEntity.createLivingAttributes().build());
 		FabricDefaultAttributeRegistry.register(BALLPYTHON, BallPythonEntity.createLivingAttributes().build());
+		FabricDefaultAttributeRegistry.register(CORNSNAKE, CornSnakeEntity.createLivingAttributes().build());
 		
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS, BiomeKeys.BADLANDS, BiomeKeys.MEADOW), HOGNOSE.getSpawnGroup(), HOGNOSE, SnekCraftConfig.HOGNOSE_SPAWN_WEIGHT, 1, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT), HOGNOSE.getSpawnGroup(), HOGNOSE, SnekCraftConfig.HOGNOSE_DESERT_SPAWN_WEIGHT, 1, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS, BiomeKeys.SAVANNA, BiomeKeys.JUNGLE), BALLPYTHON.getSpawnGroup(), BALLPYTHON, SnekCraftConfig.BALLPYTHON_SPAWN_WEIGHT, 1, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SWAMP, BiomeKeys.JUNGLE), CORNSNAKE.getSpawnGroup(), CORNSNAKE, SnekCraftConfig.CORNSNAKE_SPAWN_WEIGHT, 1, 4);
 		
 		SpawnRestriction.register(HOGNOSE, Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HognoseEntity::canSpawn);
 		SpawnRestriction.register(BALLPYTHON, Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, BallPythonEntity::canSpawn);
+		SpawnRestriction.register(CORNSNAKE, Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, CornSnakeEntity::canSpawn);
 	}
 }

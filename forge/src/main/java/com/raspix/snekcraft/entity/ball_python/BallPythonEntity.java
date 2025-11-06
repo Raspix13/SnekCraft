@@ -36,7 +36,9 @@ public class BallPythonEntity extends SnakeBase {
     private static int maxPattern = 4;
     private static int maxColor = 10;
 
-    // region Colors
+    //public final AnimationState periscopeAnimationState = new AnimationState();
+
+    //<editor-fold desc="Region Colors">
     // 0: normal, 1: piebald, 2: pinstripe, 3: pinpied
     public static GenePool[][] colorGenetics = new GenePool[][]{
             {new GenePool(new int[]{0, 1, 2, 3}, new int[]{70, 10, 10, 10}),
@@ -94,16 +96,70 @@ public class BallPythonEntity extends SnakeBase {
                     new GenePool(new int[]{9, 1, 7, 10}, new int[]{25, 25, 25, 25}),
                     new GenePool(new int[]{9, 1, 4}, new int[]{33, 33, 33}),
                     new GenePool(new int[]{10, 9, 7, 4, 1}, new int[]{20, 20, 20, 20, 20})},
-            {new GenePool(new int[]{2}, new int[]{100}), new GenePool(new int[]{2, 7}, new int[]{50, 50}), new GenePool(new int[]{2, 5}, new int[]{50, 50}), new GenePool(new int[]{8, 2}, new int[]{50, 50}), new GenePool(new int[]{7}, new int[]{100}), new GenePool(new int[]{5}, new int[]{100}), new GenePool(new int[]{8}, new int[]{100}), new GenePool(new int[]{5, 2, 7}, new int[]{33, 33, 33}), new GenePool(new int[]{8, 5, 2}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 8, 7, 2}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{10, 8, 7, 2, 5}, new int[]{20, 20, 20, 20, 20})},
+            {new GenePool(new int[]{2}, new int[]{100}), new GenePool(new int[]{2, 7}, new int[]{50, 50}),
+                    new GenePool(new int[]{2, 5}, new int[]{50, 50}), new GenePool(new int[]{8, 2}, new int[]{50, 50}),
+                    new GenePool(new int[]{7}, new int[]{100}), new GenePool(new int[]{5}, new int[]{100}),
+                    new GenePool(new int[]{8}, new int[]{100}), new GenePool(new int[]{5, 2, 7}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{8, 5, 2}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 8, 7, 2}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{10, 8, 7, 2, 5}, new int[]{20, 20, 20, 20, 20})},
             {new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{3, 9}, new int[]{50, 50}),
                     new GenePool(new int[]{3, 8}, new int[]{50, 50}),
                     new GenePool(new int[]{3, 6}, new int[]{50, 50}),
-                    new GenePool(new int[]{9}, new int[]{100}), new GenePool(new int[]{8}, new int[]{100}), new GenePool(new int[]{6}, new int[]{100}), new GenePool(new int[]{10, 9, 8, 3}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{8, 6, 3}, new int[]{33, 33, 33}), new GenePool(new int[]{9, 6, 3}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 9, 8, 3, 6}, new int[]{20, 20, 20, 20, 20})}, {new GenePool(new int[]{0, 1, 2, 7}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{1, 2, 7, 4, 0}, new int[]{25, 16, 25, 16, 16}), new GenePool(new int[]{2, 7, 5, 0, 1}, new int[]{25, 25, 16, 16, 16}), new GenePool(new int[]{0, 1, 3, 2, 8, 7, 9, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}), new GenePool(new int[]{4, 1, 7}, new int[]{33, 33, 33}), new GenePool(new int[]{5, 2, 7}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 9, 8, 3}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{7, 4, 5, 1, 2, 0}, new int[]{30, 11, 11, 18, 18, 11}), new GenePool(new int[]{10, 8, 7, 9, 5, 2, 3, 1, 0}, new int[]{15, 15, 15, 8, 8, 15, 8, 8, 8}), new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0}, new int[]{15, 8, 15, 15, 8, 8, 8, 15, 8}), new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0, 5}, new int[]{16, 10, 16, 10, 7, 10, 7, 10, 7, 7})},
+                    new GenePool(new int[]{9}, new int[]{100}),
+                    new GenePool(new int[]{8}, new int[]{100}),
+                    new GenePool(new int[]{6}, new int[]{100}),
+                    new GenePool(new int[]{10, 9, 8, 3}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{8, 6, 3}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{9, 6, 3}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{10, 9, 8, 3, 6}, new int[]{20, 20, 20, 20, 20})},
+            {new GenePool(new int[]{0, 1, 2, 7}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{1, 2, 7, 4, 0}, new int[]{25, 16, 25, 16, 16}),
+                    new GenePool(new int[]{2, 7, 5, 0, 1}, new int[]{25, 25, 16, 16, 16}),
+                    new GenePool(new int[]{0, 1, 3, 2, 8, 7, 9, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}),
+                    new GenePool(new int[]{4, 1, 7}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{5, 2, 7}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{10, 9, 8, 3}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{7, 4, 5, 1, 2, 0}, new int[]{30, 11, 11, 18, 18, 11}),
+                    new GenePool(new int[]{10, 8, 7, 9, 5, 2, 3, 1, 0}, new int[]{15, 15, 15, 8, 8, 15, 8, 8, 8}),
+                    new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0}, new int[]{15, 8, 15, 15, 8, 8, 8, 15, 8}),
+                    new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0, 5}, new int[]{16, 10, 16, 10, 7, 10, 7, 10, 7, 7})},
             {new GenePool(new int[]{0, 3, 2, 8}, new int[]{25, 25, 25, 25}),
-                    new GenePool(new int[]{3, 2, 1, 0, 9, 7, 8, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}), new GenePool(new int[]{2, 8, 0, 3, 5}, new int[]{25, 25, 16, 16, 16}), new GenePool(new int[]{3, 8, 0, 2, 6}, new int[]{25, 25, 16, 16, 16}), new GenePool(new int[]{9, 1, 7, 10}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{8, 5, 2}, new int[]{33, 33, 33}), new GenePool(new int[]{8, 6, 3}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 8, 7, 9, 5, 2, 3, 1, 0}, new int[]{15, 15, 15, 8, 8, 15, 8, 8, 8}), new GenePool(new int[]{8, 6, 3, 2, 0, 5}, new int[]{30, 11, 18, 18, 11, 11}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0}, new int[]{15, 15, 8, 15, 8, 8, 15, 8, 8}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 5}, new int[]{16, 16, 10, 10, 7, 10, 10, 7, 7, 7})}, {new GenePool(new int[]{0, 9, 1, 3}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{1, 3, 9, 4, 0}, new int[]{25, 16, 16, 16, 16}), new GenePool(new int[]{0, 1, 2, 3, 7, 9, 8, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}), new GenePool(new int[]{3, 9, 1, 0, 6}, new int[]{25, 25, 16, 16, 16}), new GenePool(new int[]{9, 1, 4}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 8, 7, 2}, new int[]{25, 25, 25, 25}), new GenePool(new int[]{9, 6, 3}, new int[]{33, 33, 33}), new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0}, new int[]{15, 8, 15, 15, 8, 8, 8, 15, 8}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0}, new int[]{15, 15, 8, 15, 8, 8, 15, 8, 8}), new GenePool(new int[]{9, 6, 4, 3, 1, 0}, new int[]{30, 11, 11, 18, 18, 11}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 4}, new int[]{16, 10, 10, 16, 7, 7, 10, 10, 7, 7})}, {new GenePool(new int[]{0, 9, 8, 7, 3, 1, 2, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}), new GenePool(new int[]{0, 2, 3, 8, 4, 1, 7, 9, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}), new GenePool(new int[]{0, 1, 3, 5, 9, 2, 7, 8, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}), new GenePool(new int[]{0, 2, 1, 6, 7, 3, 8, 9, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}), new GenePool(new int[]{10, 9, 7, 4, 1}, new int[]{20, 20, 20, 20, 20}), new GenePool(new int[]{10, 8, 7, 2, 5}, new int[]{20, 20, 20, 20, 20}), new GenePool(new int[]{10, 9, 8, 3, 6}, new int[]{20, 20, 20, 20, 20}), new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0, 5}, new int[]{16, 10, 16, 10, 7, 10, 7, 10, 7, 7}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 5}, new int[]{16, 16, 10, 10, 7, 10, 10, 7, 7, 7}), new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 4}, new int[]{16, 10, 10, 16, 7, 7, 10, 10, 7, 7}), new GenePool(new int[]{10, 9, 8, 7, 6, 4, 5, 3, 1, 2, 0}, new int[]{18, 11, 11, 11, 7, 7, 7, 7, 7, 7, 7})}};
+                    new GenePool(new int[]{3, 2, 1, 0, 9, 7, 8, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}),
+                    new GenePool(new int[]{2, 8, 0, 3, 5}, new int[]{25, 25, 16, 16, 16}),
+                    new GenePool(new int[]{3, 8, 0, 2, 6}, new int[]{25, 25, 16, 16, 16}),
+                    new GenePool(new int[]{9, 1, 7, 10}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{8, 5, 2}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{8, 6, 3}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{10, 8, 7, 9, 5, 2, 3, 1, 0}, new int[]{15, 15, 15, 8, 8, 15, 8, 8, 8}),
+                    new GenePool(new int[]{8, 6, 3, 2, 0, 5}, new int[]{30, 11, 18, 18, 11, 11}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0}, new int[]{15, 15, 8, 15, 8, 8, 15, 8, 8}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 5}, new int[]{16, 16, 10, 10, 7, 10, 10, 7, 7, 7})},
+            {new GenePool(new int[]{0, 9, 1, 3}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{1, 3, 9, 4, 0}, new int[]{25, 16, 16, 16, 16}),
+                    new GenePool(new int[]{0, 1, 2, 3, 7, 9, 8, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}),
+                    new GenePool(new int[]{3, 9, 1, 0, 6}, new int[]{25, 25, 16, 16, 16}),
+                    new GenePool(new int[]{9, 1, 4}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{10, 8, 7, 2}, new int[]{25, 25, 25, 25}),
+                    new GenePool(new int[]{9, 6, 3}, new int[]{33, 33, 33}),
+                    new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0}, new int[]{15, 8, 15, 15, 8, 8, 8, 15, 8}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0}, new int[]{15, 15, 8, 15, 8, 8, 15, 8, 8}),
+                    new GenePool(new int[]{9, 6, 4, 3, 1, 0}, new int[]{30, 11, 11, 18, 18, 11}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 4}, new int[]{16, 10, 10, 16, 7, 7, 10, 10, 7, 7})},
+            {new GenePool(new int[]{0, 9, 8, 7, 3, 1, 2, 10}, new int[]{13, 13, 13, 13, 13, 13, 13, 13}),
+                    new GenePool(new int[]{0, 2, 3, 8, 4, 1, 7, 9, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}),
+                    new GenePool(new int[]{0, 1, 3, 5, 9, 2, 7, 8, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}),
+                    new GenePool(new int[]{0, 2, 1, 6, 7, 3, 8, 9, 10}, new int[]{8, 8, 8, 8, 8, 15, 15, 15, 15}),
+                    new GenePool(new int[]{10, 9, 7, 4, 1}, new int[]{20, 20, 20, 20, 20}),
+                    new GenePool(new int[]{10, 8, 7, 2, 5}, new int[]{20, 20, 20, 20, 20}),
+                    new GenePool(new int[]{10, 9, 8, 3, 6}, new int[]{20, 20, 20, 20, 20}),
+                    new GenePool(new int[]{10, 8, 7, 9, 4, 2, 3, 1, 0, 5}, new int[]{16, 10, 16, 10, 7, 10, 7, 10, 7, 7}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 5}, new int[]{16, 16, 10, 10, 7, 10, 10, 7, 7, 7}),
+                    new GenePool(new int[]{10, 8, 7, 9, 6, 2, 3, 1, 0, 4}, new int[]{16, 10, 10, 16, 7, 7, 10, 10, 7, 7}),
+                    new GenePool(new int[]{10, 9, 8, 7, 6, 4, 5, 3, 1, 2, 0}, new int[]{18, 11, 11, 11, 7, 7, 7, 7, 7, 7, 7})}};
+    //</editor-fold>
 
-    // end region
+    //<editor-fold desc="Region Patterns">
     public static GenePool[][] patternGenetics = new GenePool[][]{
             {new GenePool(new int[]{0, 1, 2}, new int[]{80, 10, 10}),
                     new GenePool(new int[]{0, 1}, new int[]{50, 50}),
@@ -130,7 +186,7 @@ public class BallPythonEntity extends SnakeBase {
                     new GenePool(new int[]{1, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{1}, new int[]{50})}};
-
+    //</editor-fold>
 
 
     private static final Ingredient FOOD_ITEMS = getFoodItems();//Ingredient.of(Items.CHICKEN, Items.EGG, Items.RABBIT);
@@ -277,5 +333,53 @@ public class BallPythonEntity extends SnakeBase {
         return (pLevel.getBlockState(pPos.below()).is(BlockTags.AZALEA_GROWS_ON)) && isBrightEnoughToSpawn(pLevel, pPos);
     }
 
+    /**@Override
+    public void tick(){
+        if(level().isClientSide()) {
 
+
+            if (this.isSittingOnShoulder()) {
+                this.shoulderAnimationState.start(this.tickCount);
+            }else {
+                this.shoulderAnimationState.stop();
+            }
+
+            if (this.isResting() && !this.isSittingOnShoulder()) {
+                this.hideAnimationState.start(this.tickCount); //may need to change to a loop
+            }else {
+                this.hideAnimationState.stop();
+            }
+
+            if (!this.isResting() && !this.isSittingOnShoulder() && !this.walkAnimation.isMoving()) {
+                this.periscopeAnimationState.start(this.tickCount);
+            }else {
+                this.periscopeAnimationState.stop();
+            }
+
+            if (this.bleleleTime <= 0 ) {
+                this.bleleleTime = this.random.nextInt(500) + 500;
+                this.bleleleAnimationState.start(this.tickCount);
+            } else {
+                --this.bleleleTime;
+            }
+
+
+            //System.out.println("Times: " + this.swingTime + ", Dur: " + this.getCurAdditionalSwingDur());
+            if(this.swinging) { // is it attacking?  || this.attackAnim > 0this.attackAnim > 0 this.swinging
+                this.playSound(SoundInit.SNEK_HURT.get(), 1.0F, 1f);
+                this.strikeAnimationState.startIfStopped(this.tickCount);
+                //this.swinging = false;
+
+            }else {
+                //System.out.println("stopped strike");
+                this.strikeAnimationState.stop();
+            }
+
+
+            this.slitherAnimationState.animateWhen(!this.isResting() && !this.isSittingOnShoulder() && this.walkAnimation.isMoving(), this.tickCount);
+            this.idleAnimationState.animateWhen(!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isStarted(), this.tickCount);
+
+        }
+        super.tickBypass();
+    }*/
 }

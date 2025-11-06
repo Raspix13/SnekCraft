@@ -746,6 +746,10 @@ public abstract class SnakeBase extends Animal {
         super.tick();
     }
 
+    public void tickBypass(){
+        super.tick();
+    }
+
     private int getCurAdditionalSwingDur(){
         if (MobEffectUtil.hasDigSpeed(this)) {
             return 6 - (1 + MobEffectUtil.getDigSpeedAmplification(this));

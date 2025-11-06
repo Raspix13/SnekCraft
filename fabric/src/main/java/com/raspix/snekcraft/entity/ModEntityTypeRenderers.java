@@ -2,6 +2,7 @@ package com.raspix.snekcraft.entity;
 
 import com.raspix.snekcraft.entity.ball_python.BallPythonModel;
 import com.raspix.snekcraft.entity.ball_python.BallPythonRenderer;
+import com.raspix.snekcraft.entity.corn.CornSnakeRenderer;
 import com.raspix.snekcraft.entity.hognose.HognoseModel;
 import com.raspix.snekcraft.entity.hognose.HognoseRenderer;
 
@@ -14,6 +15,7 @@ public class ModEntityTypeRenderers {
 	public static void init() {
 		EntityRendererRegistry.register(ModEntityTypes.HOGNOSE, context -> new HognoseRenderer(context));
 		EntityRendererRegistry.register(ModEntityTypes.BALLPYTHON, context -> new BallPythonRenderer(context));
+		EntityRendererRegistry.register(ModEntityTypes.CORNSNAKE, context -> new CornSnakeRenderer(context));
 		
 		EntityModelLayerRegistry.registerModelLayer(HognoseModel.LAYER_LOCATION, HognoseModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BallPythonModel.LAYER_LOCATION, BallPythonModel::getTexturedModelData);

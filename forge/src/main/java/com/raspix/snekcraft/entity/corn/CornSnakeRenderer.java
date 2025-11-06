@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CornSnakeRenderer extends MobRenderer<CornSnakeEntity, CornSnakeModel<CornSnakeEntity>> {
 
-    private static int maxPattern = 3;
+    private static int maxPattern = 2;
     private static int maxColor = 16;
 
     private static final ResourceLocation NORMAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/normal.png");

@@ -23,12 +23,14 @@ public class SnekCraftConfig {
         put("hognose_spawn_weight", 30);
         put("hognose_desert_spawn_weight", 60);
         put("ballpython_spawn_weight", 30);
+        put("cornsnake_spawn_weight", 30);
     }};
 
     public static boolean SNAKES_DROP_ITEMS = true;
     public static int HOGNOSE_SPAWN_WEIGHT;
     public static int HOGNOSE_DESERT_SPAWN_WEIGHT;
     public static int BALLPYTHON_SPAWN_WEIGHT;
+    public static int CORNSNAKE_SPAWN_WEIGHT;
 
 
     public static void loadConfig() {
@@ -45,6 +47,7 @@ public class SnekCraftConfig {
             HOGNOSE_SPAWN_WEIGHT = getOrCreateValue("hognose_spawn_weight", config).getAsInt();
             HOGNOSE_DESERT_SPAWN_WEIGHT = getOrCreateValue("hognose_desert_spawn_weight", config).getAsInt();
             BALLPYTHON_SPAWN_WEIGHT = getOrCreateValue("ballpython_spawn_weight", config).getAsInt();
+            CORNSNAKE_SPAWN_WEIGHT = getOrCreateValue("cornsnake_spawn_weight", config).getAsInt();
 
             try (FileWriter writer = new FileWriter(configFile)) {
                 writer.write(config.toString());
@@ -67,7 +70,7 @@ public class SnekCraftConfig {
         if(config.has(valueName)){
             return config.get(valueName);
         }else{
-            config.addProperty(valueName, (String) defaultValues.get(valueName));
+            config.addProperty(valueName, defaultValues.get(valueName).toString());
             return config.get(valueName);
         }
     }
@@ -78,6 +81,7 @@ public class SnekCraftConfig {
         config.addProperty("hognose_spawn_weight", 30);
         config.addProperty("hognose_desert_spawn_weight", 60);
         config.addProperty("ballpython_spawn_weight", 30);
+        config.addProperty("cornsnake_spawn_weight", 30);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             writer.write(config.toString());

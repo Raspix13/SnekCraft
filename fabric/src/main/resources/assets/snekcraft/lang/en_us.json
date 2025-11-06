@@ -4,17 +4,20 @@
 
   "entity.snekcraft.hognose": "Hognose",
   "entity.snekcraft.ball_python": "Ball Python",
+  "entity.snekcraft.corn_snake": "Corn Snake",
 
   "item.snekcraft.snake_skin": "Snake Shed",
   "item.snekcraft.snake_tooth": "Snake Tooth",
   "item.snekcraft.snake_bag": "Snake Bag",
   "item.snekcraft.hognose_spawn_egg": "Hognose Spawn Egg",
   "item.snekcraft.ball_python_spawn_egg": "Ball Python Spawn Egg",
+  "item.snekcraft.corn_snake_spawn_egg": "Corn Snake Spawn Egg",
   "item.snekcraft.terrarium_key": "Terrarium Key",
   "item.snekcraft.frog_leg": "Frog Leg",
   "item.snekcraft.cooked_frog_leg": "Cooked Frog Leg",
   "block.snekcraft.hoggie_egg": "Hognose Egg",
   "block.snekcraft.ball_python_egg": "Ball Python Egg",
+  "block.snekcraft.corn_snake_egg": "Corn Snake Egg",
 
   "block.snekcraft.wire_cage": "Wire Cage",
   "block.snekcraft.aquarium": "Aquarium",

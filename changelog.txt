@@ -1,15 +1,24 @@
+Snekcraft 1.2.0
+New:
+- Corn snakes added with 3 pattern and 17 color genes
+- Ball Pythons now periscope
+Fixes & Changes:
+- Added proper names to entities
 
+Snekcraft 1.1.8 (Only fabric)
+- fix for fabric servers crashing
+- adds configs for item drops and spawn weights
 
 Snekcraft 1.1.7
 New:
--Added leather recipe using snake sheds
+- Added leather recipe using snake sheds
 
 Snekcraft 1.1.6-1.20.1
 New:
--added rabbit to hognose food to make it easier to breed them
--added compatability with the Rats mod so both snakes can also eat raw rats
+- added rabbit to hognose food to make it easier to breed them
+- added compatability with the Rats mod so both snakes can also eat raw rats
 Fixes:
--Fixed server crashing when picking up snakes on shoulders
+- Fixed server crashing when picking up snakes on shoulders
 
 Snekcraft 1.1.5-1.20.1
 Fixed vanilla water issue
