@@ -59,11 +59,8 @@ import java.nio.file.Files;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SnekCraft.MOD_ID)
 public class SnekCraft {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "snekcraft";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "snekcraft" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
     public SnekCraft()
