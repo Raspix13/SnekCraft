@@ -37,7 +37,7 @@ public class BallPythonEntity extends SnakeBase {
     private static int maxColor = 10;
 
     public final AnimationState periscopeAnimationState = new AnimationState();
-    public int scopeTime = this.random.nextInt(500) + 500;
+    public int scopeTime = this.random.nextInt(2000) + 5000;
 
     //<editor-fold desc="Region Colors">
     // 0: normal, 1: piebald, 2: pinstripe, 3: pinpied
@@ -358,7 +358,7 @@ public class BallPythonEntity extends SnakeBase {
             }else {
                 this.periscopeAnimationState.stop();
                 if(scopeTime < -10){
-                    this.scopeTime = this.random.nextInt(500) + 500;
+                    this.scopeTime = this.random.nextInt(2000) + 5000;
                 }
 
             }

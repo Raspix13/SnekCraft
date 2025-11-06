@@ -412,6 +412,13 @@ public abstract class SnakeBase extends AnimalEntity {
 		}
 		super.tick();
 	}
+
+	/**
+	 * Used by child snakes to skip the snakebase tick but still use the super tick
+	 */
+	public void tickBypass(){
+		super.tick();
+	}
 	
 	private int getCurAdditionalSwingDur() {
 		if(StatusEffectUtil.hasHaste(this)) {

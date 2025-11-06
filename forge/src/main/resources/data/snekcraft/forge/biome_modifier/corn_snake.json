@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:jungle"
+  ],
+  "spawners": {
+    "type": "snekcraft:corn_snake",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}

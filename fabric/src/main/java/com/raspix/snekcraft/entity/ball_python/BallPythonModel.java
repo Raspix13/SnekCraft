@@ -105,6 +105,7 @@ public class BallPythonModel<T extends BallPythonEntity> extends SinglePartEntit
         head.traverse().forEach(ModelPart::resetTransform);
         
         updateAnimation(entity.bleleleAnimationState, BallPythonAnimation.blelele, ageInTicks);
+        updateAnimation(entity.periscopeAnimationState, BallPythonAnimation.periscope, ageInTicks);
         updateAnimation(entity.hideAnimationState, BallPythonAnimation.hide, ageInTicks);
         updateAnimation(entity.shoulderAnimationState, BallPythonAnimation.shoulder, ageInTicks);
         updateAnimation(entity.strikeAnimationState, BallPythonAnimation.strike, ageInTicks);

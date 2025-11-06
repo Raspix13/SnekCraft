@@ -89,16 +89,13 @@ public abstract class SnakeBase extends Animal {
 
     private final EntityDimensions size;
 
-    //TODO: must set these in each child
     private static GenePool[][] colorGenetics;
     private static GenePool[][] patternGenetics;
-
 
     protected SnakeBase(EntityType<? extends Animal> pEntityType, Level pLevel, EntityDimensions size) {
         super(pEntityType, pLevel);
         this.size = size;
     }
-
 
     @Override
     public AttributeMap getAttributes() {
@@ -176,7 +173,6 @@ public abstract class SnakeBase extends Animal {
                 if(player.level().isClientSide()){
                     player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
                 }
-  //              player.displayClientMessage(Component.translatable("component.snekcraft.drop_instructions", (KeyInit.shoulderKey.getKey().getDisplayName())), true);
                 this.setSittingOnShoulder(true);
             }
             return InteractionResult.sidedSuccess(this.level().isClientSide());
@@ -201,7 +197,6 @@ public abstract class SnakeBase extends Animal {
                 this.shedTime = this.random.nextInt(480000) + 48000; // adults dont shed as much
             }
         }
-
     }
 
     public static boolean canSpawn(EntityType entity, LevelAccessor levelAccess, MobSpawnType spawnType, BlockPos pos, Random random){
@@ -220,8 +215,6 @@ public abstract class SnakeBase extends Animal {
     }
 
 
-
-    //TODO: figure out if this will work and spawn correct species
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {

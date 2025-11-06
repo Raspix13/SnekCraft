@@ -35,6 +35,9 @@ public class Config {
     private static final ForgeConfigSpec.IntValue BALLPYTHON_SPAWN_WEIGHT = BUILDER
             .comment("The spawn weight of ball pythons, higher is more common")
             .defineInRange("ballpython_spawn_weight", 30, 0, 1000);
+    private static final ForgeConfigSpec.IntValue CORNSNAKE_SPAWN_WEIGHT = BUILDER
+            .comment("The spawn weight of corn snakes, higher is more common")
+            .defineInRange("corn_snake_spawn_weight", 30, 0, 1000);
 
 
     /**public static final ForgeConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER
@@ -52,6 +55,7 @@ public class Config {
     public static int hognoseSpawnWeight;
     public static int hognoseDesertSpawnWeight;
     public static int ballpythonSpawnWeight;
+    public static int cornSnakeSpawnWeight;
 
     private static boolean validateItemName(final Object obj)
     {
@@ -66,6 +70,7 @@ public class Config {
         hognoseSpawnWeight = HOGNOSE_SPAWN_WEIGHT.get();
         hognoseDesertSpawnWeight = HOGNOSE_DESERT_SPAWN_WEIGHT.get();
         ballpythonSpawnWeight = BALLPYTHON_SPAWN_WEIGHT.get();
+        cornSnakeSpawnWeight = CORNSNAKE_SPAWN_WEIGHT.get();
 
 
 

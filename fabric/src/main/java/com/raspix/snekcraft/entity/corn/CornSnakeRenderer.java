@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 
 public class CornSnakeRenderer extends MobEntityRenderer<CornSnakeEntity, CornSnakeModel<CornSnakeEntity>> {
 
-    private static int maxPattern = 3;
+    private static int maxPattern = 2;
     private static int maxColor = 16;
 
     private static final Identifier NORMAL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/normal.png");
@@ -29,7 +29,7 @@ public class CornSnakeRenderer extends MobEntityRenderer<CornSnakeEntity, CornSn
     private static final Identifier MOONSTONE_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/moonstone_caramel.png");
     private static final Identifier XANTHIC_SNOW_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/xanthic_snow_lavender.png");
 
-    private static final Identifier PALMETTO_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto.png");
+    private static final Identifier PALMETTO_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_normal.png");
     private static final Identifier PALMETTO_AMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_amel.png");
     private static final Identifier PALMETTO_ANERY_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anery.png");
     private static final Identifier PALMETTO_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavender.png");
@@ -37,16 +37,16 @@ public class CornSnakeRenderer extends MobEntityRenderer<CornSnakeEntity, CornSn
     private static final Identifier PALMETTO_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_snow.png");
     private static final Identifier PALMETTO_MOONSTONE_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstone.png");
     private static final Identifier PALMETTO_OPAL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_opal.png");
-    private static final Identifier PALMETTO_ANERY_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anery_caramel.png");
+    private static final Identifier PALMETTO_ANERY_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anerycaramel.png");
     private static final Identifier PALMETTO_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_butter.png");
     private static final Identifier PALMETTO_ALMOND_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_almond.png");
-    private static final Identifier PALMETTO_LAVENDER_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavender_butter.png");
-    private static final Identifier PALMETTO_XANTHIC_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthic_snow.png");
+    private static final Identifier PALMETTO_LAVENDER_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavenderbutter.png");
+    private static final Identifier PALMETTO_XANTHIC_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthicsnow.png");
     private static final Identifier PALMETTO_GLACIER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_glacier.png");
-    private static final Identifier PALMETTO_MOONSTONE_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstone_caramel.png");
-    private static final Identifier PALMETTO_XANTHIC_SNOW_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthic_snow_lavender.png");
+    private static final Identifier PALMETTO_MOONSTONE_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstonecaramel.png");
+    private static final Identifier PALMETTO_XANTHIC_SNOW_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthicsnowlavender.png");
 
-    private static final Identifier MOTLEY_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley.png");
+    private static final Identifier MOTLEY_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_normal.png");
     private static final Identifier MOTLEY_AMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_amel.png");
     private static final Identifier MOTLEY_ANERY_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anery.png");
     private static final Identifier MOTLEY_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavender.png");
@@ -54,14 +54,14 @@ public class CornSnakeRenderer extends MobEntityRenderer<CornSnakeEntity, CornSn
     private static final Identifier MOTLEY_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_snow.png");
     private static final Identifier MOTLEY_MOONSTONE_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstone.png");
     private static final Identifier MOTLEY_OPAL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_opal.png");
-    private static final Identifier MOTLEY_ANERY_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anery_caramel.png");
+    private static final Identifier MOTLEY_ANERY_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anerycaramel.png");
     private static final Identifier MOTLEY_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_butter.png");
     private static final Identifier MOTLEY_ALMOND_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_almond.png");
-    private static final Identifier MOTLEY_LAVENDER_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavender_butter.png");
-    private static final Identifier MOTLEY_XANTHIC_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthic_snow.png");
+    private static final Identifier MOTLEY_LAVENDER_BUTTER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavenderbutter.png");
+    private static final Identifier MOTLEY_XANTHIC_SNOW_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthicsnow.png");
     private static final Identifier MOTLEY_GLACIER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_glacier.png");
-    private static final Identifier MOTLEY_MOONSTONE_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstone_caramel.png");
-    private static final Identifier MOTLEY_XANTHIC_SNOW_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthic_snow_lavender.png");
+    private static final Identifier MOTLEY_MOONSTONE_CARAMEL_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstonecaramel.png");
+    private static final Identifier MOTLEY_XANTHIC_SNOW_LAVENDER_TEXTURE = new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthicsnowlavender.png");
 
 
     private static final Identifier SPECIAL_TEXTURE =new Identifier(SnekCraft.MOD_ID, "textures/entity/corn_snake/corn_cob.png");
@@ -89,7 +89,7 @@ public class CornSnakeRenderer extends MobEntityRenderer<CornSnakeEntity, CornSn
     }
 
 
-    protected void scale(BallPythonEntity entity, MatrixStack matrixStack, float pPartialTickTime) {
+    protected void scale(CornSnakeEntity entity, MatrixStack matrixStack, float pPartialTickTime) {
         if(entity.isBaby()){
             matrixStack.scale(0.2f, 0.2f, 0.2f);
         }else {

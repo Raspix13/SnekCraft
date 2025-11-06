@@ -4,6 +4,7 @@ New:
 - Ball Pythons now periscope
 Fixes & Changes:
 - Added proper names to entities
+- Added missing leather recipe from forge version
 
 Snekcraft 1.1.8 (Only fabric)
 - fix for fabric servers crashing

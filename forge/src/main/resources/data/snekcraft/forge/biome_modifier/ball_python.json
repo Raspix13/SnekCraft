@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:plains",
+    "minecraft:savanna",
+    "minecraft:jungle"
+  ],
+  "spawners": {
+    "type": "snekcraft:ball_python",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 4
+  }
+}

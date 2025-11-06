@@ -63,7 +63,7 @@ public class CornSnakeModel<T extends CornSnakeEntity> extends SinglePartEntityM
     }
 
 
-    public static TexturedModelData createBodyLayer() {
+    public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
 

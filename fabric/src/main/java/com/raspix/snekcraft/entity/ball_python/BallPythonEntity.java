@@ -2,6 +2,8 @@ package com.raspix.snekcraft.entity.ball_python;
 
 import java.util.function.Predicate;
 
+import com.raspix.snekcraft.sounds.SoundInit;
+import net.minecraft.entity.*;
 import org.jetbrains.annotations.Nullable;
 
 import com.raspix.snekcraft.blocks.BlockInit;
@@ -10,11 +12,6 @@ import com.raspix.snekcraft.entity.generics.SnakeBase;
 import com.raspix.snekcraft.items.ItemInit;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -34,6 +31,9 @@ import net.minecraft.world.World;
 public class BallPythonEntity extends SnakeBase {
     private static int maxPattern = 4;
     private static int maxColor = 10;
+
+    public final AnimationState periscopeAnimationState = new AnimationState();
+    public int scopeTime = this.random.nextInt(2000) + 5000;
     
  // 0: normal, 1: piebald, 2: pinstripe, 3: pinpied
     public static GenePool[][] colorGenetics = new GenePool[][]{
@@ -242,15 +242,65 @@ public class BallPythonEntity extends SnakeBase {
 		setPattern(0);
 		return super.initialize(worldAccess, difficulty, spawnReason, entityData, nbt);
 	}
-	
-	// Only in HognoseEntity?
-	/*@Override
-	public boolean isInsideWall() {
-		return (getControllingPassenger() == null && getWorld().getBlockState(getBlockPos()).isIn(BlockTags.SAND)) || super.isInsideWall();
-	}*/
-	
-	// Unused?
+
 	public static boolean canSpawn(EntityType<BallPythonEntity> entityType, ServerWorldAccess worldAccess, SpawnReason spawnReason, BlockPos blockPos, Random random) {
 		return worldAccess.getBlockState(blockPos.down()).isIn(BlockTags.AZALEA_GROWS_ON) && isLightLevelValidForNaturalSpawn(worldAccess, blockPos);
 	}
+
+    @Override
+    public void tick(){
+        if(getWorld().isClient()) {
+
+
+            if (this.isSittingOnShoulder()) {
+                this.shoulderAnimationState.start(age);
+            }else {
+                this.shoulderAnimationState.stop();
+            }
+
+            if (this.isResting() && !this.isSittingOnShoulder()) {
+                this.hideAnimationState.start(age); //may need to change to a loop
+            }else {
+                this.hideAnimationState.stop();
+            }
+
+            if (!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isRunning() && !limbAnimator.isLimbMoving() && scopeTime <= 0) {
+                this.periscopeAnimationState.start(age);
+                this.scopeTime = -1;
+
+            }else {
+                this.periscopeAnimationState.stop();
+                if(scopeTime < -10){
+                    this.scopeTime = this.random.nextInt(2000) + 5000;
+                }
+
+            }
+            this.scopeTime--;
+
+            if (this.bleleleTime <= 0 ) {
+                this.bleleleTime = this.random.nextInt(500) + 500;
+                this.bleleleAnimationState.start(age);
+            } else {
+                --this.bleleleTime;
+            }
+
+
+            //System.out.println("Times: " + this.swingTime + ", Dur: " + this.getCurAdditionalSwingDur());
+            if(handSwinging) { // is it attacking?  || this.attackAnim > 0this.attackAnim > 0 this.swinging
+                this.playSound(SoundInit.SNEK_HURT, 1.0F, 1f);
+                this.strikeAnimationState.startIfNotRunning(age);
+                //this.swinging = false;
+
+            }else {
+                //System.out.println("stopped strike");
+                this.strikeAnimationState.stop();
+            }
+
+
+            this.slitherAnimationState.setRunning(!this.isResting() && !this.isSittingOnShoulder() && limbAnimator.isLimbMoving(), age);
+            this.idleAnimationState.setRunning(!this.isResting() && !this.isSittingOnShoulder() && !this.strikeAnimationState.isRunning() && this.scopeTime>0, age);
+
+        }
+        super.tickBypass();
+    }
 }

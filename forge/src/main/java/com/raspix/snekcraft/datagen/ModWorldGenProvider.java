@@ -18,5 +18,6 @@ public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public ModWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(SnekCraft.MOD_ID));
         System.out.println("HI I AM LOADING MODWORLDGENPROVIDER");
+        System.out.println("DEBUG: PackOutput is directed to: " + output.getOutputFolder().toAbsolutePath());
     }
 }

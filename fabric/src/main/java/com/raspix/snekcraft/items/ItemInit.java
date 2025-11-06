@@ -24,7 +24,7 @@ public class ItemInit {
 	public static final Item SNAKE_BAG = new SnakeBagItem(new Item.Settings().maxCount(1));
 	public static final Item HOGNOSE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.HOGNOSE, 0xd6bf96, 0x40351c, new Item.Settings());
 	public static final Item BALL_PYTHON_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.BALLPYTHON, 0x352213, 0xb17c3b, new Item.Settings());
-	public static final Item CORN_SNAKE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.CORNSNAKE, 0x216587, 0x117779, new Item.Settings());
+	public static final Item CORN_SNAKE_SPAWN_EGG = new SpawnEggItem(ModEntityTypes.CORNSNAKE, 0xDD804E, 0xC94A2F, new Item.Settings());
 	public static final Item HOGGIE_EGG = new SnekEggItem(BlockInit.SNAKE_EGG, new Item.Settings());
 	public static final Item BALL_PYTHON_EGG = new SnekEggItem(BlockInit.BALL_PYTHON_EGG, new Item.Settings());
 	public static final Item CORN_SNAKE_EGG = new SnekEggItem(BlockInit.CORN_SNAKE_EGG, new Item.Settings());

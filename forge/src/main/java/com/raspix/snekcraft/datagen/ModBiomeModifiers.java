@@ -18,9 +18,11 @@ import java.util.List;
 
 public class ModBiomeModifiers {
 
+    // file saved to /forge/src/generated[main]/resources/data/snekcraft/forge/biome_modifier
     public static final ResourceKey<BiomeModifier> SPAWN_HOGNOSE = registerKey("spawn_hognose");
     public static final ResourceKey<BiomeModifier> SPAWN_DESERT_HOGNOSE = registerKey("spawn_desert_hognose");
     public static final ResourceKey<BiomeModifier> SPAWN_BALL_PYTHON = registerKey("spawn_ball_python");
+    public static final ResourceKey<BiomeModifier> SPAWN_CORN_SNAKE = registerKey("spawn_corn_snake");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -38,6 +40,13 @@ public class ModBiomeModifiers {
         context.register(SPAWN_BALL_PYTHON, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.SAVANNA), biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.JUNGLE)),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntityTypes.BALLPYTHON.get(), Config.ballpythonSpawnWeight, 1, 4))));
+
+        context.register(SPAWN_CORN_SNAKE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.MANGROVE_SWAMP)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntityTypes.CORNSNAKE.get(), Config.cornSnakeSpawnWeight, 1, 4))));
+
+
+        //System.out.println("WEIGHT DATA: " + Config.hognoseSpawnWeight + ", " + Config.ballpythonSpawnWeight);
     }
 
     private static ResourceKey<BiomeModifier> registerKey(String name) {
