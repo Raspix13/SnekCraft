@@ -28,7 +28,7 @@ public class CornSnakeRenderer extends MobRenderer<CornSnakeEntity, CornSnakeMod
     private static final ResourceLocation MOONSTONE_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/moonstone_caramel.png");
     private static final ResourceLocation XANTHIC_SNOW_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/normal/xanthic_snow_lavender.png");
 
-    private static final ResourceLocation PALMETTO_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto.png");
+    private static final ResourceLocation PALMETTO_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_normal.png");
     private static final ResourceLocation PALMETTO_AMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_amel.png");
     private static final ResourceLocation PALMETTO_ANERY_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anery.png");
     private static final ResourceLocation PALMETTO_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavender.png");
@@ -36,16 +36,16 @@ public class CornSnakeRenderer extends MobRenderer<CornSnakeEntity, CornSnakeMod
     private static final ResourceLocation PALMETTO_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_snow.png");
     private static final ResourceLocation PALMETTO_MOONSTONE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstone.png");
     private static final ResourceLocation PALMETTO_OPAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_opal.png");
-    private static final ResourceLocation PALMETTO_ANERY_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anery_caramel.png");
+    private static final ResourceLocation PALMETTO_ANERY_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_anerycaramel.png");
     private static final ResourceLocation PALMETTO_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_butter.png");
     private static final ResourceLocation PALMETTO_ALMOND_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_almond.png");
-    private static final ResourceLocation PALMETTO_LAVENDER_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavender_butter.png");
-    private static final ResourceLocation PALMETTO_XANTHIC_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthic_snow.png");
+    private static final ResourceLocation PALMETTO_LAVENDER_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_lavenderbutter.png");
+    private static final ResourceLocation PALMETTO_XANTHIC_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthicsnow.png");
     private static final ResourceLocation PALMETTO_GLACIER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_glacier.png");
-    private static final ResourceLocation PALMETTO_MOONSTONE_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstone_caramel.png");
-    private static final ResourceLocation PALMETTO_XANTHIC_SNOW_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthic_snow_lavender.png");
+    private static final ResourceLocation PALMETTO_MOONSTONE_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_moonstonecaramel.png");
+    private static final ResourceLocation PALMETTO_XANTHIC_SNOW_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/palmetto/palmetto_xanthicsnowlavender.png");
 
-    private static final ResourceLocation MOTLEY_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley.png");
+    private static final ResourceLocation MOTLEY_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_normal.png");
     private static final ResourceLocation MOTLEY_AMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_amel.png");
     private static final ResourceLocation MOTLEY_ANERY_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anery.png");
     private static final ResourceLocation MOTLEY_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavender.png");
@@ -53,14 +53,14 @@ public class CornSnakeRenderer extends MobRenderer<CornSnakeEntity, CornSnakeMod
     private static final ResourceLocation MOTLEY_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_snow.png");
     private static final ResourceLocation MOTLEY_MOONSTONE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstone.png");
     private static final ResourceLocation MOTLEY_OPAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_opal.png");
-    private static final ResourceLocation MOTLEY_ANERY_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anery_caramel.png");
+    private static final ResourceLocation MOTLEY_ANERY_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_anerycaramel.png");
     private static final ResourceLocation MOTLEY_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_butter.png");
     private static final ResourceLocation MOTLEY_ALMOND_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_almond.png");
-    private static final ResourceLocation MOTLEY_LAVENDER_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavender_butter.png");
-    private static final ResourceLocation MOTLEY_XANTHIC_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthic_snow.png");
+    private static final ResourceLocation MOTLEY_LAVENDER_BUTTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_lavenderbutter.png");
+    private static final ResourceLocation MOTLEY_XANTHIC_SNOW_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthicsnow.png");
     private static final ResourceLocation MOTLEY_GLACIER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_glacier.png");
-    private static final ResourceLocation MOTLEY_MOONSTONE_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstone_caramel.png");
-    private static final ResourceLocation MOTLEY_XANTHIC_SNOW_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthic_snow_lavender.png");
+    private static final ResourceLocation MOTLEY_MOONSTONE_CARAMEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_moonstonecaramel.png");
+    private static final ResourceLocation MOTLEY_XANTHIC_SNOW_LAVENDER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/motley/motley_xanthicsnowlavender.png");
 
 
     private static final ResourceLocation SPECIAL_TEXTURE =new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/corn_snake/corn_cob.png");
