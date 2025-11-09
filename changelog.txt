@@ -1,4 +1,7 @@
 Snekcraft 1.2.0
+- Fixed ticking entity issue with entity pathfinding in aquariums
+
+Snekcraft 1.2.0
 New:
 - Corn snakes added with 3 pattern and 17 color genes
 - Ball Pythons now periscope

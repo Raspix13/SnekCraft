@@ -459,7 +459,8 @@ public class TerrariumBlock extends GlassBlock {
 
     public boolean isPathfindable(BlockState blockState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         if (pType == PathComputationType.WATER){
-            return blockState.isPathfindable(pLevel, pPos, pType);//pLevel.getFluidState(pPos).is(FluidTags.WATER);
+            return super.isPathfindable(blockState, pLevel, pPos, pType);
+            //return blockState.isPathfindable(pLevel, pPos, pType);//pLevel.getFluidState(pPos).is(FluidTags.WATER);
         }
         return blockState.getValue(PATHFIND);
     }

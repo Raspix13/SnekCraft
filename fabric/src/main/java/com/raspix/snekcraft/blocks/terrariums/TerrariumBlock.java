@@ -328,7 +328,8 @@ public class TerrariumBlock extends GlassBlock {
 	@Override
 	public boolean canPathfindThrough(BlockState blockState, BlockView blockView, BlockPos blockPos, NavigationType navigationType) {
 		if(navigationType == NavigationType.WATER) {
-			return blockState.canPathfindThrough(blockView, blockPos, navigationType);
+			return super.canPathfindThrough(blockState, blockView, blockPos, navigationType);
+			//return blockState.canPathfindThrough(blockView, blockPos, navigationType);
 		}
 		return blockState.get(PATHFIND);
 	}
