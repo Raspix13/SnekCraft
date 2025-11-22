@@ -101,6 +101,9 @@ minecraft {
         client {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', mod_id
+
+            property 'mixin.env.remapRefMap', 'true' // For Patchouli
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg" // For Patchouli
         }
 
         server {
@@ -138,8 +141,14 @@ repositories {
     //     dir 'libs'
     // }
 
+
     maven{
         url "https://www.cursemaven.com"
+    }
+
+
+    maven { //For Patchouli
+        url "https://maven.blamejared.com"
     }
 
 
@@ -156,6 +165,16 @@ dependencies {
 
     //runtimeOnly( fg.deobf("curse.maven:citadel-331936:5633260"))
     compileOnly( fg.deobf("curse.maven:rats-323596:5904296"))
+
+    // The :api part ensures you only pull the API and not the whole mod
+    //compileOnly fg.deobf("curse.maven:patchouli-306770:6164575")
+    compileOnly fg.deobf('vazkii.patchouli:Patchouli:1.20.1-84.1-FORGE:api')
+    // This ensures the actual mod is loaded at runtime
+    //runtimeOnly fg.deobf("curse.maven:patchouli-306770:6164575")
+    runtimeOnly fg.deobf('vazkii.patchouli:Patchouli:1.20.1-84.1-FORGE')
+
+    //implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

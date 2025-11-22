@@ -1,0 +1,78 @@
+{
+  "itemGroup.snekcraft": "蛇类工艺",
+  "creativetab.snake_tab": "蛇类工艺",
+
+  "entity.snekcraft.hognose": "猪鼻蛇",
+  "entity.snekcraft.ball_python": "球蟒蛇",
+  "entity.snekcraft.corn_snake": "玉米蛇",
+
+  "item.snekcraft.snake_skin": "蛇皮",
+  "item.snekcraft.snake_tooth": "蛇牙",
+  "item.snekcraft.snake_bag": "蛇袋",
+  "item.snekcraft.hognose_spawn_egg": "猪鼻蛇生成蛋",
+  "item.snekcraft.ball_python_spawn_egg": "球蟒蛇生成蛋",
+  "item.snekcraft.corn_snake_spawn_egg": "玉米蛇生成蛋",
+  "item.snekcraft.snekpedia": "蛇类百科",
+  "item.snekcraft.terrarium_key": "玻璃箱钥匙",
+  "item.snekcraft.hatch_wand": "孵化魔杖",
+  "item.snekcraft.frog_leg": "青蛙腿",
+  "item.snekcraft.cooked_frog_leg": "煮熟的青蛙腿",
+  "block.snekcraft.hoggie_egg": "猪鼻蛇蛋",
+  "block.snekcraft.ball_python_egg": "球蟒蛇蛋",
+  "block.snekcraft.corn_snake_egg": "玉米蛇蛋",
+
+  "block.snekcraft.wire_cage": "铁丝笼",
+  "block.snekcraft.aquarium": "水族馆",
+  "block.snekcraft.terrarium": "玻璃箱",
+  "block.snekcraft.lavaquarium": "熔岩水族馆",
+
+  "block.snekcraft.dirt_hide": "土皮",
+  "block.snekcraft.stone_hide": "石头皮",
+  "block.snekcraft.stone_brick_hide": "石砖皮",
+  "block.snekcraft.mossy_brick_hide": "苔石砖皮",
+  "block.snekcraft.sandstone_hide": "砂岩皮",
+  "block.snekcraft.spruce_hide": "云杉皮",
+  "block.snekcraft.acacia_hide": "合欢木皮",
+  "block.snekcraft.birch_hide": "白桦皮",
+  "block.snekcraft.dark_oak_hide": "深色橡木皮",
+  "block.snekcraft.jungle_hide": "丛林木皮",
+  "block.snekcraft.mangrove_hide": "红树林皮",
+  "block.snekcraft.oak_hide": "橡木皮",
+
+  "block.snekcraft.dirt_medium_hide": "大土皮",
+  "block.snekcraft.stone_medium_hide": "大石头皮",
+  "block.snekcraft.stone_brick_medium_hide": "大石砖皮",
+  "block.snekcraft.mossy_brick_medium_hide": "大苔石砖皮",
+  "block.snekcraft.sandstone_medium_hide": "大砂岩皮",
+
+  "block.snekcraft.spruce_medium_hide": "大云杉皮",
+  "block.snekcraft.acacia_medium_hide": "大合欢木皮",
+  "block.snekcraft.birch_medium_hide": "大白桦皮",
+  "block.snekcraft.dark_oak_medium_hide": "大深色橡木皮",
+  "block.snekcraft.jungle_medium_hide": "大丛林木皮",
+  "block.snekcraft.mangrove_medium_hide": "大红树林皮",
+  "block.snekcraft.oak_medium_hide": "大橡木皮",
+
+  "block.snekcraft.heat_lamp": "热灯",
+  "block.snekcraft.lamp_post": "灯柱",
+
+  "sounds.snekcraft.snek_hurt": "蛇受伤",
+  "sounds.snekcraft.snek_attack": "蛇嘶嘶声",
+  "sounds.snekcraft.snek_lay": "蛇下蛋",
+
+  "tooltip.snekcraft.snake_bag.tooltip.snake_type": "包含 %1$s",
+  "tooltip.snekcraft.snek_egg.tooltip.colors": "颜色：%1$s 和 %2$s",
+  "tooltip.snekcraft.snek_egg.tooltip.patterns": "图案：%1$s 和 %2$s",
+  "tooltip.snekcraft.terrarium_key.tooltip": "用于改变玻璃箱、笼子、水族馆或熔岩水族馆的墙壁实体性",
+  "tooltip.snekcraft.snekpedia.tooltip": "Snekcraft 指南书",
+
+  "key.categories.snekcraft": "蛇类工艺",
+  "key.category.snekcraft.binds": "蛇类工艺",
+  "key.snekcraft.drop_shoulder": "卸下肩膀坐骑",
+  "component.snekcraft.drop_instructions": "按下 %1$s 以移除蛇",
+
+  "snekcraft.snekpedia.home_page": "欢迎来到 Snekcraft！",
+  "snekcraft.snekpedia.category.snakes": "蛇",
+  "snekcraft.snekpedia.category.snakes_home": "添加的蛇种类"
+
+}

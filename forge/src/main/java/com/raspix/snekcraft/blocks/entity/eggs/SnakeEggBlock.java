@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
 import com.raspix.snekcraft.entity.generics.SnakeBase;
 
+import com.raspix.snekcraft.items.ItemInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -98,37 +99,25 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
             System.out.println("\t" + genOffspringP);
         }*/
 
+        ItemStack heldItem = pPlayer.getItemInHand(pHand);
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
             CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getPersistentData();
-            if(compoundTag != null){
+            if (heldItem.is(ItemInit.HATCH_WAND.get())) {
+                hatchEggs(pState, (ServerLevel) pLevel, pPos, ((ServerLevel)pLevel).getRandom());
+            }
+            //if(compoundTag != null){
+
                 //int p1 = compoundTag.getInt("pattern");
                 //int p2 = compoundTag.getInt("pattern_p2");
                 //int c1 = compoundTag.getInt("color");
                 //int c2 = compoundTag.getInt("color_p2");
                 //((SnakeEggBlockEntity)pLevel.getBlockEntity(pPos)).PrintOutStats();
                 //System.out.println("The egg has ps:" + p1 + ", " + p2 + ", and cs: " + c1 + ", " + c2 + " stored");
-            }
+            //}
 
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
-
-    /*private void decreaseEggs(Level pLevel, BlockPos pPos, BlockState pState, CompoundTag tag) {
-        pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + pLevel.random.nextFloat() * 0.2F);
-        int i = pState.getValue(EGGS);
-        if (i <= 1) {
-            pLevel.destroyBlock(pPos, false);
-        } else {
-            pLevel.setBlock(pPos, pState.setValue(EGGS, Integer.valueOf(i - 1)), 2);
-            pLevel.levelEvent(2001, pPos, Block.getId(pState));
-            SnakeEggBlockEntity tile = (SnakeEggBlockEntity)pLevel.getBlockEntity(pPos);
-            tile.setStats(tag.getInt("color"),
-                    tag.getInt("color_p2"),
-                    tag.getInt("pattern"),
-                    tag.getInt("pattern_p2"));
-        }
-
-    }*/
 
     private void decreaseEggs(Level pLevel, BlockPos pPos, BlockState pState) {
         pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_BREAK, SoundSource.BLOCKS, 0.7F, 0.9F + pLevel.random.nextFloat() * 0.2F);
@@ -160,7 +149,7 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
                 pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_CRACK, SoundSource.BLOCKS, 0.7F, 0.9F + pRandom.nextFloat() * 0.2F);
                 pLevel.setBlock(pPos, pState.setValue(HATCH, Integer.valueOf(i + 1)), 2);
             } else {
-                pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 0.9F + pRandom.nextFloat() * 0.2F);
+                /**pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 0.9F + pRandom.nextFloat() * 0.2F);
                 CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getPersistentData();
                 pLevel.removeBlock(pPos, false);
                 for(int j = 0; j < pState.getValue(EGGS); ++j) {
@@ -171,8 +160,24 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
                     snake.setColor(getOffspringColor(compoundTag));
                     snake.setPattern(getOffspringPattern(compoundTag));
                     pLevel.addFreshEntity(snake);
-                }
+                }*/
+                hatchEggs(pState, pLevel, pPos, pRandom);
             }
+        }
+    }
+
+    public void hatchEggs(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom){
+        pLevel.playSound((Player)null, pPos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 0.7F, 0.9F + pRandom.nextFloat() * 0.2F);
+        CompoundTag compoundTag = pLevel.getBlockEntity(pPos).getPersistentData();
+        pLevel.removeBlock(pPos, false);
+        for(int j = 0; j < pState.getValue(EGGS); ++j) {
+            pLevel.levelEvent(2001, pPos, Block.getId(pState));
+            SnakeBase snake = (SnakeBase) GetSnakeType().create(pLevel);
+            snake.setAge(-24000);
+            snake.moveTo((double)pPos.getX() + 0.3D + (double)j * 0.2D, (double)pPos.getY(), (double)pPos.getZ() + 0.3D, 0.0F, 0.0F);
+            snake.setColor(getOffspringColor(compoundTag));
+            snake.setPattern(getOffspringPattern(compoundTag));
+            pLevel.addFreshEntity(snake);
         }
     }
 
@@ -320,66 +325,8 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
     }*/
 
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        /**if (!pLevel.isClientSide && pLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
-            BlockEntity blockentity = pLevel.getBlockEntity(pPos);
-            ItemStack itemstack = new ItemStack(this);
-
-            CompoundTag compoundTagBlock = blockentity.getTileData();
-            int c1 = compoundTagBlock.getInt("color");
-            int c2 = compoundTagBlock.getInt("color_p2");
-            int p1 = compoundTagBlock.getInt("pattern");
-            int p2 = compoundTagBlock.getInt("pattern_p2");
-
-            CompoundTag compoundtag = new CompoundTag();
-            if(c1 > 0){
-                compoundtag.putInt("color", c1);
-            }
-            if(c2 > 0){
-                compoundtag.putInt("color_p2", c2);
-            }
-            if(p1 > 0){
-                compoundtag.putInt("pattern", p1);
-            }
-            if(p2 > 0){
-                compoundtag.putInt("pattern_p2", p2);
-            }
-
-            itemstack.addTagElement("BlockStateTag", compoundtag);
-            ItemEntity itementity = new ItemEntity(pLevel, (double)pPos.getX(), (double)pPos.getY(), (double)pPos.getZ(), itemstack);
-            itementity.setDefaultPickUpDelay();
-            pLevel.addFreshEntity(itementity);
-
-        }*/
-
         super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
     }
-
-
-
-    /**public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
-        BlockEntity blockentity = pBuilder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
-        if (blockentity instanceof ShulkerBoxBlockEntity) {
-            ShulkerBoxBlockEntity shulkerboxblockentity = (ShulkerBoxBlockEntity)blockentity;
-            pBuilder = pBuilder.withDynamicDrop(CONTENTS, (p_56218_, p_56219_) -> {
-                for(int i = 0; i < shulkerboxblockentity.getContainerSize(); ++i) {
-                    p_56219_.accept(shulkerboxblockentity.getItem(i));
-                }
-
-            });
-        }
-
-        return super.getDrops(pState, pBuilder);
-    }*/
-
-    //public abstract void setParentTraits(int p1Color, int p1Pattern, int p2Color, int p2Pattern, Level level, BlockPos pos);
-
-    //colors: 0=brown, 1=orange, 2=gray, 3=black,
-    //colors: 0=normal, 1=ALBINO, 2=arctic/snow, 3=axanthic, 4=rainbow
-    //public abstract int getOffspringColor(BlockState state);
-
-    //patterns: 0=normal, 1=conda, 2=superconda
-    //public abstract int getOffspringPattern(BlockState state);
-
 
     // Block Entity Things
 
@@ -397,7 +344,6 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         return super.getTicker(pLevel, pState, pBlockEntityType);
-        //return pLevel.isClientSide ? null : createTickerHelper(pBlockEntityType, BlockEntityInit.SNAKE_EGG.get(), SnakeEggBlockEntity::serverTick);
     }
 
 
@@ -420,54 +366,4 @@ public abstract class SnakeEggBlock extends BaseEntityBlock {
         return true;//super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 
-    /**@org.jetbrains.annotations.Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        eggEntity = new SnakeEggBlockEntity(pPos, pState);
-        return eggEntity;
-    }
-
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState, int color, int color_2, int pattern, int pattern_2) {
-        eggEntity = new SnakeEggBlockEntity(pPos, pState, color, color_2, pattern, pattern_2);
-        return eggEntity;
-    }
-
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
-
-    @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-    }
-
-    public void setParentTraits(int p1Color, int p1Pattern, int p2Color, int p2Pattern, Level level, BlockPos pos){
-        //System.out.println("setting traits parent 1:" + p1Color + "c & " + p1Pattern + "p and parent 2: " + p2Color + "c & " + p2Pattern);
-        this.eggEntity.setCOLOR(p1Color);
-        this.eggEntity.setCOLOR_P2(p2Color);
-        this.eggEntity.setPATTERN(p1Pattern);
-        this.eggEntity.setPATTERN_P2(p2Pattern);
-
-        //level.setBlock(pos, level.getBlockState(pos).setValue(COLOR, p1Color).setValue(PATTERN, p1Pattern).setValue(COLOR_P2, p2Color).setValue(PATTERN_P2, p2Pattern), 3);
-    }
-
-    //@Override
-    public int getOffspringColor(BlockState state) {
-        System.out.println("Hatching with colors " + eggEntity.getCOLOR() + " and " + eggEntity.getCOLOR_P2());
-        return BallPythonEntity.colorGenetics[eggEntity.getCOLOR()][eggEntity.getCOLOR_P2()].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
-    }
-
-    //@Override
-    public int getOffspringPattern(BlockState state) {
-        return BallPythonEntity.patternGenetics[eggEntity.getPATTERN()][eggEntity.getPATTERN_P2()].GetGene(this.random.nextInt(SnakeBase.BREEDING_RANGE));
-    }*/
-
-    /**@org.jetbrains.annotations.Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        //return pLevel.isClientSide() ? null: ($0, pos, )
-        return createTickerHelper(pBlockEntityType, BlockEntityInit.SNAKE_EGG.get(), SnakeEggBlockEntity::tick);
-        //return super.getTicker(pLevel, pState, pBlockEntityType);
-    }*/
 }

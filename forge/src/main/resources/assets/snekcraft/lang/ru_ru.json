@@ -4,7 +4,7 @@
 
   "entity.snekcraft.hognose": "свиноносой змеи",
   "entity.snekcraft.ball_python": "королевского питона",
-  "entity.snekcraft.corn_snake": "Corn",
+  "entity.snekcraft.corn_snake": "маисовый полоз",
 
   "item.snekcraft.snake_skin": "Змеиная кожа",
   "item.snekcraft.snake_tooth": "Змеиный зуб",
@@ -12,12 +12,14 @@
   "item.snekcraft.hognose_spawn_egg": "Яйцо призыва свиноносой змеи",
   "item.snekcraft.ball_python_spawn_egg": "Яйцо призыва королевского питона",
   "item.snekcraft.corn_snake_spawn_egg": "Corn Snake Spawn Egg",
+  "item.snekcraft.snekpedia": "Энциклопедия змей",
   "item.snekcraft.terrarium_key": "Ключ террариума",
+  "item.snekcraft.hatch_wand": "Вылупляющаяся палочка",
   "item.snekcraft.frog_leg": "лягушачья лапка",
   "item.snekcraft.cooked_frog_leg": "приготовленная лягушачья ножка",
   "block.snekcraft.hoggie_egg": "Яйцо свиноносой змеи",
   "block.snekcraft.ball_python_egg": "Яйцо королевского питона",
-  "block.snekcraft.corn_snake_egg": "Corn Snake Egg",
+  "block.snekcraft.corn_snake_egg": "Яйцо маисовый полоз",
 
   "block.snekcraft.wire_cage": "Клетка",
   "block.snekcraft.aquarium": "Аквариум",
@@ -62,9 +64,15 @@
   "tooltip.snekcraft.snek_egg.tooltip.colors": "Цвета: %1$s и %2$s",
   "tooltip.snekcraft.snek_egg.tooltip.patterns": "Узоры: %1$s и %2$s",
   "tooltip.snekcraft.terrarium_key.tooltip": "Используйте на стенках террариума, клетки, аквариума или лавового аквариума чтобы открывать или закрывать их",
+  "tooltip.snekcraft.snekpedia.tooltip": "Путеводитель по Snekcraft",
 
   "key.categories.snekcraft": "Snekcraft",
   "key.category.snekcraft.binds": "Snekcraft",
   "key.snekcraft.drop_shoulder": "Сбросить питомцев с плеч",
-  "component.snekcraft.drop_instructions": "Нажмите %1$s чтобы убрать змею"
+  "component.snekcraft.drop_instructions": "Нажмите %1$s чтобы убрать змею",
+
+  "snekcraft.snekpedia.home_page": "Добро пожаловать в Snekcraft!",
+  "snekcraft.snekpedia.category.snakes": "Змеи",
+  "snekcraft.snekpedia.category.snakes_home": "Добавленные типы змей"
+
 }

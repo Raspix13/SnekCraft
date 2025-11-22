@@ -1,5 +1,10 @@
 package com.raspix.snekcraft.blocks.entity.eggs;
 
+import com.raspix.snekcraft.items.ItemInit;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 import com.raspix.snekcraft.blocks.entity.SnakeEggBlockEntity;
@@ -77,7 +82,19 @@ public abstract class SnakeEggBlock extends BlockWithEntity {
 		
 		return super.onUse(blockState, world, blockPos, player, hand, hitResult)
 	}*/
-	
+
+	@Override
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+		if (!world.isClient() && hand == Hand.MAIN_HAND) {
+			ItemStack heldItem = player.getStackInHand(hand);
+			if (heldItem.isOf(ItemInit.HATCH_WAND)) {
+				hatchEggs(state, (ServerWorld) world, pos, ((ServerWorld)world).getRandom(), (SnakeEggBlockEntity) world.getBlockEntity(pos));
+			}
+		}
+
+		return super.onUse(state, world, pos, player, hand, hit);
+	}
+
 	private float nextPitch(Random random) {
 		return 0.9f + random.nextFloat() * 0.2f;
 	}
@@ -108,19 +125,23 @@ public abstract class SnakeEggBlock extends BlockWithEntity {
 				world.playSound(null, blockPos, SoundEvents.ENTITY_TURTLE_EGG_CRACK, SoundCategory.BLOCKS, 0.7f, nextPitch(random));
 				world.setBlockState(blockPos, blockState.with(HATCH, Integer.valueOf(hatchLevel + 1)), 2);
 			}else if(world.getBlockEntity(blockPos) instanceof SnakeEggBlockEntity blockEntity) {
-				world.playSound(null, blockPos, SoundEvents.ENTITY_TURTLE_EGG_HATCH, SoundCategory.BLOCKS, 0.7f, nextPitch(random));
-				NbtCompound nbtCompound = blockEntity.getPersistentData();
-				world.breakBlock(blockPos, false);
-				for(int i = 0;i < blockState.get(EGGS);++i) {
-					world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, blockPos, Block.getRawIdFromState(blockState));
-					SnakeBase snake = (SnakeBase) getSnakeType().create(world);
-					snake.setBreedingAge(-24000);
-					snake.refreshPositionAndAngles((double) blockPos.getX() + 0.3d + i * 0.2d, (double) blockPos.getY(), (double) blockPos.getZ() + 0.3d, 0.0f, 0.0f);
-					snake.setColor(getOffspringColor(nbtCompound));
-					snake.setPattern(getOffspringPattern(nbtCompound));
-					world.spawnEntity(snake);
-				}
+				hatchEggs(blockState, world, blockPos, random, blockEntity);
 			}
+		}
+	}
+
+	public void hatchEggs(BlockState blockState, ServerWorld world, BlockPos blockPos, Random random, SnakeEggBlockEntity blockEntity){
+		world.playSound(null, blockPos, SoundEvents.ENTITY_TURTLE_EGG_HATCH, SoundCategory.BLOCKS, 0.7f, nextPitch(random));
+		NbtCompound nbtCompound = blockEntity.getPersistentData();
+		world.breakBlock(blockPos, false);
+		for(int i = 0;i < blockState.get(EGGS);++i) {
+			world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, blockPos, Block.getRawIdFromState(blockState));
+			SnakeBase snake = (SnakeBase) getSnakeType().create(world);
+			snake.setBreedingAge(-24000);
+			snake.refreshPositionAndAngles((double) blockPos.getX() + 0.3d + i * 0.2d, (double) blockPos.getY(), (double) blockPos.getZ() + 0.3d, 0.0f, 0.0f);
+			snake.setColor(getOffspringColor(nbtCompound));
+			snake.setPattern(getOffspringPattern(nbtCompound));
+			world.spawnEntity(snake);
 		}
 	}
 	

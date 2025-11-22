@@ -9,6 +9,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import org.joml.Vector3f;
 
 public class CornSnakeModel<T extends CornSnakeEntity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SnekCraft.MOD_ID, "corn_snake"), "main");
@@ -111,6 +113,10 @@ public class CornSnakeModel<T extends CornSnakeEntity> extends HierarchicalModel
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         head.getAllParts().forEach(ModelPart::resetPose);
 
+        if(ageInTicks == 1.0){
+            poseForBook();
+        }
+
         animate(entity.bleleleAnimationState, CornSnakeAnimation.blelele, ageInTicks);
         animate(entity.hideAnimationState, CornSnakeAnimation.hide, ageInTicks);
         animate(entity.shoulderAnimationState, CornSnakeAnimation.shoulder, ageInTicks);
@@ -134,5 +140,22 @@ public class CornSnakeModel<T extends CornSnakeEntity> extends HierarchicalModel
     @Override
     public ModelPart root() {
         return root;
+    }
+
+    public void poseForBook() {
+       head.offsetRotation(formatRotationVector(-30.0F + 15.0F, -5.0F, 0.0F));
+        head.offsetPos(new Vector3f(0.0F, -6.0F, 15.0F));
+        body.offsetRotation(formatRotationVector(48.2259F, 56.6459F, 39.9655F));
+        body2.offsetRotation(formatRotationVector(6.5762F, 79.5755F, 9.796F));
+        body3.offsetRotation(formatRotationVector(0.0563F, 74.947F, -0.8375F));
+        body4.offsetRotation(formatRotationVector(-2.5228F, 63.6529F, -3.6598F));
+        body5.offsetRotation(formatRotationVector(4.3009F, 71.6142F, 2.512F));
+        body6.offsetRotation(formatRotationVector(-5.9704F, 69.8514F, -5.259F));
+        body7.offsetRotation(formatRotationVector(0.0F, 50.0F, 0.0F));
+        tail.offsetRotation(formatRotationVector(0.0F, 45.0F, 0.0F));
+    }
+
+    public Vector3f formatRotationVector(float x, float y, float z){
+        return new Vector3f(x * Mth.DEG_TO_RAD, -y * Mth.DEG_TO_RAD, -z * Mth.DEG_TO_RAD); // vert, side, tilt
     }
 }

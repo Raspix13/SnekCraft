@@ -14,6 +14,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import org.joml.Vector3f;
 
 public class BallPythonModel<T extends BallPythonEntity> extends SinglePartEntityModel<T> {
 	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(SnekCraft.MOD_ID, "ball_python"), "main");
@@ -103,7 +104,11 @@ public class BallPythonModel<T extends BallPythonEntity> extends SinglePartEntit
     @Override
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         head.traverse().forEach(ModelPart::resetTransform);
-        
+
+        if(ageInTicks == 1.0){
+            poseForBook();
+        }
+
         updateAnimation(entity.bleleleAnimationState, BallPythonAnimation.blelele, ageInTicks);
         updateAnimation(entity.periscopeAnimationState, BallPythonAnimation.periscope, ageInTicks);
         updateAnimation(entity.hideAnimationState, BallPythonAnimation.hide, ageInTicks);
@@ -126,4 +131,22 @@ public class BallPythonModel<T extends BallPythonEntity> extends SinglePartEntit
     public ModelPart getPart() {
         return root;
     }
+
+    public void poseForBook() {
+        head.rotate(formatRotationVector(-30.0F + 20.0F, -5.0F, 0.0F));
+        head.translate(new Vector3f(-3.0F, -6.0F, 15.0F));
+        body.rotate(formatRotationVector(43.0F, 52.0F, 37.0F));
+        body2.rotate(formatRotationVector(0.0F, 75.0F, 0.0F));
+        body3.rotate(formatRotationVector(0.0F, 60.0F, 0.0F));
+        body4.rotate(formatRotationVector(0.0F, 60.0F, 0.0F));
+        body5.rotate(formatRotationVector(0.0F, 50.0F, 0.0F));
+        body6.rotate(formatRotationVector(0.0F, 57.5F, 0.0F));
+        body7.rotate(formatRotationVector(0.0F, 45.0F, 0.0F));
+        tail.rotate(formatRotationVector(0.0F, 45.0F, 0.0F));
+    }
+
+    public Vector3f formatRotationVector(float x, float y, float z){
+        return new Vector3f((float) Math.toRadians(x), (float) -Math.toRadians(y), (float) -Math.toRadians(z)); // vert, side, tilt
+    }
+    
 }

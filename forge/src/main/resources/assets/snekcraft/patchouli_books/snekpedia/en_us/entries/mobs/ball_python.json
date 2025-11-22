@@ -1,0 +1,17 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:ball_python_egg",
+  "name": "entity.snekcraft.ball_python",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:ball_python",
+      "scale": 0.8,
+      "text": "Biomes: Plains, Savannahs, Jungles $(br)Diet: Raw Chicken, Raw Rabbit, Raw Rat (Rats Mod)"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Ball pythons ($(o)Python regius$()), or royal pythons, are medium-sized pythons endemic to central Africa. They are opportunistic hunters with different diets based on sex: females appear to prefer a fossorial lifestyle and rodent diet, while males are more prone to climb and feed on birds. Adults reach lengths of 3-5 feet and around 1,500 grams, with females being slightly larger on average. When threatened, ball pythons curl themselves into a tight ball to protect their head."
+    }
+  ]
+}

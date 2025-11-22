@@ -34,7 +34,10 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> BALL_PYTHON_EGG = ITEMS.register("ball_python_egg", () -> new SnekEggItem(BlockInit.BALL_PYTHON_EGG.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CORN_SNAKE_EGG = ITEMS.register("corn_snake_egg", () -> new SnekEggItem(BlockInit.CORN_SNAKE_EGG.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> SNEKPEDIA = ITEMS.register("snekpedia", () -> new Snekpedia(new Item.Properties()));
+
     public static final RegistryObject<Item> TERRARIUM_KEY = ITEMS.register("terrarium_key", () -> new TerrariumKey(new Item.Properties()));
+    public static final RegistryObject<Item> HATCH_WAND = ITEMS.register("hatch_wand", () -> new EggHatcher(new Item.Properties()));
     public static final RegistryObject<BlockItem> TERRARIUM_ITEM = ITEMS.register("terrarium", () -> new BlockItem(BlockInit.TERRARIUM.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> AQUARIUM_ITEM = ITEMS.register("aquarium", () -> new BlockItem(BlockInit.AQUARIUM.get(), new Item.Properties().craftRemainder(TERRARIUM_ITEM.get())));
     public static final RegistryObject<BlockItem> WIRE_CAGE_ITEM = ITEMS.register("wire_cage", () -> new BlockItem(BlockInit.WIRE_CAGE.get(), new Item.Properties()));
@@ -94,7 +97,10 @@ public class ItemInit {
                 output.accept(BALL_PYTHON_SPAWN_EGG.get());
                 output.accept(CORN_SNAKE_SPAWN_EGG.get());
 
+                output.accept(SNEKPEDIA.get());
+
                 output.accept(TERRARIUM_KEY.get());
+                output.accept(HATCH_WAND.get());
                 output.accept(TERRARIUM_ITEM.get());
                 output.accept(WIRE_CAGE_ITEM.get());
                 output.accept(AQUARIUM_ITEM.get());

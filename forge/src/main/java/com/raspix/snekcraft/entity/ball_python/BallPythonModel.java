@@ -9,6 +9,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import org.joml.Vector3f;
 
 public class BallPythonModel<T extends BallPythonEntity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SnekCraft.MOD_ID, "ball_python"), "main");
@@ -99,7 +101,9 @@ public class BallPythonModel<T extends BallPythonEntity> extends HierarchicalMod
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         head.getAllParts().forEach(ModelPart::resetPose);
 
-
+        if(ageInTicks == 1.0){
+            poseForBook();
+        }
 
         animate(entity.bleleleAnimationState, BallPythonAnimation.blelele, ageInTicks);
         animate(entity.periscopeAnimationState, BallPythonAnimation.periscope, ageInTicks);
@@ -126,5 +130,22 @@ public class BallPythonModel<T extends BallPythonEntity> extends HierarchicalMod
     @Override
     public ModelPart root() {
         return root;
+    }
+
+    public void poseForBook() {
+        head.offsetRotation(formatRotationVector(-30.0F + 20.0F, -5.0F, 0.0F));
+        head.offsetPos(new Vector3f(-3.0F, -6.0F, 15.0F));
+        body.offsetRotation(formatRotationVector(43.0F, 52.0F, 37.0F));
+        body2.offsetRotation(formatRotationVector(0.0F, 75.0F, 0.0F));
+        body3.offsetRotation(formatRotationVector(0.0F, 60.0F, 0.0F));
+        body4.offsetRotation(formatRotationVector(0.0F, 60.0F, 0.0F));
+        body5.offsetRotation(formatRotationVector(0.0F, 50.0F, 0.0F));
+        body6.offsetRotation(formatRotationVector(0.0F, 57.5F, 0.0F));
+        body7.offsetRotation(formatRotationVector(0.0F, 45.0F, 0.0F));
+        tail.offsetRotation(formatRotationVector(0.0F, 45.0F, 0.0F));
+    }
+
+    public Vector3f formatRotationVector(float x, float y, float z){
+        return new Vector3f(x * Mth.DEG_TO_RAD, -y * Mth.DEG_TO_RAD, -z * Mth.DEG_TO_RAD); // vert, side, tilt
     }
 }

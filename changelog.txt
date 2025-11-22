@@ -1,4 +1,12 @@
-Snekcraft 1.2.0
+Snekcraft 1.2.2 - Both
+Fixes:
+- Fixed incorrect corn snake breeding chances
+New:
+- Added simple guidebook (Patchouli required to use)
+- Added hatching wand for creative mode to insta-hatch snake eggs
+- Added Simplified Chinese translation
+
+Snekcraft 1.2.1
 - Fixed ticking entity issue with entity pathfinding in aquariums
 
 Snekcraft 1.2.0

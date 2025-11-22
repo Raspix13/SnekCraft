@@ -1,0 +1,17 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:ball_python_egg",
+  "name": "entity.snekcraft.ball_python",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:ball_python",
+      "scale": 0.8,
+      "text": "生物群系：平原、热带草原、丛林 $(br)饮食：生鸡肉、生兔肉、生老鼠（老鼠模组）"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "球蟒蛇（$(o)Python regius$()）是中非特有的中型蟒蛇。它们是机会主义猎手，根据性别有不同的饮食习惯：雌性似乎更喜欢地下生活方式和啮齿动物饮食，而雄性更倾向于攀爬和以鸟类为食。成年蟒蛇的长度约为3-5英尺，体重约1500克，雌性平均稍大。受到威胁时，球蟒蛇会卷成一个紧紧的球以保护头部。"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:corn_snake_egg",
+  "name": "entity.snekcraft.corn_snake",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:corn_snake",
+      "scale": 1,
+      "text": "生物群系：丛林、沼泽、红树林 $(br)饮食：生鸡肉、生兔肉、生老鼠（老鼠模组）"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "玉米蛇（$(o)Pantherophis guttatus$()），又称红鼠蛇，是美国东南部特有的中型游蛇。它们是一般性动物，可以捕食从老鼠到鸟类的一切，并且非常擅长攀爬。成年玉米蛇的长度在4-6英尺之间，重量在400-800克之间，雌性平均略大于雄性。它们有时以在各种奇怪的地方被发现而闻名，但并没有真正的迹象表明它们是怎么到那里的。"
+    }
+  ]
+}

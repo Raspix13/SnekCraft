@@ -28,8 +28,11 @@ public class ItemInit {
 	public static final Item HOGGIE_EGG = new SnekEggItem(BlockInit.SNAKE_EGG, new Item.Settings());
 	public static final Item BALL_PYTHON_EGG = new SnekEggItem(BlockInit.BALL_PYTHON_EGG, new Item.Settings());
 	public static final Item CORN_SNAKE_EGG = new SnekEggItem(BlockInit.CORN_SNAKE_EGG, new Item.Settings());
+
+	public static final Item SNEKPEDIA = new Snekpedia(new Item.Settings());
 	
 	public static final Item TERRARIUM_KEY = new TerrariumKey(new Item.Settings());
+	public static final Item HATCH_WAND = new EggHatcher(new Item.Settings());
 	public static final Item TERRARIUM_ITEM = new BlockItem(BlockInit.TERRARIUM, new Item.Settings());
 	public static final Item AQUARIUM_ITEM = new BlockItem(BlockInit.AQUARIUM, new Item.Settings().recipeRemainder(TERRARIUM_ITEM));
 	public static final Item WIRE_CAGE_ITEM = new BlockItem(BlockInit.WIRE_CAGE, new Item.Settings());
@@ -81,8 +84,11 @@ public class ItemInit {
 				entries.add(HOGNOSE_SPAWN_EGG);
 				entries.add(BALL_PYTHON_SPAWN_EGG);
 				entries.add(CORN_SNAKE_SPAWN_EGG);
+
+				entries.add(SNEKPEDIA);
 				
 				entries.add(TERRARIUM_KEY);
+				entries.add(HATCH_WAND);
 				entries.add(TERRARIUM_ITEM);
 				entries.add(AQUARIUM_ITEM);
 				entries.add(WIRE_CAGE_ITEM);
@@ -133,8 +139,11 @@ public class ItemInit {
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "hoggie_egg"), HOGGIE_EGG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "ball_python_egg"), BALL_PYTHON_EGG);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "corn_snake_egg"), CORN_SNAKE_EGG);
+
+		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "snekpedia"), SNEKPEDIA);
 		
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "terrarium_key"), TERRARIUM_KEY);
+		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "hatch_wand"), HATCH_WAND);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "terrarium"), TERRARIUM_ITEM);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "aquarium"), AQUARIUM_ITEM);
 		Registry.register(Registries.ITEM, Identifier.of(SnekCraft.MOD_ID, "wire_cage"), WIRE_CAGE_ITEM);

@@ -1,0 +1,17 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:corn_snake_egg",
+  "name": "entity.snekcraft.corn_snake",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:corn_snake",
+      "scale": 1,
+      "text": "Biomes: Jungle, Swamp, Mangrove Swamp $(br)Diet: Raw Chicken, Raw Rabbit, Raw Rat (Rats Mod)"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Corn snakes ($(o)Pantherophis guttatus$()), also known as red rat snakes, are medium-sized colubrids endemic to South-Eastern USA. They are generalists that may feed on anything from rats to birds, and are very capable climbers. Adults reach lengths between 4-6 feet and 400-800 grams, with females being slightly larger than males on average. They are sometimes known for being found in all sorts of strange places, with no real indication of how they got there."
+    }
+  ]
+}

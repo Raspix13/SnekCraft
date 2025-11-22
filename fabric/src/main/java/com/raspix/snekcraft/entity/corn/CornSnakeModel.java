@@ -14,6 +14,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import org.joml.Vector3f;
 
 public class CornSnakeModel<T extends CornSnakeEntity> extends SinglePartEntityModel<T> {
     public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier(SnekCraft.MOD_ID, "corn_snake"), "main");
@@ -116,6 +117,10 @@ public class CornSnakeModel<T extends CornSnakeEntity> extends SinglePartEntityM
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         head.traverse().forEach(ModelPart::resetTransform);
 
+        if(ageInTicks == 1.0){
+            poseForBook();
+        }
+
         updateAnimation(entity.bleleleAnimationState, BallPythonAnimation.blelele, ageInTicks);
         updateAnimation(entity.hideAnimationState, BallPythonAnimation.hide, ageInTicks);
         updateAnimation(entity.shoulderAnimationState, BallPythonAnimation.shoulder, ageInTicks);
@@ -137,4 +142,22 @@ public class CornSnakeModel<T extends CornSnakeEntity> extends SinglePartEntityM
     public ModelPart getPart() {
         return root;
     }
+
+    public void poseForBook() {
+        head.rotate(formatRotationVector(-30.0F + 15.0F, -5.0F, 0.0F));
+        head.translate(new Vector3f(0.0F, -6.0F, 15.0F));
+        body.rotate(formatRotationVector(48.2259F, 56.6459F, 39.9655F));
+        body2.rotate(formatRotationVector(6.5762F, 79.5755F, 9.796F));
+        body3.rotate(formatRotationVector(0.0563F, 74.947F, -0.8375F));
+        body4.rotate(formatRotationVector(-2.5228F, 63.6529F, -3.6598F));
+        body5.rotate(formatRotationVector(4.3009F, 71.6142F, 2.512F));
+        body6.rotate(formatRotationVector(-5.9704F, 69.8514F, -5.259F));
+        body7.rotate(formatRotationVector(0.0F, 50.0F, 0.0F));
+        tail.rotate(formatRotationVector(0.0F, 45.0F, 0.0F));
+    }
+
+    public Vector3f formatRotationVector(float x, float y, float z){
+        return new Vector3f((float) Math.toRadians(x), (float) -Math.toRadians(y), (float) -Math.toRadians(z)); // vert, side, tilt
+    }
+    
 }

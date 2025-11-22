@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "snekcraft:snake_skin"
+    }
+  ],
+  "result": {
+    "item": "snekcraft:snekpedia",
+    "count": 1
+  }
+}
+
+
+

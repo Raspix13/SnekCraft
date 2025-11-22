@@ -1,0 +1,18 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:hoggie_egg",
+  "name": "entity.snekcraft.hognose",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:hognose",
+      "scale": 0.90,
+
+      "text": "生物群系：沙漠、恶地、平原、向日葵平原、草地 $(br)饮食：生蛙腿、生兔肉、生老鼠（老鼠模组）"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "平原猪鼻蛇（$(o)Heterodon nasicus$()），曾被称为西部猪鼻蛇，是原产于美国中部的小型后牙穴栖蛇科蛇类。它们主要以蟾蜍和青蛙等两栖动物为食。雌性体重在300-500克，体长2-3英尺，而雄性很少超过120克和1.5英尺。受到威胁时，猪鼻蛇以极具戏剧性的方式装死而闻名。"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "category": "snekcraft:mobs_category",
+  "icon": "snekcraft:hoggie_egg",
+  "name": "entity.snekcraft.hognose",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "snekcraft:hognose",
+      "scale": 0.90,
+
+      "text": "Biomes: Desert, Badlands, Plains, Sunflower Plains, Meadows $(br)Diet: Raw Frog Legs, Raw Rabbit, Raw Rat (Rats Mod)"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Plains hognose snakes ($(o)Heterodon nasicus$()), formerly called Western hognoses, are small, rear-fanged fossorial colubrid snakes endemic to the central USA. They feed primarily on amphibians like toads and frogs in the wild. They have significant sexual dimorphism, with females growing between 300-500 grams and 2-3 feet in length, while males rarely surpass 120 grams and 1.5 feet. When threatened, hognoses are known for dramatically playing dead."
+    }
+  ]
+}
