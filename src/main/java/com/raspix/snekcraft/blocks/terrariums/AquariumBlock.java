@@ -43,7 +43,7 @@ public class AquariumBlock extends TerrariumBlock implements SimpleWaterloggedBl
     }
 
     public FluidState getFluidState(BlockState pState) {
-        return pState.getValue(WATERLOGGED) ? FluidInit.FAKE_FLUID.get().getSource(false) : super.getFluidState(pState);
+        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
 
     @Override
