@@ -34,6 +34,8 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> BALL_PYTHON_EGG = ITEMS.register("ball_python_egg", () -> new SnekEggItem(BlockInit.BALL_PYTHON_EGG.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> CORN_SNAKE_EGG = ITEMS.register("corn_snake_egg", () -> new SnekEggItem(BlockInit.CORN_SNAKE_EGG.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> BOILED_EGG = ITEMS.register("boiled_egg", () -> new Item(new Item.Properties().food(Foods.APPLE))); // TODO: Change this food type later
+
     public static final RegistryObject<Item> SNEKPEDIA = ITEMS.register("snekpedia", () -> new Snekpedia(new Item.Properties()));
 
     public static final RegistryObject<Item> TERRARIUM_KEY = ITEMS.register("terrarium_key", () -> new TerrariumKey(new Item.Properties()));
@@ -77,7 +79,9 @@ public class ItemInit {
     public static final RegistryObject<BlockItem> MANGROVE_MEDIUM_HIDE = ITEMS.register("mangrove_medium_hide", () -> new HideItem(BlockInit.MANGROVE_MEDIUM_HIDE.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> OAK_MEDIUM_HIDE = ITEMS.register("oak_medium_hide", () -> new BlockItem(BlockInit.OAK_MEDIUM_HIDE.get(), new Item.Properties()));
     //</editor-fold>
-    
+
+
+    public static final RegistryObject<BlockItem> HERPETOLOGY_TABLE = ITEMS.register("herpetology_table", () -> new BlockItem(BlockInit.HERPETOLOGY_TABLE.get(), new Item.Properties()));
     
     public static final RegistryObject<BlockItem> HEAT_LAMP = ITEMS.register("heat_lamp", () -> new BlockItem(BlockInit.HEAT_LAMP.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> LAMP_POST = ITEMS.register("lamp_post", () -> new BlockItem(BlockInit.LAMP_POST.get(), new Item.Properties()));
@@ -97,6 +101,8 @@ public class ItemInit {
                 output.accept(BALL_PYTHON_SPAWN_EGG.get());
                 output.accept(CORN_SNAKE_SPAWN_EGG.get());
 
+                output.accept(BOILED_EGG.get());
+
                 output.accept(SNEKPEDIA.get());
 
                 output.accept(TERRARIUM_KEY.get());
@@ -105,6 +111,7 @@ public class ItemInit {
                 output.accept(WIRE_CAGE_ITEM.get());
                 output.accept(AQUARIUM_ITEM.get());
                 output.accept(LAVAQUARIUM_ITEM.get());
+                output.accept(HERPETOLOGY_TABLE.get());
 
                 output.accept(HOGGIE_EGG.get());
                 output.accept(BALL_PYTHON_EGG.get());

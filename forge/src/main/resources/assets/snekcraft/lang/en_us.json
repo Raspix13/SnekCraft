@@ -6,6 +6,8 @@
   "entity.snekcraft.ball_python": "Ball Python",
   "entity.snekcraft.corn_snake": "Corn Snake",
 
+  "entity.minecraft.villager.snekcraft.herpetologist": "Herpetologist",
+
   "item.snekcraft.snake_skin": "Snake Shed",
   "item.snekcraft.snake_tooth": "Snake Tooth",
   "item.snekcraft.snake_bag": "Snake Bag",
@@ -17,6 +19,7 @@
   "item.snekcraft.hatch_wand": "Hatch Wand",
   "item.snekcraft.frog_leg": "Frog Leg",
   "item.snekcraft.cooked_frog_leg": "Cooked Frog Leg",
+  "item.snekcraft.boiled_egg": "Boiled Egg",
   "block.snekcraft.hoggie_egg": "Hognose Egg",
   "block.snekcraft.ball_python_egg": "Ball Python Egg",
   "block.snekcraft.corn_snake_egg": "Corn Snake Egg",
@@ -25,6 +28,7 @@
   "block.snekcraft.aquarium": "Aquarium",
   "block.snekcraft.terrarium": "Terrarium",
   "block.snekcraft.lavaquarium": "Lavaquarium",
+  "block.snekcraft.herpetology_table": "Herpetology Table",
 
   "block.snekcraft.dirt_hide": "Dirt Hide",
   "block.snekcraft.stone_hide": "Stone Hide",

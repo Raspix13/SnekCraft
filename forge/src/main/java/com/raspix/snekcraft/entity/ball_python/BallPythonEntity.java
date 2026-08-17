@@ -201,7 +201,7 @@ public class BallPythonEntity extends SnakeBase {
     }
 
     private static boolean isTemptingItem(ItemStack pStack) {
-        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
+        return pStack.is(Items.CHICKEN) || pStack.is(Items.RABBIT) || pStack.is(ItemInit.BOILED_EGG.get()) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
     }
 
     public boolean isFood(ItemStack pStack) {
@@ -212,6 +212,7 @@ public class BallPythonEntity extends SnakeBase {
         return Ingredient.of(
                 Items.CHICKEN,
                 Items.EGG,
+                ItemInit.BOILED_EGG.get(),
                 Items.RABBIT,
                 (ModList.get().isLoaded("rats")? RatsItemRegistry.RAW_RAT.get(): Items.CHICKEN)
         );

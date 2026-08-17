@@ -70,12 +70,14 @@ public class BlockInit {
 
     //public static final RegistryObject<LiquidBlock> TEST_FLUID_BLOCK = BLOCKS.register("test_fluid", () -> new LiquidBlock(() -> FluidInit.WATER_TEST.get(), BlockBehaviour.Properties.of(Material.WATER).noCollission().strength(100f).noDrops()));
 
-    //TODO: When Adding new snake egg block remember to add it to the SNAKE_EGG in BlockEntityInit
 
+
+    public static final RegistryObject<Block> HERPETOLOGY_TABLE = BLOCKS.register("herpetology_table", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)));
 
     public static final RegistryObject<Block> HEAT_LAMP = BLOCKS.register("heat_lamp", () -> new HeatLampBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0F, 6.0F).sound(SoundType.METAL).lightLevel((p_50755_) -> { return 10;})));
     public static final RegistryObject<Block> LAMP_POST = BLOCKS.register("lamp_post", () -> new LampPostBlock(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0F, 6.0F).sound(SoundType.METAL)));
 
+    //TODO: When Adding new snake egg block remember to add it to the SNAKE_EGG in BlockEntityInit
     public static final RegistryObject<Block> SNAKE_EGG = BLOCKS.register("hoggie_egg", () -> new HognoseEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
     public static final RegistryObject<Block> BALL_PYTHON_EGG = BLOCKS.register("ball_python_egg", () -> new BallPythonEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
     public static final RegistryObject<Block> CORN_SNAKE_EGG = BLOCKS.register("corn_snake_egg", () -> new CornSnakeEggBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));

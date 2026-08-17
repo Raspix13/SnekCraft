@@ -19,14 +19,22 @@ import com.raspix.snekcraft.loot.ModLootModifiers;
 import com.raspix.snekcraft.packets.PacketHandler;
 import com.raspix.snekcraft.sounds.SoundInit;
 import com.raspix.snekcraft.util.KeyInit;
+import com.raspix.snekcraft.villagers.SnakeBagMerchantOffer;
+import com.raspix.snekcraft.villagers.VillagerInit;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +45,7 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -56,6 +65,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(SnekCraft.MOD_ID)
@@ -77,6 +87,7 @@ public class SnekCraft {
         SoundInit.SOUNDS.register(modEventBus);
 
         ModEntityTypes.ENTITIES.register(modEventBus);
+        VillagerInit.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
 
@@ -185,6 +196,98 @@ public class SnekCraft {
             event.registerLayerDefinition(BallPythonModel.LAYER_LOCATION, BallPythonModel::createBodyLayer);
             event.registerLayerDefinition(CornSnakeModel.LAYER_LOCATION, CornSnakeModel::createBodyLayer);
         }
+    }
+
+    @Mod.EventBusSubscriber(modid = MOD_ID)
+    public class ModEvents {
+        @SubscribeEvent
+        public static void addCustomTrades(VillagerTradesEvent event) {
+            if(event.getType() == VillagerInit.HERPETOLOGIST.get()) {
+                Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+                ItemStack bagStack = new ItemStack(ItemInit.SNAKE_BAG.get());
+                CompoundTag tag = bagStack.getOrCreateTag();
+                CompoundTag snakeTag = new CompoundTag();
+                tag.putBoolean("Filled", true);
+                bagStack.setTag(tag);
+
+                trades.get(1).add((pTrader, pRandom) -> new SnakeBagMerchantOffer(
+                        bagStack,
+                        new ItemStack(Items.EMERALD, 1),
+                        12, 2, 0.05f));
+                trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(ItemInit.SNAKE_TOOTH.get(), 32),
+                        new ItemStack(Items.EMERALD, 1),
+                        12, 2, 0.05f));
+                trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(ItemInit.SNAKE_SKIN.get(), 32),
+                        new ItemStack(Items.EMERALD, 1),
+                        12, 2, 0.05f));
+                trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 1),
+                        new ItemStack(ItemInit.FROG_LEG.get(), 8),
+                        16, 1, 0.05f));
+                trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 1),
+                        new ItemStack(Items.RABBIT, 8),
+                        16, 1, 0.05f));
+                trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 1),
+                        new ItemStack(Items.CHICKEN, 8),
+                        16, 1, 0.05f));
+
+
+                trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 2),
+                        new ItemStack(ItemInit.SNAKE_BAG.get(), 1),
+                        12, 5, 0.05f));
+                trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 2),
+                        new ItemStack(ItemInit.TERRARIUM_ITEM.get(), 16),
+                        12, 5, 0.05f));
+                trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 2),
+                        new ItemStack(ItemInit.AQUARIUM_ITEM.get(), 16),
+                        12, 5, 0.05f));
+                trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 2),
+                        new ItemStack(ItemInit.WIRE_CAGE_ITEM.get(), 16),
+                        12, 5, 0.05f));
+                trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 4),
+                        new ItemStack(ItemInit.LAVAQUARIUM_ITEM.get(), 8),
+                        12, 10, 0.05f));
+
+
+                trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 6),
+                        new ItemStack(ItemInit.HOGGIE_EGG.get(), 1),
+                        12, 10, 0.05f));
+                trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 6),
+                        new ItemStack(ItemInit.BALL_PYTHON_EGG.get(), 1),
+                        12, 10, 0.05f));
+                trades.get(3).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 6),
+                        new ItemStack(ItemInit.CORN_SNAKE_EGG.get(), 1),
+                        12, 10, 0.05f));
+
+
+                trades.get(4).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 10),
+                        new ItemStack(Items.FROGSPAWN, 1),
+                        12, 15, 0.05f));
+
+
+                trades.get(5).add((pTrader, pRandom) -> new MerchantOffer(
+                        new ItemStack(Items.EMERALD, 16),
+                        new ItemStack(Items.TURTLE_EGG, 1),
+                        12, 30, 0.05f));
+            }
+
+
+        }
+
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

@@ -154,6 +154,7 @@ public abstract class SnakeBase extends Animal {
             }
             int currentSnake = numSnakesInSack + 1;
             compound.put("Snake_" + currentSnake, snakeTag);
+            compound.putBoolean("Filled", true);
             this.discard();
             player.swing(hand);
             return InteractionResult.SUCCESS;

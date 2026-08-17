@@ -210,7 +210,7 @@ public class HognoseEntity extends SnakeBase {
     //patterns: 0=normal, 1=conda, 2=superconda
 
     private static boolean isTemptingItem(ItemStack pStack) {
-        return pStack.is(ItemInit.FROG_LEG.get()) || pStack.is(Items.RABBIT) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
+        return pStack.is(ItemInit.FROG_LEG.get()) || pStack.is(Items.RABBIT) || pStack.is(ItemInit.BOILED_EGG.get()) || (ModList.get().isLoaded("rats") && pStack.is(RatsItemRegistry.RAW_RAT.get()));
     }
 
     public boolean isFood(ItemStack pStack) {
@@ -221,6 +221,7 @@ public class HognoseEntity extends SnakeBase {
         return Ingredient.of(
                 ItemInit.FROG_LEG.get(),
                 Items.RABBIT,
+                ItemInit.BOILED_EGG.get(),
                 (ModList.get().isLoaded("rats")? RatsItemRegistry.RAW_RAT.get(): ItemInit.FROG_LEG.get())
         );
     }
