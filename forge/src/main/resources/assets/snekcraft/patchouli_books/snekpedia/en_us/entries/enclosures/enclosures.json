@@ -1,0 +1,38 @@
+{
+  "category": "snekcraft:enclosures_category",
+  "icon": "snekcraft:terrarium",
+  "name": "snekcraft.snekpedia.category.enclosures",
+  "pages": [
+    {
+      "type": "patchouli:image",
+      "images": ["snekcraft:textures/gui/terrariums.png"],
+      "title": "Terrariums",
+      "border": true,
+      "text": "There are four types of enclosures: Terrariums, Cages, Aquariums, and Lavaquariums. Their walls can be toggled with the Terrarium Key."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:terrarium_key",
+      "recipe2": "snekcraft:terrarium"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:aquarium",
+      "recipe2": "snekcraft:lavaquarium"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:wire_cage",
+      "recipe2": "snekcraft:terrarium_to_cage"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:cage_to_terrarium",
+      "recipe2": "snekcraft:aquarium_uncraft"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:lavaquarium_uncraft"
+    }
+  ]
+}

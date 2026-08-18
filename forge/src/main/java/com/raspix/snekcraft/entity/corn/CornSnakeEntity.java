@@ -380,10 +380,14 @@ public class CornSnakeEntity extends SnakeBase {
         this.save(compound);
     }
 
-
     @Override
     public Block GetEggType() {
         return BlockInit.CORN_SNAKE_EGG.get();
+    }
+
+    @Override
+    public ItemStack getSnakeBagType(){
+        return new ItemStack(ItemInit.CORN_SNAKE_BAG.get());
     }
 
     @Override

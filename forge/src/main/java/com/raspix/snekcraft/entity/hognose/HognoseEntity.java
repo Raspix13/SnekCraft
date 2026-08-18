@@ -247,6 +247,11 @@ public class HognoseEntity extends SnakeBase {
     }
 
     @Override
+    public ItemStack getSnakeBagType(){
+        return new ItemStack(ItemInit.HOGNOSE_SNAKE_BAG.get());
+    }
+
+    @Override
     public String getSpeciesName(int color, int pattern) {
         String snakeType = "";
         switch (color){

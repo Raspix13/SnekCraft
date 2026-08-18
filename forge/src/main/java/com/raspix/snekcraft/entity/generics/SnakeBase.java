@@ -43,6 +43,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.*;
@@ -139,7 +140,7 @@ public abstract class SnakeBase extends Animal {
         }
         Minecraft.getInstance().player.displayClientMessage(Component.literal(modListTemp), false);*/
 
-        if (itemstack.getItem() == ItemInit.SNAKE_BAG.get()) {
+        /**if (itemstack.getItem() == ItemInit.SNAKE_BAG.get()) {
             CompoundTag compound = itemstack.getTag();
             if (compound == null) {
                 compound = new CompoundTag();
@@ -156,6 +157,36 @@ public abstract class SnakeBase extends Animal {
             compound.put("Snake_" + currentSnake, snakeTag);
             compound.putBoolean("Filled", true);
             this.discard();
+            player.swing(hand);
+            return InteractionResult.SUCCESS;
+        }*/
+        if (itemstack.getItem() == ItemInit.SNAKE_BAG.get() && this.isAlive()) {
+            ItemStack snake_bag_item = this.getSnakeBagType();
+            CompoundTag compound = snake_bag_item.getTag();
+            if (compound == null) {
+                compound = new CompoundTag();
+                snake_bag_item.setTag(compound);
+            }
+            CompoundTag compound2 = itemstack.getTag();
+            if (compound2 == null) {
+                compound2 = new CompoundTag();
+                itemstack.setTag(compound2);
+            }
+            int numSnakesInSack = SnakeBagItem.getSnakesInStack(itemstack);
+            if(numSnakesInSack > 0){
+                return InteractionResult.FAIL;
+            }
+            int currentSnake = numSnakesInSack + 1;
+            CompoundTag snakeTag = new CompoundTag();
+            this.addAdditionalSaveData(snakeTag);
+            this.addSpeciesSaveData(snakeTag);
+            compound.put("Snake" + currentSnake, snakeTag);
+
+            ItemStack itemstack2 = ItemUtils.createFilledResult(itemstack, player, snake_bag_item, false);
+            player.setItemInHand(hand, itemstack2);
+
+            //compound.putBoolean("Filled", true);
+            this.discard(); // gets rid of the snake
             player.swing(hand);
             return InteractionResult.SUCCESS;
         }
@@ -183,6 +214,8 @@ public abstract class SnakeBase extends Animal {
 
         return super.mobInteract(player, hand);
     }
+
+    public abstract ItemStack getSnakeBagType();
 
     public void aiStep() {
         super.aiStep();

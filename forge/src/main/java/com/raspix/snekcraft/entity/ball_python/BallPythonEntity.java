@@ -166,27 +166,27 @@ public class BallPythonEntity extends SnakeBase {
                     new GenePool(new int[]{0, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{0, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{1, 2, 3}, new int[]{25, 25, 50}),
-                    new GenePool(new int[]{0, 1}, new int[]{50, 50})},
+                    new GenePool(new int[]{0, 1}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{1, 4}, new int[]{90, 10}),
-                    new GenePool(new int[]{1, 2}, new int[]{50, 50}),
+                    new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
-                    new GenePool(new int[]{1, 4}, new int[]{75, 25})},
+                    new GenePool(new int[]{1, 4}, new int[]{75, 25}),},
             {new GenePool(new int[]{0, 2}, new int[]{50, 50}),
-                    new GenePool(new int[]{1, 2}, new int[]{50, 50}),
+                    new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{2}, new int[]{100}),
                     new GenePool(new int[]{2, 3}, new int[]{50, 50}),
-                    new GenePool(new int[]{1, 2}, new int[]{50, 50})},
+                    new GenePool(new int[]{3}, new int[]{100}),},
             {new GenePool(new int[]{1, 2, 3}, new int[]{25, 25, 50}),
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{2, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{1, 2, 3}, new int[]{25, 25, 50}),
-                    new GenePool(new int[]{1, 3}, new int[]{50, 50})},
+                    new GenePool(new int[]{1, 3}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{1, 4}, new int[]{75, 25}),
-                    new GenePool(new int[]{1, 2}, new int[]{50, 50}),
+                    new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{1, 3}, new int[]{50, 50}),
-                    new GenePool(new int[]{1}, new int[]{50})}};
+                    new GenePool(new int[]{1}, new int[]{50}),},};
     //</editor-fold>
 
 
@@ -233,6 +233,11 @@ public class BallPythonEntity extends SnakeBase {
     @Override
     public Block GetEggType() {
         return BlockInit.BALL_PYTHON_EGG.get();
+    }
+
+    @Override
+    public ItemStack getSnakeBagType(){
+        return new ItemStack(ItemInit.BALL_PYTHON_SNAKE_BAG.get());
     }
 
     @Override
@@ -284,8 +289,10 @@ public class BallPythonEntity extends SnakeBase {
                 snakeType += "Pied ";
                 break;
             case 2:
-            case 3:
                 snakeType += "Pinstripe ";
+                break;
+            case 3:
+                snakeType += "Pinpied ";
                 break;
             default:
                 snakeType += "Smiley ";

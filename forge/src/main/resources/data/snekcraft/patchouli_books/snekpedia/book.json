@@ -3,7 +3,7 @@
   "landing_text": "snekcraft.snekpedia.home_page",
   "custom_book_item": "snekcraft:snekpedia",
   "version": 0,
-  "subtitle": "Version 1.2.2",
+  "subtitle": "Version 1.3.0",
   "creative_tab": "snekcraft:snekcraft_tab",
   "dont_generate_book":true,
   "i18n": true,

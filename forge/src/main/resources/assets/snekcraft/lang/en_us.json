@@ -11,6 +11,9 @@
   "item.snekcraft.snake_skin": "Snake Shed",
   "item.snekcraft.snake_tooth": "Snake Tooth",
   "item.snekcraft.snake_bag": "Snake Bag",
+  "item.snekcraft.hognose_snake_bag": "Bag of Hognose",
+  "item.snekcraft.ball_python_snake_bag": "Bag of Ball Python",
+  "item.snekcraft.corn_snake_bag": "Bag of Corn Snake",
   "item.snekcraft.hognose_spawn_egg": "Hognose Spawn Egg",
   "item.snekcraft.ball_python_spawn_egg": "Ball Python Spawn Egg",
   "item.snekcraft.corn_snake_spawn_egg": "Corn Snake Spawn Egg",
@@ -77,6 +80,9 @@
 
   "snekcraft.snekpedia.home_page": "Welcome to Snekcraft!",
   "snekcraft.snekpedia.category.snakes": "Snakes",
-  "snekcraft.snekpedia.category.snakes_home": "Types of snakes added"
-
+  "snekcraft.snekpedia.category.snakes_home": "Types of snakes added",
+  "snekcraft.snekpedia.category.enclosures": "Enclosures",
+  "snekcraft.snekpedia.category.enclosures_home": "IDK what to put here",
+  "snekcraft.snekpedia.category.misc": "Misc",
+  "snekcraft.snekpedia.category.misc_home": "Pages that don't fit anywhere else"
 }

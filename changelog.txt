@@ -1,18 +1,19 @@
 Snekcraft 1.3.0 - Only Forge so far
 New:
-- Added Herpetologist villager and herpetology table
+- Added Pinpied pattern morphs to Ball Pythons
+- Added Herpetologist Villager and Herpetology Table
     - Can now sell extra snakes to the Herpetologist
-- Added boiled egg that all the snakes can actually eat
+- Added Boiled Egg that all the snakes can actually eat
+- Separated filled Snake Bags into their own items by type
 
 Goals & Wip:
 - Add herpetologist (has all trades)
     - Make sure all eggs from trader can hatch into basic
 - Add herpetology table (added recipe and drop)
-- Add edible egg (recipe added)
+- Add edible egg (recipe and unrecipe added)
 - Add genetic animals compat
-- Added PinPied pattern morphs to ball pythons
 - Add morph check to book
-- Change snake bags
+- snake bags now have their own item/icon for snake type
 
 Snekcraft 1.2.2 - Both
 Fixes:

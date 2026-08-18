@@ -7,7 +7,7 @@
       "type": "patchouli:entity",
       "entity": "snekcraft:ball_python",
       "scale": 0.8,
-      "text": "Biomes: Plains, Savannahs, Jungles $(br)Diet: Raw Chicken, Raw Rabbit, Raw Rat (Rats Mod)"
+      "text": "Biomes: Plains, Savannahs, Jungles $(br)Diet: Raw Chicken, Raw Rabbit, Boiled Egg, Raw Rat (Rats Mod)"
     },
     {
       "type": "patchouli:text",

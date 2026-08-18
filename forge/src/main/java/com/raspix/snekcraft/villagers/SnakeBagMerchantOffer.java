@@ -4,6 +4,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
 
+/**
+ * Pretty sure this is no longer needed since separating the snake bags by type
+ */
+
 public class SnakeBagMerchantOffer extends MerchantOffer {
     public SnakeBagMerchantOffer(ItemStack pBaseCostA, ItemStack pResult, int pMaxUses, int pXp, float pPriceMultiplier) {
         super(pBaseCostA, pResult, pMaxUses, pXp, pPriceMultiplier);

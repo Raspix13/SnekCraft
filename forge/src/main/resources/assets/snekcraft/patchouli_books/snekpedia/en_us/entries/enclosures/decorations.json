@@ -1,0 +1,21 @@
+{
+  "category": "snekcraft:enclosures_category",
+  "icon": "snekcraft:heat_lamp",
+  "name": "snekcraft.snekpedia.category.decorations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "There are four types of enclosures: Terrariums, Wire Cages, Aquariums, and Lavaquariums"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:terrarium",
+      "recipe2": "snekcraft:wire_cage"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:aquarium",
+      "recipe2": "snekcraft:lavaquarium"
+    }
+  ]
+}

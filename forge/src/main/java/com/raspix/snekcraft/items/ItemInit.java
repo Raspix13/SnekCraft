@@ -26,7 +26,10 @@ public class ItemInit {
     public static final RegistryObject<Item> SNAKE_TOOTH = ITEMS.register("snake_tooth", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FROG_LEG = ITEMS.register("frog_leg", () -> new Item(new Item.Properties().food(Foods.PORKCHOP)));
     public static final RegistryObject<Item> COOKED_FROG_LEG = ITEMS.register("cooked_frog_leg", () -> new Item(new Item.Properties().food(Foods.COOKED_PORKCHOP)));
-    public static final RegistryObject<SnakeBagItem> SNAKE_BAG = ITEMS.register("snake_bag", () -> new SnakeBagItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<SnakeBagItem> SNAKE_BAG = ITEMS.register("snake_bag", () -> new SnakeBagItem(new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<SnakeBagItem> HOGNOSE_SNAKE_BAG = ITEMS.register("hognose_snake_bag", () -> new SnakeBagItem(ModEntityTypes.HOGNOSE, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<SnakeBagItem> BALL_PYTHON_SNAKE_BAG = ITEMS.register("ball_python_snake_bag", () -> new SnakeBagItem(ModEntityTypes.BALLPYTHON, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<SnakeBagItem> CORN_SNAKE_BAG = ITEMS.register("corn_snake_bag", () -> new SnakeBagItem(ModEntityTypes.CORNSNAKE, new Item.Properties().stacksTo(1)));
     public static final RegistryObject<ForgeSpawnEggItem> HOGNOSE_SPAWN_EGG = ITEMS.register("hognose_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.HOGNOSE, 0xd6bf96, 0x40351c, new Item.Properties()));
     public static final RegistryObject<ForgeSpawnEggItem> BALL_PYTHON_SPAWN_EGG = ITEMS.register("ball_python_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.BALLPYTHON, 0x352213, 0xb17c3b, new Item.Properties()));
     public static final RegistryObject<ForgeSpawnEggItem> CORN_SNAKE_SPAWN_EGG = ITEMS.register("corn_snake_spawn_egg", () -> new ForgeSpawnEggItem(ModEntityTypes.CORNSNAKE, 0xDD804E, 0xC94A2F, new Item.Properties()));
@@ -97,6 +100,9 @@ public class ItemInit {
                 output.accept(FROG_LEG.get());
                 output.accept(COOKED_FROG_LEG.get());
                 output.accept(SNAKE_BAG.get());
+                output.accept(HOGNOSE_SNAKE_BAG.get());
+                output.accept(BALL_PYTHON_SNAKE_BAG.get());
+                output.accept(CORN_SNAKE_BAG.get());
                 output.accept(HOGNOSE_SPAWN_EGG.get());
                 output.accept(BALL_PYTHON_SPAWN_EGG.get());
                 output.accept(CORN_SNAKE_SPAWN_EGG.get());

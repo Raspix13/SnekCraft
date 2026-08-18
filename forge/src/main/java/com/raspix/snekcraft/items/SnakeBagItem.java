@@ -6,14 +6,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,10 +29,21 @@ import java.util.List;
 
 public class SnakeBagItem extends Item {
 
+    private final java.util.function.Supplier<? extends EntityType<?>> entityTypeSupplier;
+
     public SnakeBagItem(Properties properties) {
         super(properties);
+        this.entityTypeSupplier = null;
     }
 
+    public SnakeBagItem(java.util.function.Supplier<? extends EntityType<?>> entitySupplier, Item.Properties properties) {
+        super(properties);
+        this.entityTypeSupplier = entitySupplier;
+    }
+
+    /**
+     * this should always be either 0 or 1 now since bags can only have 1 snake
+     */
     public static int getSnakesInStack(ItemStack stack) {
         int snakeCount = 0;
         if (stack.getTag() != null) {
@@ -56,8 +75,9 @@ public class SnakeBagItem extends Item {
         Level world = context.getLevel();
         if (player == null || world.isClientSide)return InteractionResult.FAIL;
         ItemStack stack = context.getItemInHand();
+        ServerLevel level = (ServerLevel) world;
 
-        if (getSnakesInStack(stack)<1) return InteractionResult.FAIL; //needs to have entity
+        if (entityTypeSupplier == null && getSnakesInStack(stack)<1) return InteractionResult.FAIL; //needs to have entity if normal bag
 
         int snakeCount = 0;
         if (stack.getTag() != null) {
@@ -72,24 +92,33 @@ public class SnakeBagItem extends Item {
                     }catch (ClassCastException e){
                     }
 
-
                     if(snake != null){
                         BlockPos blockPos = context.getClickedPos();
                         snake.absMoveTo(blockPos.getX() + 0.5, blockPos.getY() + 1, blockPos.getZ() + 0.5, 0, 0);
+                        snake.setUUID(Mth.createInsecureUUID(world.getRandom())); // fixes duplicate issue for creative function
                         world.addFreshEntity(snake);
                     }
-
                 }
             }
+        }else if(entityTypeSupplier != null){ // if from creative
+            Entity entity = entityTypeSupplier.get().spawn(level, stack, player, context.getClickedPos(), MobSpawnType.BUCKET, true, false);
+            snakeCount++;
         }
         if (snakeCount > 0) {
-            stack.setTag(new CompoundTag());
-            if(player != null && player.swingingArm != null){ // it is not always true
+            //stack.setTag(new CompoundTag());
+            //player.setItemInHand(context.getHand(), new ItemStack(ItemInit.SNAKE_BAG.get()));
+            player.setItemInHand(context.getHand(), getEmptySuccessItem(stack, player));
+            if(player != null && player.swingingArm != null){ // it is not always true despite what error says
                 player.swing(player.swingingArm);
             }
         }
         return InteractionResult.SUCCESS;
 
+    }
+
+    // for some reason cant reuse full bag when entity is already out, so should not use this intead of straight item for now
+    public static ItemStack getEmptySuccessItem(ItemStack bagStack, Player pPlayer) {
+        return !pPlayer.getAbilities().instabuild ? new ItemStack(ItemInit.SNAKE_BAG.get()) : bagStack;
     }
 
     @Override
