@@ -9,6 +9,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
+import java.util.Arrays;
+
 public class HognoseEggBlock extends SnakeEggBlock{
     /**public static final int MAX_HATCH_LEVEL = 2;
     public static final int MIN_EGGS = 1;

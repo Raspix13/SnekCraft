@@ -1,7 +1,8 @@
 {
-  "category": "snekcraft:mobs_category",
+  "category": "snekcraft:01_mobs_category",
   "icon": "snekcraft:ball_python_egg",
   "name": "entity.snekcraft.ball_python",
+  "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:entity",

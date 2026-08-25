@@ -1,0 +1,165 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "x": 60,
+      "y": 0,
+      "centered": true,
+      "text": "#title"
+    },
+    {
+      "type": "patchouli:image",
+      "x": 10,
+      "y": 12,
+      "width": 96,
+      "height": 24,
+      "u": 0,
+      "v": 0,
+      "texture_width": 128,
+      "texture_height": 32,
+      "image": "snekcraft:textures/gui/trade_marks.png"
+    },
+    {
+      "type": "patchouli:image",
+      "x": 10,
+      "y": 40,
+      "width": 96,
+      "height": 24,
+      "u": 0,
+      "v": 0,
+      "texture_width": 128,
+      "texture_height": 32,
+      "guard": "#input_two->exists",
+      "image": "snekcraft:textures/gui/trade_marks.png"
+    },
+    {
+      "type": "patchouli:image",
+      "x": 10,
+      "y": 68,
+      "width": 96,
+      "height": 24,
+      "u": 0,
+      "v": 0,
+      "texture_width": 128,
+      "texture_height": 32,
+      "guard": "#input_three->exists",
+      "image": "snekcraft:textures/gui/trade_marks.png"
+    },
+    {
+      "type": "patchouli:image",
+      "x": 10,
+      "y": 96,
+      "width": 96,
+      "height": 24,
+      "u": 0,
+      "v": 0,
+      "texture_width": 128,
+      "texture_height": 32,
+      "guard": "#input_four->exists",
+      "image": "snekcraft:textures/gui/trade_marks.png"
+    },
+    {
+      "type": "patchouli:image",
+      "x": 10,
+      "y": 124,
+      "width": 96,
+      "height": 24,
+      "u": 0,
+      "v": 0,
+      "texture_width": 128,
+      "texture_height": 32,
+      "guard": "#input_five->exists",
+      "image": "snekcraft:textures/gui/trade_marks.png"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 14,
+      "y": 16,
+      "item": "#input"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 43,
+      "y": 16,
+      "item": "#input_sec"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 86,
+      "y": 16,
+      "item": "#output"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 14,
+      "y": 44,
+      "item": "#input_two"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 43,
+      "y": 44,
+      "item": "#input_two_sec"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 86,
+      "y": 44,
+      "item": "#output_two"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 14,
+      "y": 72,
+      "item": "#input_three"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 43,
+      "y": 72,
+      "item": "#input_three_sec"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 86,
+      "y": 72,
+      "item": "#output_three"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 14,
+      "y": 100,
+      "item": "#input_four"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 43,
+      "y": 100,
+      "item": "#input_four_sec"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 86,
+      "y": 100,
+      "item": "#output_four"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 14,
+      "y": 128,
+      "item": "#input_five"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 43,
+      "y": 128,
+      "item": "#input_five_sec"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 86,
+      "y": 128,
+      "item": "#output_five"
+    }
+  ]
+}

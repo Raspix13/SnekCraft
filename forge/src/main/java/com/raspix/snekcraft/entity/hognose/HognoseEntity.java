@@ -34,8 +34,11 @@ import java.util.function.Predicate;
 
 public class HognoseEntity extends SnakeBase {
 
+    private static int maxPattern = 2;
+    private static int maxColor = 12;
+
     public static GenePool[][] colorGenetics = new GenePool[][]{
-            {new GenePool(new int[]{0, 1, 2, 3}, new int[]{70, 10, 10, 10}),
+            {new GenePool(new int[]{0, 1, 2, 3, 12}, new int[]{60, 10, 10, 10, 10}),
                     new GenePool(new int[]{0, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{0, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{0, 3}, new int[]{50, 50}),
@@ -46,7 +49,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{0, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{0, 3}, new int[]{50, 50}),
-                    new GenePool(new int[]{3}, new int[]{100})},
+                    new GenePool(new int[]{3}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{1}, new int[]{100}),
                     new GenePool(new int[]{4}, new int[]{100}),
@@ -58,7 +62,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{9, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{25, 25, 25, 25}),
-                    new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13})},
+                    new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{4}, new int[]{100}),
                     new GenePool(new int[]{2}, new int[]{100}),
@@ -70,7 +75,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{25, 25, 25, 25}),
                     new GenePool(new int[]{10, 2}, new int[]{50, 50}),
-                    new GenePool(new int[]{10}, new int[]{100})},
+                    new GenePool(new int[]{10}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{9, 0}, new int[]{50, 50}),
                     new GenePool(new int[]{10, 0}, new int[]{50, 50}),
@@ -82,7 +88,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{6, 9, 1}, new int[]{25, 50, 25}),
                     new GenePool(new int[]{11, 10, 2}, new int[]{25, 50, 25}),
-                    new GenePool(new int[]{11, 10}, new int[]{50, 50})},
+                    new GenePool(new int[]{11, 10}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{4, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{4, 2}, new int[]{50, 50}),
@@ -94,7 +101,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{9, 4, 10}, new int[]{50, 25, 25}),
                     new GenePool(new int[]{10, 4, 9}, new int[]{50, 25, 25}),
-                    new GenePool(new int[]{10, 9}, new int[]{75, 25})},
+                    new GenePool(new int[]{10, 9}, new int[]{75, 25}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{9}, new int[]{100}),
                     new GenePool(new int[]{10}, new int[]{100}),
@@ -106,7 +114,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{9, 6}, new int[]{50, 50}),
                     new GenePool(new int[]{10, 11}, new int[]{50, 50}),
-                    new GenePool(new int[]{11}, new int[]{100})},
+                    new GenePool(new int[]{11}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{9}, new int[]{100}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13}),
@@ -118,7 +127,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{6, 9}, new int[]{50, 50}),
                     new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25}),
-                    new GenePool(new int[]{7}, new int[]{100})},
+                    new GenePool(new int[]{7}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13}),
@@ -130,7 +140,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{7, 8}, new int[]{50, 50}),
                     new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25}),
                     new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25}),
-                    new GenePool(new int[]{7}, new int[]{100})},
+                    new GenePool(new int[]{7}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{0}, new int[]{100}),
@@ -142,7 +153,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{8, 0, 1, 2, 4, 9, 3, 10, 5, 11, 6, 7}, new int[]{12, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8}),
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{0}, new int[]{100}),
-                    new GenePool(new int[]{0}, new int[]{100})},
+                    new GenePool(new int[]{0}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{9, 1}, new int[]{50, 50}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{25, 25, 25, 25}),
@@ -154,7 +166,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{6, 9, 1}, new int[]{25, 50, 25}),
                     new GenePool(new int[]{7, 9, 10, 4}, new int[]{25, 25, 25, 25}),
-                    new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25})},
+                    new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{0, 3}, new int[]{50, 50}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{25, 25, 25, 25}),
                     new GenePool(new int[]{10, 2}, new int[]{50, 50}),
@@ -166,7 +179,8 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{7, 9, 10, 4}, new int[]{25, 25, 25, 25}),
                     new GenePool(new int[]{11, 10, 2}, new int[]{25, 50, 25}),
-                    new GenePool(new int[]{10, 11}, new int[]{50, 50})},
+                    new GenePool(new int[]{10, 11}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
             {new GenePool(new int[]{3}, new int[]{100}),
                     new GenePool(new int[]{3, 4, 10, 9}, new int[]{50, 24, 13, 13}),
                     new GenePool(new int[]{10}, new int[]{100}),
@@ -178,7 +192,22 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{0}, new int[]{100}),
                     new GenePool(new int[]{7, 9, 10}, new int[]{50, 25, 25}),
                     new GenePool(new int[]{10, 11}, new int[]{50, 50}),
-                    new GenePool(new int[]{11}, new int[]{100})}};
+                    new GenePool(new int[]{11}, new int[]{100}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),},
+            {new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{0, 12}, new int[]{50, 50}),
+                    new GenePool(new int[]{12}, new int[]{100}),},
+    };
     public static GenePool[][] patternGenetics = new GenePool[][]{
             {new GenePool(new int[]{0, 1}, new int[]{90, 10}),
                     new GenePool(new int[]{0, 1}, new int[]{50, 50}),
@@ -190,9 +219,6 @@ public class HognoseEntity extends SnakeBase {
                     new GenePool(new int[]{1, 2}, new int[]{50, 50}),
                     new GenePool(new int[]{2}, new int[]{100})}};
 
-
-    private static int maxPattern = 2;
-    private static int maxColor = 11;
 
     private static final Ingredient FOOD_ITEMS = getFoodItems();// Ingredient.of(ItemInit.FROG_LEG.get(), Items.RABBIT, RatsItemRegistry.RAW_RAT.get());
 
@@ -289,6 +315,9 @@ public class HognoseEntity extends SnakeBase {
                 break;
             case 11:
                 snakeType += "Super Axarctic ";
+                break;
+            case 12:
+                snakeType += "Lavender ";
                 break;
             default:
                 snakeType += "Normal ";

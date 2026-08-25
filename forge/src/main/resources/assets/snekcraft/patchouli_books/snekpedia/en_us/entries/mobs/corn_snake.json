@@ -1,7 +1,8 @@
 {
-  "category": "snekcraft:mobs_category",
+  "category": "snekcraft:01_mobs_category",
   "icon": "snekcraft:corn_snake_egg",
   "name": "entity.snekcraft.corn_snake",
+  "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:entity",

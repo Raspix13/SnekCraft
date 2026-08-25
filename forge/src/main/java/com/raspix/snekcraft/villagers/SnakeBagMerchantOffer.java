@@ -1,5 +1,6 @@
 package com.raspix.snekcraft.villagers;
 
+import com.raspix.snekcraft.items.ItemInit;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -13,7 +14,7 @@ public class SnakeBagMerchantOffer extends MerchantOffer {
         super(pBaseCostA, pResult, pMaxUses, pXp, pPriceMultiplier);
     }
 
-    @Override
+    /**@Override
     public boolean satisfiedBy(ItemStack playerOfferA, ItemStack playerOfferB) {
         if (!ItemStack.isSameItem(playerOfferA, this.getBaseCostA())) { // is this needed?
             return false;
@@ -26,21 +27,22 @@ public class SnakeBagMerchantOffer extends MerchantOffer {
         }
         return false;
 
-    }
+    }*/
 
-    @Override
+    /**@Override
     public boolean take(ItemStack playerOfferA, ItemStack playerOfferB) {
         if (!this.satisfiedBy(playerOfferA, playerOfferB)) {
             return false;
         } else {
             //playerOfferA.shrink(this.getCostA().getCount());
-            playerOfferA.setTag(new CompoundTag());
+            //playerOfferA.setTag(new CompoundTag());
+            playerOfferA = new ItemStack(ItemInit.SNAKE_BAG.get());
             //if (!this.getCostB().isEmpty()) {
             //    playerOfferB.shrink(this.getCostB().getCount());
             //]}
 
             return true;
         }
-    }
+    }*/
 
 }

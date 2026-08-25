@@ -1,5 +1,6 @@
 {
   "name": "snekcraft.snekpedia.category.snakes",
   "description": "snekcraft.snekpedia.category.snakes_home",
-  "icon": "snekcraft:textures/item/snake_bag_full.png"
+  "icon": "snekcraft:textures/item/snake_bag_full.png",
+  "sortnum": 1
 }

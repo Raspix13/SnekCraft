@@ -116,6 +116,17 @@ public class SnakeBagItem extends Item {
 
     }
 
+    @Override
+    public boolean hasCraftingRemainingItem() {
+        return true;
+    }
+
+    @Override
+    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+        // Replace Items.BUCKET with your custom empty item (e.g., ModItems.MY_EMPTY_CAN.get())
+        return new ItemStack(ItemInit.SNAKE_BAG.get());
+    }
+
     // for some reason cant reuse full bag when entity is already out, so should not use this intead of straight item for now
     public static ItemStack getEmptySuccessItem(ItemStack bagStack, Player pPlayer) {
         return !pPlayer.getAbilities().instabuild ? new ItemStack(ItemInit.SNAKE_BAG.get()) : bagStack;

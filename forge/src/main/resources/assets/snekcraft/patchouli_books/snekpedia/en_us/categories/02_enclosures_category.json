@@ -1,5 +1,6 @@
 {
   "name": "snekcraft.snekpedia.category.enclosures",
   "description": "snekcraft.snekpedia.category.enclosures_home",
-  "icon": "snekcraft:terrarium"
+  "icon": "snekcraft:terrarium",
+  "sortnum": 2
 }

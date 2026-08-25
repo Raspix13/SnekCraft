@@ -82,7 +82,10 @@
   "snekcraft.snekpedia.category.snakes": "Snakes",
   "snekcraft.snekpedia.category.snakes_home": "Types of snakes added",
   "snekcraft.snekpedia.category.enclosures": "Enclosures",
-  "snekcraft.snekpedia.category.enclosures_home": "IDK what to put here",
+  "snekcraft.snekpedia.category.enclosures_home": "Enclosures can be used to house snakes or other vanilla or modded mobs safely. You can add decorations as well which snakes may choose to interact with by sitting on, in, or under them.",
   "snekcraft.snekpedia.category.misc": "Misc",
-  "snekcraft.snekpedia.category.misc_home": "Pages that don't fit anywhere else"
+  "snekcraft.snekpedia.category.misc_home": "Pages that don't fit anywhere else",
+  "snekcraft.snekpedia.page_foods": "Drops & Foods",
+  "snekcraft.snekpedia.category.decorations": "Decorations",
+  "snekcraft.snekpedia.page.herpetologist": "Herpetologist"
 }

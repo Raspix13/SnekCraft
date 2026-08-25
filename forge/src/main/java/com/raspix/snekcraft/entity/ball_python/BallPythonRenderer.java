@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPythonModel<BallPythonEntity>> {
 
     private static int maxPattern = 4;
-    private static int maxColor = 10;
+    private static int maxColor = 11;
 
     private static final ResourceLocation NORMAL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/normal.png");
     private static final ResourceLocation FIRE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/fire.png");
@@ -22,7 +22,7 @@ public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPython
     private static final ResourceLocation BLACK_PEWTER_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackpewter.png");
     private static final ResourceLocation BLACK_FIRE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfire.png");
     private static final ResourceLocation BLACK_FIRE_PASTEL_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepastel.png");
-
+    private static final ResourceLocation ALBINO_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/albino.png");
 
     private static final ResourceLocation NORMAL_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/normalpied.png");
     private static final ResourceLocation FIRE_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/firepied.png");
@@ -34,6 +34,7 @@ public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPython
     private static final ResourceLocation BLACK_PEWTER_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackpewterpied.png");
     private static final ResourceLocation BLACK_FIRE_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepied.png");
     private static final ResourceLocation BLACK_FIRE_PASTEL_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepastelpied.png");
+    private static final ResourceLocation ALBINO_PIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/albinopied.png");
 
     private static final ResourceLocation NORMAL_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/normalpinstripe.png");
     private static final ResourceLocation FIRE_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/firepinstripe.png");
@@ -44,6 +45,7 @@ public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPython
     private static final ResourceLocation BLACK_PEWTER_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackpewterpinstripe.png");
     private static final ResourceLocation BLACK_FIRE_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepinstripe.png");
     private static final ResourceLocation BLACK_FIRE_PASTEL_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepastelpinstripe.png");
+    private static final ResourceLocation ALBINO_PINSTRIPE_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/albinopinstripe.png");
 
 
     private static final ResourceLocation NORMAL_PINPIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/normalpinpied.png");
@@ -55,6 +57,10 @@ public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPython
     private static final ResourceLocation BLACK_PEWTER_PINPIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackpewterpinpied.png");
     private static final ResourceLocation BLACK_FIRE_PINPIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepinpied.png");
     private static final ResourceLocation BLACK_FIRE_PASTEL_PINPIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/blackfirepastelpinpied.png");
+    private static final ResourceLocation ALBINO_PINPIED_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/albinopinpied.png");
+
+
+
 
 
     //private static final ResourceLocation TEST_TEXTURE = new ResourceLocation(SnekCraft.MOD_ID, "textures/entity/ball_python/test.png"); //keeping for testing
@@ -65,11 +71,11 @@ public class BallPythonRenderer extends MobRenderer<BallPythonEntity, BallPython
 
     // 1st is pattern, 2nd is color
     private static final ResourceLocation[][] TEXTURES = new ResourceLocation[][]{
-            {NORMAL_TEXTURE, FIRE_TEXTURE, PASTEL_TEXTURE, B_PASTEL_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_TEXTURE, SUPER_B_PASTEL_TEXTURE, FIREFLY_TEXTURE, BLACK_PEWTER_TEXTURE, BLACK_FIRE_TEXTURE, BLACK_FIRE_PASTEL_TEXTURE},
-            {NORMAL_PIED_TEXTURE, FIRE_PIED_TEXTURE, PASTEL_PIED_TEXTURE, B_PASTEL_PIED_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PIED_TEXTURE, SUPER_B_PASTEL_PIED_TEXTURE, FIREFLY_PIED_TEXTURE, BLACK_PEWTER_PIED_TEXTURE, BLACK_FIRE_PIED_TEXTURE, BLACK_FIRE_PASTEL_PIED_TEXTURE},
-            {NORMAL_PINSTRIPE_TEXTURE, FIRE_PINSTRIPE_TEXTURE, PASTEL_PINSTRIPE_TEXTURE, B_PASTEL_PINSTRIPE_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PINSTRIPE_TEXTURE, SUPER_B_PASTEL_TEXTURE, FIREFLY_PINSTRIPE_TEXTURE, BLACK_PEWTER_PINSTRIPE_TEXTURE, BLACK_FIRE_PINSTRIPE_TEXTURE, BLACK_FIRE_PASTEL_PINSTRIPE_TEXTURE},
-            {NORMAL_PINPIED_TEXTURE, FIRE_PINPIED_TEXTURE, PASTEL_PINPIED_TEXTURE, B_PASTEL_PINPIED_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PINPIED_TEXTURE, SUPER_B_PASTEL_PIED_TEXTURE, FIREFLY_PINPIED_TEXTURE, BLACK_PEWTER_PINPIED_TEXTURE, BLACK_FIRE_PINPIED_TEXTURE, BLACK_FIRE_PASTEL_PINPIED_TEXTURE},
-            {SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE}
+            {NORMAL_TEXTURE, FIRE_TEXTURE, PASTEL_TEXTURE, B_PASTEL_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_TEXTURE, SUPER_B_PASTEL_TEXTURE, FIREFLY_TEXTURE, BLACK_PEWTER_TEXTURE, BLACK_FIRE_TEXTURE, BLACK_FIRE_PASTEL_TEXTURE, ALBINO_TEXTURE},
+            {NORMAL_PIED_TEXTURE, FIRE_PIED_TEXTURE, PASTEL_PIED_TEXTURE, B_PASTEL_PIED_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PIED_TEXTURE, SUPER_B_PASTEL_PIED_TEXTURE, FIREFLY_PIED_TEXTURE, BLACK_PEWTER_PIED_TEXTURE, BLACK_FIRE_PIED_TEXTURE, BLACK_FIRE_PASTEL_PIED_TEXTURE, ALBINO_PIED_TEXTURE},
+            {NORMAL_PINSTRIPE_TEXTURE, FIRE_PINSTRIPE_TEXTURE, PASTEL_PINSTRIPE_TEXTURE, B_PASTEL_PINSTRIPE_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PINSTRIPE_TEXTURE, SUPER_B_PASTEL_TEXTURE, FIREFLY_PINSTRIPE_TEXTURE, BLACK_PEWTER_PINSTRIPE_TEXTURE, BLACK_FIRE_PINSTRIPE_TEXTURE, BLACK_FIRE_PASTEL_PINSTRIPE_TEXTURE, ALBINO_PINSTRIPE_TEXTURE},
+            {NORMAL_PINPIED_TEXTURE, FIRE_PINPIED_TEXTURE, PASTEL_PINPIED_TEXTURE, B_PASTEL_PINPIED_TEXTURE, SUPER_FIRE_TEXTURE, SUPER_PASTEL_PINPIED_TEXTURE, SUPER_B_PASTEL_PIED_TEXTURE, FIREFLY_PINPIED_TEXTURE, BLACK_PEWTER_PINPIED_TEXTURE, BLACK_FIRE_PINPIED_TEXTURE, BLACK_FIRE_PASTEL_PINPIED_TEXTURE, ALBINO_PINPIED_TEXTURE},
+            {SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE, SPECIAL_TEXTURE}
     };
 
 

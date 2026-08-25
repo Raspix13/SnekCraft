@@ -6,9 +6,14 @@
   "entity.snekcraft.ball_python": "球蟒蛇",
   "entity.snekcraft.corn_snake": "玉米蛇",
 
+  "entity.minecraft.villager.snekcraft.herpetologist": "爬虫学者",
+
   "item.snekcraft.snake_skin": "蛇皮",
   "item.snekcraft.snake_tooth": "蛇牙",
   "item.snekcraft.snake_bag": "蛇袋",
+  "item.snekcraft.hognose_snake_bag": "猪鼻蛇袋",
+  "item.snekcraft.ball_python_snake_bag": "球蟒袋",
+  "item.snekcraft.corn_snake_bag": "玉米蛇袋",
   "item.snekcraft.hognose_spawn_egg": "猪鼻蛇生成蛋",
   "item.snekcraft.ball_python_spawn_egg": "球蟒蛇生成蛋",
   "item.snekcraft.corn_snake_spawn_egg": "玉米蛇生成蛋",
@@ -17,6 +22,7 @@
   "item.snekcraft.hatch_wand": "孵化魔杖",
   "item.snekcraft.frog_leg": "青蛙腿",
   "item.snekcraft.cooked_frog_leg": "煮熟的青蛙腿",
+  "item.snekcraft.boiled_egg": "水煮蛋",
   "block.snekcraft.hoggie_egg": "猪鼻蛇蛋",
   "block.snekcraft.ball_python_egg": "球蟒蛇蛋",
   "block.snekcraft.corn_snake_egg": "玉米蛇蛋",
@@ -25,6 +31,7 @@
   "block.snekcraft.aquarium": "水族馆",
   "block.snekcraft.terrarium": "玻璃箱",
   "block.snekcraft.lavaquarium": "熔岩水族馆",
+  "block.snekcraft.herpetology_table": "爬虫学工作台",
 
   "block.snekcraft.dirt_hide": "土皮",
   "block.snekcraft.stone_hide": "石头皮",
@@ -73,6 +80,13 @@
 
   "snekcraft.snekpedia.home_page": "欢迎来到 Snekcraft！",
   "snekcraft.snekpedia.category.snakes": "蛇",
-  "snekcraft.snekpedia.category.snakes_home": "添加的蛇种类"
+  "snekcraft.snekpedia.category.snakes_home": "添加的蛇种类",
+  "snekcraft.snekpedia.category.enclosures": "生态缸",
+  "snekcraft.snekpedia.category.enclosures_home": "生态缸可用于安全地饲养蛇以及其他原版或模组生物。你也可以在其中添加装饰物，蛇会通过坐在上面、里面或下面来与这些装饰物进行互动。",
+  "snekcraft.snekpedia.category.misc": "杂项",
+  "snekcraft.snekpedia.category.misc_home": "其他未分类页面",
+  "snekcraft.snekpedia.page_foods": "掉落物与食物",
+  "snekcraft.snekpedia.category.decorations": "装饰性方块",
+  "snekcraft.snekpedia.page.herpetologist": "爬虫学者"
 
 }

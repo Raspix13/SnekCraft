@@ -59,16 +59,17 @@ public class VillagerInit {
                     bagStack,
                     new ItemStack(Items.EMERALD, 1),
                     12, 2, 0.05f));*/
+
             trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(ItemInit.HOGNOSE_SNAKE_BAG.get(), 1),
+                    new ItemStack(ItemInit.HOGNOSE_SNAKE_BAG.get(), 2),
                     new ItemStack(Items.EMERALD, 1),
                     12, 2, 0.05f));
             trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(ItemInit.BALL_PYTHON_SNAKE_BAG.get(), 1),
+                    new ItemStack(ItemInit.BALL_PYTHON_SNAKE_BAG.get(), 2),
                     new ItemStack(Items.EMERALD, 1),
                     12, 2, 0.05f));
             trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(ItemInit.CORN_SNAKE_BAG.get(), 1),
+                    new ItemStack(ItemInit.CORN_SNAKE_BAG.get(), 2),
                     new ItemStack(Items.EMERALD, 1),
                     12, 2, 0.05f));
             trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(

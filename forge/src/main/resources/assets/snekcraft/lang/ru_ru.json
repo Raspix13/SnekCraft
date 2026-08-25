@@ -6,9 +6,14 @@
   "entity.snekcraft.ball_python": "королевского питона",
   "entity.snekcraft.corn_snake": "маисовый полоз",
 
+  "entity.minecraft.villager.snekcraft.herpetologist": "Герпетолог",
+
   "item.snekcraft.snake_skin": "Змеиная кожа",
   "item.snekcraft.snake_tooth": "Змеиный зуб",
   "item.snekcraft.snake_bag": "Змеиная сумка",
+  "item.snekcraft.hognose_snake_bag": "Мешок со свиноносой змеёй",
+  "item.snekcraft.ball_python_snake_bag": "Мешок с королевским питоном",
+  "item.snekcraft.corn_snake_bag": "Мешок с маисовым полозом",
   "item.snekcraft.hognose_spawn_egg": "Яйцо призыва свиноносой змеи",
   "item.snekcraft.ball_python_spawn_egg": "Яйцо призыва королевского питона",
   "item.snekcraft.corn_snake_spawn_egg": "Corn Snake Spawn Egg",
@@ -17,6 +22,7 @@
   "item.snekcraft.hatch_wand": "Вылупляющаяся палочка",
   "item.snekcraft.frog_leg": "лягушачья лапка",
   "item.snekcraft.cooked_frog_leg": "приготовленная лягушачья ножка",
+  "item.snekcraft.boiled_egg": "Варёное яйцо",
   "block.snekcraft.hoggie_egg": "Яйцо свиноносой змеи",
   "block.snekcraft.ball_python_egg": "Яйцо королевского питона",
   "block.snekcraft.corn_snake_egg": "Яйцо маисовый полоз",
@@ -25,6 +31,7 @@
   "block.snekcraft.aquarium": "Аквариум",
   "block.snekcraft.terrarium": "Террариум",
   "block.snekcraft.lavaquarium": "Лавовый аквариум",
+  "block.snekcraft.herpetology_table": "Герпетологический стол",
 
   "block.snekcraft.dirt_hide": "Земляное укрытие",
   "block.snekcraft.stone_hide": "Каменное укрытие",
@@ -73,6 +80,13 @@
 
   "snekcraft.snekpedia.home_page": "Добро пожаловать в Snekcraft!",
   "snekcraft.snekpedia.category.snakes": "Змеи",
-  "snekcraft.snekpedia.category.snakes_home": "Добавленные типы змей"
+  "snekcraft.snekpedia.category.snakes_home": "Добавленные типы змей",
+  "snekcraft.snekpedia.category.enclosures": "Террариумы",
+  "snekcraft.snekpedia.category.enclosures_home": "Террариумы можно использовать для безопасного содержания змей, а также других ванильных или модифицированных мобов. Вы также можете добавить декорации, с которыми змеи могут взаимодействовать.",
+  "snekcraft.snekpedia.category.misc": "Разное",
+  "snekcraft.snekpedia.category.misc_home": "Страницы, не вошедшие в другие разделы",
+  "snekcraft.snekpedia.page_foods": "Добыча и еда",
+  "snekcraft.snekpedia.category.decorations": "Декорации",
+  "snekcraft.snekpedia.page.herpetologist": "Герпетолог"
 
 }
