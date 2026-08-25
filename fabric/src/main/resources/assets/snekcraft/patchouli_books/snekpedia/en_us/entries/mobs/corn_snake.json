@@ -1,13 +1,14 @@
 {
-  "category": "snekcraft:mobs_category",
+  "category": "snekcraft:01_mobs_category",
   "icon": "snekcraft:corn_snake_egg",
   "name": "entity.snekcraft.corn_snake",
+  "sortnum": 3,
   "pages": [
     {
       "type": "patchouli:entity",
       "entity": "snekcraft:corn_snake",
       "scale": 1,
-      "text": "Biomes: Jungle, Swamp, Mangrove Swamp $(br)Diet: Raw Chicken, Raw Rabbit, Raw Rat (Rats Mod)"
+      "text": "Biomes: Jungle, Swamp, Mangrove Swamp $(br)Diet: Raw Chicken, Raw Rabbit, Boiled Egg, Raw Rat (Rats Mod)"
     },
     {
       "type": "patchouli:text",

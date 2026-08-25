@@ -1,14 +1,14 @@
 {
-  "category": "snekcraft:mobs_category",
+  "category": "snekcraft:01_mobs_category",
   "icon": "snekcraft:hoggie_egg",
   "name": "entity.snekcraft.hognose",
+  "sortnum": 1,
   "pages": [
     {
       "type": "patchouli:entity",
       "entity": "snekcraft:hognose",
       "scale": 0.90,
-
-      "text": "Biomes: Desert, Badlands, Plains, Sunflower Plains, Meadows $(br)Diet: Raw Frog Legs, Raw Rabbit, Raw Rat (Rats Mod)"
+      "text": "Biomes: Desert, Badlands, Plains, Sunflower Plains, Meadows $(br)Diet: Raw Frog Legs, Raw Rabbit, Boiled Egg, Raw Rat (Rats Mod)"
     },
     {
       "type": "patchouli:text",

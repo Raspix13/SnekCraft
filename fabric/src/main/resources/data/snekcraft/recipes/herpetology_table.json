@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "X": {
+      "item": "snekcraft:snake_skin"
+    },
+    "#": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "snekcraft:herpetology_table",
+    "count": 1
+  }
+}

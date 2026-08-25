@@ -1,0 +1,78 @@
+{
+  "category": "snekcraft:misc_category",
+  "icon": "snekcraft:herpetology_table",
+  "name": "snekcraft.snekpedia.page.herpetologist",
+  "pages": [
+    {
+      "type": "patchouli:image",
+      "images": ["snekcraft:textures/gui/herpetologist.png"],
+      "title": "Herpetologist",
+      "border": true,
+      "text": "The Herpetologist Villager will trade Snekcraft related items at the Herpetology Table workblock. "
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:herpetology_table"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Novice Trades",
+      "input": "snekcraft:hognose_snake_bag",
+      "output": "minecraft:emerald",
+      "input_two": "snekcraft:ball_python_snake_bag",
+      "output_two": "minecraft:emerald",
+      "input_three": "snekcraft:corn_snake_bag",
+      "output_three": "minecraft:emerald",
+      "input_four": "snekcraft:snake_tooth",
+      "output_four": "minecraft:emerald",
+      "input_five": "snekcraft:snake_skin",
+      "output_five": "minecraft:emerald"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Novice Trades 2",
+      "input": "minecraft:emerald",
+      "output": "snekcraft:frog_leg",
+      "input_two": "minecraft:emerald",
+      "output_two": "minecraft:rabbit",
+      "input_three": "minecraft:emerald",
+      "output_three": "minecraft:chicken"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Apprentice Trades",
+      "input": "minecraft:emerald",
+      "output": "snekcraft:snake_bag",
+      "input_two": "minecraft:emerald",
+      "output_two": "snekcraft:terrarium",
+      "input_three": "minecraft:emerald",
+      "output_three": "snekcraft:wire_cage",
+      "input_four": "minecraft:emerald",
+      "output_four": "snekcraft:aquarium",
+      "input_five": "minecraft:emerald",
+      "output_five": "snekcraft:lavaquarium"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Journeyman Trades",
+      "input": "minecraft:emerald",
+      "output": "snekcraft:hoggie_egg",
+      "input_two": "minecraft:emerald",
+      "output_two": "snekcraft:ball_python_egg",
+      "input_three": "minecraft:emerald",
+      "output_three": "snekcraft:corn_snake_egg"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Expert Trades",
+      "input": "minecraft:emerald",
+      "output": "minecraft:frogspawn"
+    },
+    {
+      "type": "snekcraft:villager_trades",
+      "title": "Master Trades",
+      "input": "minecraft:emerald",
+      "output": "minecraft:turtle_egg"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "category": "snekcraft:02_enclosures_category",
+  "icon": "snekcraft:oak_hide",
+  "name": "snekcraft.snekpedia.category.decorations",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Heat lamps can be used to make basking spots that snakes may sit under, and lamp posts can help extend them further down from the ceiling. A creatively placed lamp can make a \"hide\" out of just about any structure or material you want."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:lamp_post",
+      "recipe2": "snekcraft:heat_lamp"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Hides",
+      "text": "Small hides are good for hognoses, while large hides work better for ball pythons and corn snakes. Wood hides come in many varieties and can be made with any vanilla wood. Stone hides come in many varieties and can be made using stone, stone bricks, mossy stone bricks, or sandstone. Dirt hides are a cheap alternative to other hide types, and work well as subterranean hides."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:oak_hide",
+      "recipe2": "snekcraft:oak_medium_hide"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:dirt_hide",
+      "recipe2": "snekcraft:dirt_medium_hide"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:stone_hide",
+      "recipe2": "snekcraft:stone_medium_hide"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:stone_brick_hide",
+      "recipe2": "snekcraft:stone_brick_medium_hide"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:mossy_brick_hide",
+      "recipe2": "snekcraft:mossy_brick_medium_hide"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:sandstone_hide",
+      "recipe2": "snekcraft:sandstone_medium_hide"
+    }
+  ]
+}

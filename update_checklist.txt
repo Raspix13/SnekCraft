@@ -1,0 +1,11 @@
+
+
+
+
+
+
+When changing versions:
+- Change the version number in...
+    - book.json in both forge and fabric in data/snekcraft/patchouli_books
+    - settings.gradle (outside of forge or fabric)
+    - gradle.properties (forge)

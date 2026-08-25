@@ -6,9 +6,14 @@
   "entity.snekcraft.ball_python": "Ball Python",
   "entity.snekcraft.corn_snake": "Corn Snake",
 
+  "entity.minecraft.villager.snekcraft.herpetologist": "Herpetologist",
+
   "item.snekcraft.snake_skin": "Snake Shed",
   "item.snekcraft.snake_tooth": "Snake Tooth",
   "item.snekcraft.snake_bag": "Snake Bag",
+  "item.snekcraft.hognose_snake_bag": "Bag of Hognose",
+  "item.snekcraft.ball_python_snake_bag": "Bag of Ball Python",
+  "item.snekcraft.corn_snake_bag": "Bag of Corn Snake",
   "item.snekcraft.hognose_spawn_egg": "Hognose Spawn Egg",
   "item.snekcraft.ball_python_spawn_egg": "Ball Python Spawn Egg",
   "item.snekcraft.corn_snake_spawn_egg": "Corn Snake Spawn Egg",
@@ -17,6 +22,7 @@
   "item.snekcraft.hatch_wand": "Hatch Wand",
   "item.snekcraft.frog_leg": "Frog Leg",
   "item.snekcraft.cooked_frog_leg": "Cooked Frog Leg",
+  "item.snekcraft.boiled_egg": "Boiled Egg",
   "block.snekcraft.hoggie_egg": "Hognose Egg",
   "block.snekcraft.ball_python_egg": "Ball Python Egg",
   "block.snekcraft.corn_snake_egg": "Corn Snake Egg",
@@ -25,6 +31,7 @@
   "block.snekcraft.aquarium": "Aquarium",
   "block.snekcraft.terrarium": "Terrarium",
   "block.snekcraft.lavaquarium": "Lavaquarium",
+  "block.snekcraft.herpetology_table": "Herpetology Table",
 
   "block.snekcraft.dirt_hide": "Dirt Hide",
   "block.snekcraft.stone_hide": "Stone Hide",
@@ -73,6 +80,12 @@
 
   "snekcraft.snekpedia.home_page": "Welcome to Snekcraft!",
   "snekcraft.snekpedia.category.snakes": "Snakes",
-  "snekcraft.snekpedia.category.snakes_home": "Types of snakes added"
-
+  "snekcraft.snekpedia.category.snakes_home": "Types of snakes added",
+  "snekcraft.snekpedia.category.enclosures": "Enclosures",
+  "snekcraft.snekpedia.category.enclosures_home": "Enclosures can be used to house snakes or other vanilla or modded mobs safely. You can add decorations as well which snakes may choose to interact with by sitting on, in, or under them.",
+  "snekcraft.snekpedia.category.misc": "Misc",
+  "snekcraft.snekpedia.category.misc_home": "Pages that don't fit anywhere else",
+  "snekcraft.snekpedia.page_foods": "Drops & Foods",
+  "snekcraft.snekpedia.category.decorations": "Decorations",
+  "snekcraft.snekpedia.page.herpetologist": "Herpetologist"
 }

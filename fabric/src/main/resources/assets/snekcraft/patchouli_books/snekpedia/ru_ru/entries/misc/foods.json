@@ -1,0 +1,26 @@
+{
+  "category": "snekcraft:misc_category",
+  "icon": "snekcraft:cooked_frog_leg",
+  "name": "snekcraft.snekpedia.page_foods",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "snekcraft:frog_leg",
+      "text": "Frogs now drop Frog Legs, which can be fed to snakes turned into Cooked Frog Legs"
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "snekcraft:cooked_frog_leg"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "snekcraft:boiled_egg",
+      "text": "Since vanilla eggs are projectiles and can't be hand fed without hitting the snake, boiled eggs are now used instead."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "snekcraft:boiled_egg",
+      "recipe2": "snekcraft:egg"
+    }
+  ]
+}

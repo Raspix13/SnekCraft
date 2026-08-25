@@ -5,6 +5,7 @@ New:
     - Can now sell extra snakes to the Herpetologist
 - Added Boiled Egg that all the snakes can actually eat
 - Separated filled Snake Bags into their own items by type
+- Added more pages to the Snekpedia
 
 Goals & Wip:
 - Add herpetologist (has all trades)
